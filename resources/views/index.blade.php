@@ -1,6 +1,7 @@
 @extends('wrap')
 @section('content')
 @include('bigSlider')
+@include('feedBackForm')
 <section>
   <div class="downNavigation centerBlock">
     <nav>
@@ -29,7 +30,7 @@
           </div>
         </a>
       </li>
-      <li class="downNavigation__item">
+      <li class="downNavigation__item singleWindJS">
         <a href="#">
           <div class="downNavWrapper">
            <div class="downNavigation__item-img4 downNavIcon"></div>

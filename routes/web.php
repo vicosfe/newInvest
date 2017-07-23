@@ -49,3 +49,6 @@ Route::get('/documents', function () {
 Route::get('feedBack', function () {
     return view('feedBack');
 });
+Route::get('/search', function () {
+    return view('search');
+});

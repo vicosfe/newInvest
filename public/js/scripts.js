@@ -560,8 +560,15 @@ $(closeFeedBackForm).on("click",function () {
 
 //end
 
+var singleWindJS = $(".singleWindJS");
 
-
+$(singleWindJS).on("click",function (e) {
+  event.preventDefault();
+  $(feedBackFilterBlock).fadeIn();
+});
+$(closeFeedBackForm).on("click",function () {
+  $(feedBackFilterBlock).fadeOut();
+});
 
 
 /*ANIMATE BLOCK NEWS*/
