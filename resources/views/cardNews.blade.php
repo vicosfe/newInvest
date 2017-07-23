@@ -3,13 +3,16 @@
 
 <section>
 	<div class="cardNewsWrapper">
-		<div class="wrapperCaptionNews">
-			<div class="cardNewsWrapper__cardNews--description centerBlock">
-				<h3>
-					{!! $item->title!!}
-				</h3>
+		<div class="CAPTION">
+			<div class="centerBlock">
+				<div class="CAPTION__wrapper">
+					<p>
+						{!! $item->title!!}
+					</p>
+				</div>
 			</div>
 		</div>
+		
 
 		<div class="cardNewsWrapper__cardNews centerBlock">
 

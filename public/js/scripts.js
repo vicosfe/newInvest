@@ -502,6 +502,30 @@ $(goInvestFormBlockCloseForm).on("click",function () {
  });
 // end
 
+//Support anim
+
+var supportMainSub = $('.supportMain__item--sub');
+var wrapSup = $(".wrapSup");
+var supMsub = $('.supMsub'); // подпункт
+$(supportMainSub).hide();
+$(wrapSup).on("click",function () {
+  if ($(this).hasClass("supMsub") && $(this).parent().parent().find(".supportMain__item--sub").is(":hidden")){
+    event.preventDefault();
+    $(this).removeClass("supMclose").parent().parent().find(".supportMain__item--sub").fadeIn();
+
+  }else if($(this).hasClass("supMsub")){
+     event.preventDefault();
+    $(this).parent().parent().find(".supportMain__item--sub").fadeOut().parent().find(".supMsub").addClass("supMclose");
+  }
+});
+
+
+//end 
+
+
+
+
+
 
 /*ANIMATE BLOCK NEWS*/
 

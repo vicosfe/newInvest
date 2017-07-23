@@ -34,3 +34,12 @@ Route::get('/directCommunication', function () {
 Route::get('/uniquePage', function () {
     return view('uniquePage');
 });
+Route::get('/aboutMakhach', function () {
+    return view('aboutMakhach');
+});
+Route::get('/cardSupport', function () {
+    return view('cardSupport');
+});
+Route::get('/articlePage', function () {
+    return view('articlePage');
+});

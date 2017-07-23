@@ -14,7 +14,7 @@
          </a>
        </li>
        <li class="downNavigation__item">
-        <a href="#">
+        <a href="aboutMakhach">
           <div class="downNavWrapper">
             <div class="downNavigation__item-img2 downNavIcon"></div>
             <div class="downNavigation__item-text">О Махачкале</div>

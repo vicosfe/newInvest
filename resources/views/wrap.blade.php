@@ -27,12 +27,14 @@
                     </a>
 
                     <div class="singleWindow">
-                        <div class="singleWindow__img"><img src="/public/images/singleWinMenu.png" alt=""></div>
-                        <div class="singleWindow__text">
-                            <h3><span>Прямая</span> связь</h3>
-                            <p>Канал прямой связи с администрацией</p>
+                    <a href="/directCommunication">
+                            <div class="singleWindow__img"><img src="/public/images/singleWinMenu.png" alt=""></div>
+                            <div class="singleWindow__text">
+                                <h3><span>Прямая</span> связь</h3>
+                                <p>Канал прямой связи с администрацией</p>
+                            </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
 
                 <div class="wrapperRighttopHeader">
@@ -106,39 +108,39 @@
                                 </li>
 
                                 <li>
-                                 <div class="downHeader__nav--logo">
-                                     <div class="navLog2 navLog"></div>
-                                 </div>
-                                 <a href="/investment_project">Инвестору</a>
-                                 <div class="dropNav">
-                                        <div class="dropNav__content">
-                                            <ul>
-                                                <li>
-                                                    <a href="#">Законодательная база</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">Инвестиционные предложения</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">База инвестиционных площадок</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">Муниципально-частное партнерство</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">Инвестиционный паспорт</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">План формирования, необходимой для инвесторов инфраструктуры</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">Льготы</a>
-                                                </li>
-                                            </ul>
-                                        </div>
+                                   <div class="downHeader__nav--logo">
+                                       <div class="navLog2 navLog"></div>
+                                   </div>
+                                   <a href="/investment_project">Инвестору</a>
+                                   <div class="dropNav">
+                                    <div class="dropNav__content">
+                                        <ul>
+                                            <li>
+                                                <a href="#">Законодательная база</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">Инвестиционные предложения</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">База инвестиционных площадок</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">Муниципально-частное партнерство</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">Инвестиционный паспорт</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">План формирования, необходимой для инвесторов инфраструктуры</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">Льготы</a>
+                                            </li>
+                                        </ul>
                                     </div>
-                             </li>
-                             <li>
+                                </div>
+                            </li>
+                            <li>
                                 <div class="downHeader__nav--logo">
                                     <div class="navLog3 navLog"></div>
                                 </div>
