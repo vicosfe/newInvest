@@ -525,6 +525,43 @@ $(wrapSup).on("click",function () {
 
 
 
+// feedBack Email Validate
+
+// Start Email form Valid
+ var feedBackLabel = $(".feedBackLabel");
+ var feedBackFormEmail = $('.feedBackFormEmail');
+ $(feedBackFormEmail).on("keyup keydown change keypress",function(){
+  if ($(this).val()) {
+   $($(this).siblings(".feedBackLabel")).addClass("feedBackLabelVALID");
+  }else $($(this).siblings(".feedBackLabel")).removeClass("feedBackLabelVALID");
+ });
+ var resetFormFeedBack = $(".resetfeddBackForm");
+ $(resetFormFeedBack).on("click",function () {
+  if ($(feedBackFormEmail).val()){
+    $($(feedBackFormEmail).siblings(".feedBackLabel")).addClass("feedBackLabelVALID");
+  }else if ($(feedBackFormEmail).val()){
+    $($(feedBackFormEmail).siblings(".feedBackLabel")).addClass("feedBackLabelVALID");
+  }else $($(feedBackFormEmail).siblings(".feedBackLabel")).removeClass("feedBackLabelVALID");$($(feedBackFormEmail).siblings(".feedBackLabelVALID")).removeClass("feedBackLabelVALID");
+
+ });
+// end
+
+
+//close feddBackForm
+var closeFeedBackForm =  $(".closeFeedBackForm");
+var goFeedBack = $(".goFeedBack");
+var feedBackFilterBlock = $(".feedBackFilterBlock");
+$(goFeedBack).on("click",function () {
+  $(feedBackFilterBlock).fadeIn();
+});
+$(closeFeedBackForm).on("click",function () {
+  $(feedBackFilterBlock).fadeOut();
+});
+
+//end
+
+
+
 
 
 /*ANIMATE BLOCK NEWS*/

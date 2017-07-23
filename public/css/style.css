@@ -3721,20 +3721,536 @@ header{
   }
 
 
-/* Инфраструктура поддержки */
-.supportMain{
+  /* Инфраструктура поддержки */
+  .supportMain{
 
-}
-.supportMain__item{
-	position: relative;
-	min-height: 106px;
-	margin-bottom: 1.875rem;
-}
-.supportMain__item > a{
-	text-decoration: none;
-	color: #151515;
-}
-.supportMain__item a > .wrapSup{
+  }
+  .supportMain__item{
+  	position: relative;
+  	min-height: 106px;
+  	margin-bottom: 1.875rem;
+  }
+  .supportMain__item > a{
+  	text-decoration: none;
+  	color: #151515;
+  }
+  .supportMain__item a > .wrapSup{
+  	display: -webkit-flex;
+  	display: -moz-flex;
+  	display: -ms-flex;
+  	display: -o-flex;
+  	display: flex;
+  	-ms-align-items: center;
+  	align-items: center;
+  	border: 1px solid #e0e0e0;
+  	padding: 1.5625rem;
+  	min-height: 106px;
+  	position: relative;
+  }
+  .supportMain__item--text{
+  	max-width: 80%;
+  	font-size: 1rem;
+  	font-family: "GothamPro-Light";
+  }
+  .supportMain__item--sub{
+  	font-family: "GothamPro-Light";
+  	font-size: 1rem;
+  	min-height: 110px;
+
+  }
+  .supportMain__item--sub a {
+  	color: #64baf6;
+  	display: -webkit-flex;
+  	display: -moz-flex;
+  	display: -ms-flex;
+  	display: -o-flex;
+  	display: flex;
+  	justify-content: space-between;
+  	-ms-align-items: center;
+  	align-items: center;
+  	width: 100%;
+  	text-decoration: none;
+  	border: 1px solid #e0e0e0;
+  	border-top: 0;
+  	padding: 1.875rem 2.5rem;
+  	font-family: "GothamPro-Light";
+  	font-size: 1rem;
+  	min-height: 110px;
+  }
+  .supportMain__item--sub a > p{
+  	color: #64baf6;
+  	text-decoration: underline;
+  }
+  .supMsub::after{
+  	content: "\f107";
+  	font-family: "FontAwesome";
+  	position: absolute;
+  	right: 25px;
+  	top: 50%;
+  	color: #e2e2e2;
+  	-webkit-transform: translateY(-50%);
+  	-ms-transform: translateY(-50%);
+  	-o-transform: translateY(-50%);
+  	transform: translateY(-50%);
+  	font-size: 2.5rem;
+
+  }
+  .itemSubRight img{
+  	display: block;
+  	margin: 0 auto;
+  	margin-bottom: .6375rem;
+  }
+  .itemSubRight > p {
+  	text-decoration: none;
+  	color: #151515;
+  	font-family: "GothamPro";
+  	font-size: .75rem;
+  }
+
+  .supMclose::after{
+  	content: "\f106" !important;
+  	font-family: "FontAwesome";
+  	position: absolute;
+  	right: 25px;
+  	top: 50%;
+  	color: #e2e2e2;
+  	-webkit-transform: translateY(-50%);
+  	-ms-transform: translateY(-50%);
+  	-o-transform: translateY(-50%);
+  	transform: translateY(-50%);
+  	font-size: 2.5rem;
+  }
+  .subDescription{
+  	text-decoration: none;
+  	border: 1px solid #e0e0e0;
+  	border-top: 0;
+  	padding: 1.875rem 2.5rem;
+  	font-family: "GothamPro-Light";
+  	font-size: 1rem;
+  	min-height: 110px;
+  	line-height: 1.875rem;
+  }
+  /* Конец инфраструктуры поддержки */
+  .uniqueDescription p {
+  	margin-top: 1.25rem;
+  	font-family: "GothamPro-Light";
+  	font-size: 1rem;
+  	color: #151515;
+  	line-height: 1.875rem;
+  	margin-bottom: 3.125rem;
+  }
+
+  /* Documents */
+  .docWrapper{
+  	display: -webkit-flex;
+  	display: -moz-flex;
+  	display: -ms-flex;
+  	display: -o-flex;
+  	display: flex;
+  	justify-content: space-between;
+  	flex-wrap: wrap;
+  	margin-bottom: 3.75rem;
+  }
+  .documentItem{
+  	border: 1px solid #e0e0e0;
+  	min-height: 200px;
+  	width: 32%;
+  	max-width: 400px;
+  	margin-bottom: 1.5625rem;
+  }
+  .documentItem a{
+  	display: -webkit-flex;
+  	display: -moz-flex;
+  	display: -ms-flex;
+  	display: -o-flex;
+  	display: flex;
+  	justify-content: space-between;
+  	height: 100%;
+  	text-decoration: none;
+  }
+  .documentItem__img{
+  	text-align: center;
+  	padding: 1.875rem 0;
+  	height: 100%;
+  	border-left: 1px solid #e0e0e0;
+  	width: 20%;
+  	max-width: 80px;
+  	font-size: .75rem;
+  	font-family: "GothamPro";
+  	color: #151515;
+  }
+  .documentItem__text{
+  	padding: 1.875rem 0 1.875rem 1.875rem; 
+  	width: 80%;
+  	color: #151515;
+  	font-family: "GothamPro";
+  	font-size: .875rem;
+  	text-decoration: underline;
+  }
+
+  /* End Documents */
+
+  /* FeddBack */
+
+  .feedBackInfo{
+  	display: -webkit-flex;
+  	display: -moz-flex;
+  	display: -ms-flex;
+  	display: -o-flex;
+  	display: flex;
+  	justify-content: space-between;
+  	margin-bottom: 3.75rem;
+  }
+  .feedBackInfo__left{
+  	width: 40.72%;
+  	max-width: 505px;
+  }
+  .feedBackInfo__left p{
+  	color: #151515;
+  	font-size: .875rem;
+  	font-family: "GothamPro";
+  	line-height: 1.5rem;
+  	margin-bottom: 1.875rem;
+  }
+
+  .goFeedBack{
+  	width: 100%;
+  	max-width: 210px;
+  	height: 40px;
+  	border-radius: 20px;
+  	border: 1px solid #151515;
+  	text-align: center;
+  	position: relative;
+  	-webkit-transition: .2s all;
+  	-o-transition: .2s all;
+  	transition: .2s all;
+
+  }
+  .goFeedBack > p{
+  	position: absolute;
+  	top: 50%;
+  	left: 50%;
+  	-webkit-transform: translate(-50%, -50%);
+  	-ms-transform: translate(-50%, -50%);
+  	-o-transform: translate(-50%, -50%);
+  	transform: translate(-50%, -50%);
+  	width: 100%;
+  	text-align: center;
+  	margin: 0 !important;
+  	font-size: .875rem;
+  	color: #151515;
+  	font-family: "GothamPro";
+  	-webkit-transition: .2s all;
+  	-o-transition: .2s all;
+  	transition: .2s all;
+  }
+
+  .goFeedBack:hover > p{
+  	color: #fff;
+  }
+  .goFeedBack:hover{
+  	background-color: #64baf6;
+  	box-shadow: 0px 0px 15px #64baf6;
+  	border: 0;
+  	cursor: pointer;
+  }
+
+  .feedBackInfo__right {
+  	width: 49.19%;
+  	max-width: 610px;
+  }
+  .feedBackInfo__right  p{
+  	color: #151515;
+  	font-size: .875rem;
+  	font-family: "GothamPro";
+  	line-height: 1.5rem;
+  }
+  .feedBackMap{
+  	margin-bottom: 3.75rem;
+  }
+  .feedBackWorkers{
+  	display: -webkit-flex;
+  	display: -moz-flex;
+  	display: -ms-flex;
+  	display: -o-flex;
+  	display: flex;
+  	justify-content: space-between;
+  	flex-wrap: wrap;
+  }
+  .feedBackWorkers__item{
+  	width: 40.72%;
+  	height: 260px;
+  	display: -webkit-flex;
+  	display: -moz-flex;
+  	display: -ms-flex;
+  	display: -o-flex;
+  	display: flex;
+  	justify-content: flex-start;
+  	-ms-align-items: center;
+  	align-items: center;
+  	margin-bottom: 3.125rem;
+  }
+  .feedBackWorkers__item--left{
+  	max-width: 210px;
+  	width: 41%;
+  	height: 260px;
+  	margin-right: 1.4375rem;
+  	-webkit-background-size: cover;
+  	background-size: cover;
+  	background-repeat: no-repeat;
+  }
+  .feedBackWorkers__item--right{
+  	width: 54%;	
+  }
+  .feedBackWorkers__item h3{
+  	font-weight: normal;
+  	font-family: "GothamPro-Bold";
+  	font-size: 1.5rem;
+  	color: #151515;
+  	margin: 0;
+  	width: 80%;
+  	margin-bottom: 1.625rem;
+
+  }
+  .feedBackWorkers__item p{
+  	font-size: 1rem;
+  	font-family: "GothamPro";
+  	color: #151515;
+  	line-height: 1.5rem;
+  	margin-bottom: 1.625rem;
+  }
+
+
+
+
+  /* form */
+  .feedBackFilterBlock{
+  	position: fixed;
+  	z-index: 800;
+  	background-color: rgba(0, 0, 0, 0.43);
+  	top: 0;
+  	left: 0;
+  	bottom: 0;
+  	right: 0;
+  	display: none;
+
+  }
+  .feedBackFormBlock{
+  	position: relative;
+  	top: 50%;
+  	left: 50%;
+  	-webkit-transform: translate(-50%, -50%);
+  	-ms-transform: translate(-50%, -50%);
+  	-o-transform: translate(-50%, -50%);
+  	transform: translate(-50%, -50%);
+  	background-color: #fff;
+  	width: 100%;
+  	max-width: 610px;
+  	min-height: 690px;
+  	padding: 2.5rem;
+
+  }
+  .feedBackFormBlock h3{
+  	font-weight: normal;
+  	color: #3897d9;
+  	font-family: "GothamPro-Medium";
+  	font-size: 1.5rem;
+  	margin: 0;
+  	margin-bottom: 2.1875rem;
+  	position: relative;
+  }
+  .feedBhr{
+  	background-color: #f3f3f3;
+  	width: 100%;
+  	height: 1px;
+  	margin-bottom: 1.875rem;
+  }
+   .feedBackFormBlock h3 > .closeFeedBackForm{
+    height: 20px;
+    width: 20px;
+    background-image: url(../images/closeForm.png);
+    position: absolute;
+    top: 50%;
+    right: 0px;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+    transform: translateY(-50%);
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+    background-size: cover;
+   }
+   .feedBackFormBlock h3 > .closeFeedBackForm:hover{
+   	cursor: pointer;
+   }
+
+  .feedBackForm{
+  	display: -webkit-flex;
+  	display: -moz-flex;
+  	display: -ms-flex;
+  	display: -o-flex;
+  	display: flex;
+  	justify-content: space-between;
+  	-ms-align-items: center;
+  	align-items: center;
+  	flex-wrap: wrap;
+  }
+
+
+
+  .feedBackForm input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+  	/* display: none; <- Crashes Chrome on hover */
+  	-webkit-appearance: none;
+  	margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+  }
+
+
+
+
+
+  /* Анимация iputs  */
+
+  .feedBack__group   { 
+  	position:relative; 
+  	margin-bottom:45px; 
+  	width: 100%;
+  }
+  .feedBackForm input{
+  	font-size: 1.25rem;
+  	padding:10px 10px 10px 5px;
+  	display:block;
+  	width:100%;
+  	max-width: 525px;
+  	border:none;
+  	border-bottom:1px solid #ebebeb;
+  	color: #333333;
+  	font-family: "GothamPro";
+  	-webkit-appearance: none;
+  }
+  .feedBackForm input:focus{ 
+  	outline:none;
+  }
+
+  /* LABEL ======================================= */
+  .feedBackForm label{
+  	color:#9e9e9e; 
+  	font-size:18px;
+  	font-weight:normal;
+  	position:absolute;
+  	pointer-events:none;
+  	left:5px;
+  	top:10px;
+  	transition:0.2s ease all; 
+  	-moz-transition:0.2s ease all; 
+  	-webkit-transition:0.2s ease all;
+  }
+
+  /* active state */
+  .feedBackForm input:focus ~  label, .feedBackForm input:valid ~  label  {
+  	top:-15px;
+  	font-size:14px;
+  	color:#48a5ea;
+  }
+  .feedBackForm input[type="email"]:focus  ~  label{
+  	top:-15px;
+  	font-size:14px;
+  	color:#48a5ea;
+  }
+/* .feedBackForm input[type="email"]:invalid ~ label{
+	top:-15px;
+  font-size:14px;
+  color:#48a5ea;
+  } */
+  .directCommunicationLabelVALID{
+  	top:-15px !important;
+  	font-size:14px !important;
+  	color:#48a5ea !important;
+  }
+
+  /* BOTTOM BARS ================================= */
+  .bar 	{ position:relative; display:block; width:100%; max-width: 525px; }
+  .bar:before, .bar:after 	{
+  	content:'';
+  	height:2px; 
+  	width:0;
+  	bottom:1px; 
+  	position:absolute;
+  	background:#48a5ea; 
+  	transition:0.2s ease all; 
+  	-moz-transition:0.2s ease all; 
+  	-webkit-transition:0.2s ease all;
+  }
+  .bar:before {
+  	left:50%;
+  }
+  .bar:after {
+  	right:50%; 
+  }
+
+  /* active state */
+  .feedBackForm input:focus ~ .bar:before,.feedBackForm input:focus ~ .bar:after {
+  	width:50%;
+  }
+
+  /* HIGHLIGHTER ================================== */
+  .highlight {
+  	position:absolute;
+  	height:60%; 
+  	width:100px; 
+  	top:25%; 
+  	left:0;
+  	pointer-events:none;
+  	opacity:0.5;
+  }
+
+  /* active state */
+  .feedBackForm input:focus ~ .highlight {
+  	-webkit-animation:inputHighlighter 0.3s ease;
+  	-moz-animation:inputHighlighter 0.3s ease;
+  	animation:inputHighlighter 0.3s ease;
+  }
+
+  /* ANIMATIONS ================ */
+  @-webkit-keyframes inputHighlighter {
+  	from { background:#48a5ea; }
+  	to 	{ width:0; background:transparent; }
+  }
+  @-moz-keyframes inputHighlighter {
+  	from { background:#48a5ea; }
+  	to 	{ width:0; background:transparent; }
+  }
+  @keyframes inputHighlighter {
+  	from { background:#48a5ea; }
+  	to 	{ width:0; background:transparent; }
+  }
+
+
+
+  .feedBack__button{
+  	height: 40px;
+  	width: 100%;
+  	max-width: 120px;
+  	border-radius: 20px;
+  	background-color: #48a5ea;
+  	color: #fff;
+  	font-size: 1rem;
+  	font-family: "GothamPro";
+  	border: 0;
+  	outline: 0;
+  }
+
+  .feedBackFText{
+  	font-size: .75rem;
+  	font-family: "GothamPro";
+  	color: #9e9e9e;
+  	line-height: 1.3125rem;
+  }
+  .feedBackFText p{
+  	margin-bottom: 1.875rem;
+
+  }
+.feedBack__button--wrapper{
 	display: -webkit-flex;
 	display: -moz-flex;
 	display: -ms-flex;
@@ -3742,100 +4258,45 @@ header{
 	display: flex;
 	-ms-align-items: center;
 	align-items: center;
-	border: 1px solid #e0e0e0;
-	padding: 1.5625rem;
-	min-height: 106px;
-	position: relative;
-}
-.supportMain__item--text{
-	max-width: 80%;
-	font-size: 1rem;
-	font-family: "GothamPro-Light";
-}
-.supportMain__item--sub{
-	font-family: "GothamPro-Light";
-	font-size: 1rem;
-	min-height: 110px;
-
-}
-.supportMain__item--sub a {
-	color: #64baf6;
-	display: -webkit-flex;
-	display: -moz-flex;
-	display: -ms-flex;
-	display: -o-flex;
-	display: flex;
 	justify-content: space-between;
-	-ms-align-items: center;
-	align-items: center;
 	width: 100%;
-	text-decoration: none;
-	border: 1px solid #e0e0e0;
-	border-top: 0;
-	padding: 1.875rem 2.5rem;
-	font-family: "GothamPro-Light";
-	font-size: 1rem;
-	min-height: 110px;
-}
-.supportMain__item--sub a > p{
-	color: #64baf6;
-	text-decoration: underline;
-}
-.supMsub::after{
-	content: "\f107";
-	font-family: "FontAwesome";
-	position: absolute;
-	right: 25px;
-	top: 50%;
-	color: #e2e2e2;
-	-webkit-transform: translateY(-50%);
-	-ms-transform: translateY(-50%);
-	-o-transform: translateY(-50%);
-	transform: translateY(-50%);
-	font-size: 2.5rem;
-
-}
-.itemSubRight img{
-	display: block;
-	margin: 0 auto;
-	margin-bottom: .6375rem;
-}
-.itemSubRight > p {
-	text-decoration: none;
-	color: #151515;
-	font-family: "GothamPro";
-	font-size: .75rem;
 }
 
-.supMclose::after{
-	content: "\f106" !important;
-	font-family: "FontAwesome";
-	position: absolute;
-	right: 25px;
-	top: 50%;
-	color: #e2e2e2;
-	-webkit-transform: translateY(-50%);
-	-ms-transform: translateY(-50%);
-	-o-transform: translateY(-50%);
-	transform: translateY(-50%);
-	font-size: 2.5rem;
+  .resetfeddBackForm{   
+  	background: none !important;
+  	outline: 0 !important;
+  	font-size: 1rem !important;
+  	color: #a0a0a0 !important;
+  	font-family: "GothamPro" !important;
+  	border: 0 !important;
+  	width: 20% !important;
+  	display: inline-block !important;
+  }
+
+.feedBackLabelVALID{
+  	top:-15px !important;
+  	font-size:14px !important;
+  	color:#48a5ea !important;
+  }
+.feedBack__button{
+	-webkit-transition: .2s all;
+	-o-transition: .2s all;
+	transition: .2s all;
 }
-.subDescription{
-	text-decoration: none;
-	border: 1px solid #e0e0e0;
-	border-top: 0;
-	padding: 1.875rem 2.5rem;
-	font-family: "GothamPro-Light";
-	font-size: 1rem;
-	min-height: 110px;
-	line-height: 1.875rem;
+.feedBack__button:hover{
+	cursor: pointer;
+	-webkit-transform: scale(1.1);
+	-ms-transform: scale(1.1);
+	-o-transform: scale(1.1);
+	transform: scale(1.1);
+	box-shadow: 1px 2px 8px rgba(0, 0, 0, 0.3);
 }
-/* Конец инфраструктуры поддержки */
-.uniqueDescription p {
-	margin-top: 1.25rem;
-	font-family: "GothamPro-Light";
-	font-size: 1rem;
-	color: #151515;
-	line-height: 1.875rem;
-	margin-bottom: 3.125rem;
-}
+
+
+  /* end form */
+
+
+
+
+
+/* End FeddBack */

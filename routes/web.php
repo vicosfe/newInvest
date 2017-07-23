@@ -43,3 +43,9 @@ Route::get('/cardSupport', function () {
 Route::get('/articlePage', function () {
     return view('articlePage');
 });
+Route::get('/documents', function () {
+    return view('documents');
+});
+Route::get('feedBack', function () {
+    return view('feedBack');
+});
