@@ -1,27 +1,26 @@
 @extends('wrap')
 @section('content')
 <!-- ************************************************************************************** -->
+@if(count($cat))
 <div class="CAPTION">
 	<div class="centerBlock">
 		<div class="CAPTION__wrapper">
 			<p>
-				Уникальная страница
+				{{$cat->title}}
 			</p>
 		</div>
 	</div>
 </div>
-
+@endif
 <div class="centerBlock">
 	<div class="investOfferContainer">
 		<div class="offer_left">
 			@include('rightMenu')
 		</div>
 		<div class="offer_right">
-		<div class="uniqueDescription">
-			<p>Создание и обеспечение функционирования специализированного раздела об инвестиционной деятельности города Махачкалы на официальном сайте Администрации города. Создание и обеспечение функционирования специализированного раздела об инвестиционной деятельности города Махачкалы на официальном сайте Администрации города.</p>
-		</div>
+
 		<!-- Подключение вьюх -->
-			@include('articlePage')
+	@yield('main')
 		</div>
 
 	</div>

@@ -14,14 +14,14 @@ class ParserController extends Controller
         $html = new Htmldom('http://mkala.ru/info/news/');
         $i = 0;
         foreach($html->find('.mymarginbottom5') as $element){
-            ($i < 5)?
+            ($i < 4)?
                  $arrayNews[$i]["img"] = "http://mkala.ru/".$element->src : false;
                  $i++;
         }
 
         $i = 0;
         foreach($html->find('h7.media-heading a') as $element){
-             if($i < 5) {
+             if($i < 4) {
                  $arrayNews[$i]["href"] = $element->href;
                  $arrayNews[$i]["title"] = $element->plaintext;
              }
@@ -30,7 +30,7 @@ class ParserController extends Controller
         }
         $i = 0;
         foreach($html->find('.mymarginbottom5 ~ small span') as $element){
-             ($i < 5)?
+             ($i < 4)?
                 $arrayNews[$i]["date"] = $element->plaintext: false;
                 $i++;
         }

@@ -1,32 +1,29 @@
 @extends('wrap')
 @section('content')
 
-<section>
-	<div class="cardNewsWrapper">
-		<div class="CAPTION">
-			<div class="centerBlock">
-				<div class="CAPTION__wrapper">
-					<p>
+	<section>
+		<div class="cardNewsWrapper">
+			<div class="wrapperCaptionNews">
+				<div class="cardNewsWrapper__cardNews--description centerBlock">
+					<h3>
 						{!! $item->title!!}
-					</p>
+					</h3>
 				</div>
 			</div>
-		</div>
-		
+			@if(count($media))<div class="media centerBlock">@include('mediaSlide')</div><br><br>@endif
+			<div class="cardNewsWrapper__cardNews centerBlock">
 
-		<div class="cardNewsWrapper__cardNews centerBlock">
-
-			<div class="cardNewsWrapper__cardNews--text">
-				{!! $item->content !!}
+				<div class="cardNewsWrapper__cardNews--text">
+					{!! $item->content !!}
+				</div>
 			</div>
+
 		</div>
-
-	</div>
-</section>
+	</section>
 
 
-@include('mediaSlide')
-@include('usefulLinks')
+
+	@include('usefulLinks')
 
 
 @stop

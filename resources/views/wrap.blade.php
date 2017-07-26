@@ -27,14 +27,15 @@
                     </a>
 
                     <div class="singleWindow">
-                    <a href="/directCommunication">
-                            <div class="singleWindow__img"><img src="/public/images/singleWinMenu.png" alt=""></div>
+                        <a href="/ru/direct">
+                        <div class="singleWindow__img"><img src="/public/images/singleWinMenu.png" alt=""></div>
                             <div class="singleWindow__text">
                                 <h3><span>Прямая</span> связь</h3>
                                 <p>Канал прямой связи с администрацией</p>
                             </div>
-                        </div>
-                    </a>
+                        </a>
+                    </div>
+
                 </div>
 
                 <div class="wrapperRighttopHeader">
@@ -49,7 +50,7 @@
                         </div>
                         <div class="feedBackLanguage">
                             <div class="feedBack">
-                                <a href="#"></a>
+                                <a href="/feedBack"></a>
                                 <div class="feedBack__img">
                                     <img src="/public/images/feedBack.png" alt="">
                                 </div>
@@ -73,115 +74,29 @@
 
                         <div class="downHeader__nav">
                             <ul>
-                                <li>
-                                    <div class="downHeader__nav--logo">
-                                        <div class="navLog1 navLog"></div>
-                                    </div>
-                                    <a href="#">{{trans("menu.investment_activity")}}</a>
-                                    <div class="dropNav">
-                                        <div class="dropNav__content">
-                                            <ul>
-                                                <li>
-                                                    <a href="#">{{trans("menu.investment_standard")}}</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">Целевые модели</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">Стандарт развития конкуренции</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">Оценка регулирующего воздействия</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">Ежегодный отчет Главы города Махачкалы</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">Деятельность Совета по инвестициям и приоритетным проектам</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">Инвестиционная стратегия</a>
-                                                </li>
-                                            </ul>
+                                @foreach($menu as $itemmenu)
+                                    <li>
+                                        <div class="downHeader__nav--logo">
+                                            <div class="navLog1 navLog"></div>
                                         </div>
-                                    </div>
-                                </li>
+                                        <a href="{{$itemmenu->link}}">{{$itemmenu->title}}</a>
+                                        @if(count($itemmenu->items))
+                                            <div class="dropNav">
+                                                <div class="dropNav__content">
+                                                    <ul>
+                                                        @foreach($itemmenu->items as $itemMenuL1)
+                                                        <li>
+                                                            <a href="{{$itemMenuL1->link}}">{{$itemMenuL1->title}}</a>
+                                                        </li>
 
-                                <li>
-                                   <div class="downHeader__nav--logo">
-                                       <div class="navLog2 navLog"></div>
-                                   </div>
-                                   <a href="/investment_project">Инвестору</a>
-                                   <div class="dropNav">
-                                    <div class="dropNav__content">
-                                        <ul>
-                                            <li>
-                                                <a href="#">Законодательная база</a>
-                                            </li>
-                                            <li>
-                                                <a href="#">Инвестиционные предложения</a>
-                                            </li>
-                                            <li>
-                                                <a href="#">База инвестиционных площадок</a>
-                                            </li>
-                                            <li>
-                                                <a href="#">Муниципально-частное партнерство</a>
-                                            </li>
-                                            <li>
-                                                <a href="#">Инвестиционный паспорт</a>
-                                            </li>
-                                            <li>
-                                                <a href="#">План формирования, необходимой для инвесторов инфраструктуры</a>
-                                            </li>
-                                            <li>
-                                                <a href="#">Льготы</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="downHeader__nav--logo">
-                                    <div class="navLog3 navLog"></div>
-                                </div>
-                                <a href="/ru/support">Малое и среднее предпринимательство</a>
-                                <div class="dropNav">
-                                    <div class="dropNav__content">
-                                        <ul>
-                                            <li>
-                                                <a href="#">Инфраструктура поддержки бизнеса</a>
-                                            </li>
-                                            <li>
-                                                <a href="#">Муниципальная программа</a>
-                                            </li>
-                                            <li>
-                                                <a href="#">Инновации</a>
-                                            </li>
-                                            <li>
-                                                <a href="#">Деятельность Совета по развитию малого и среднего предпринимательства</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="downHeader__nav--logo">
-                                        <div class="navLog4 navLog"></div>
-                                    </div>
-                                    <a href="/news">Медиа</a>
-                                    <div class="dropNav">
-                                        <div class="dropNav__content">
-                                            <ul>
-                                                <li>
-                                                    <a href="#">Новости</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">Инфографика</a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
+                                                        @endforeach
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        @endif
+                                    </li>
+                                @endforeach
+                             </ul>
                         </div>
                     </div>
 
@@ -239,4 +154,6 @@
 
 </body>
 </html>
+
+
 

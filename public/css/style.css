@@ -3174,7 +3174,7 @@ header{
   }
   .directComRightSect{
   	width: 209px;
-  	height: 209px;
+  	height: 208px;
   	-webkit-background-size: cover;
   	background-size: cover;
   	background-repeat: no-repeat;
@@ -3233,9 +3233,12 @@ header{
   .offer_left > ul > li:last-child{
   	border-bottom: 0 !important;
   }
-  .offer_left > ul > li > span{
+.offer_left > ul > li  a{
+	text-decoration: none;
+}
+  .offer_left > ul > li  a span{
   	display: block;
-  	font-size: .75rem;
+  	font-size: .8rem;
   	font-family: "GothamPro";
   	color: #151515;
   	max-width: 250px;
@@ -3245,7 +3248,24 @@ header{
   	transition: color .2s;
 
   }
-  .offer_left > ul > li:hover > span{
+  .empty{
+	  width: 200px;
+	  text-decoration: none;
+	  text-transform: uppercase;
+	  font-size: 1rem;
+	  font-family: "GothamPro";
+	  color: #151515;
+	  margin: 0 auto;
+	  display: -webkit-flex;
+	  display: -moz-flex;
+	  display: -ms-flex;
+	  display: -o-flex;
+	  display: flex;
+	  -ms-align-items: center;
+	  align-items: center;
+	  text-align: center;
+  }
+  .offer_left > ul > li:hover  a  span{
   	color: #64baf6;
   }
 
@@ -3690,7 +3710,7 @@ header{
   	height: 110px;
   	border: 1px solid #e0e0e0;
   }
-  .articleDoc__item a {
+  .articleDoc__item  {
   	display: -webkit-flex;
   	display: -moz-flex;
   	display: -ms-flex;

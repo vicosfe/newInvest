@@ -23,32 +23,36 @@ Route::group(['prefix' => $localization->setLocale()], function()
     Route::get('/investment_project', function () {
         return view('investment_project');
     });
-Route::get('/support', function () {
-    return view('support');
-});
+    Route::get('/support', function () {
+        return view('support');
+    });
     Route::get('/', "IndexController@index");
+    Route::get('/direct', 'PageController@directCommunication');
+    Route::get('feedBack', 'PageController@feedBack');
+    Route::get('/u', 'PageController@u');
+    Route::get('/pp', 'PageController@pp');
+    Route::get('/search', 'PageController@search');
+
+    Route::get('/documents', function () {
+        return view('documents');
+    });
+     Route::get('/admMain', function () {
+        return view('admin.admMain');
+    });
+      Route::get('/add', function () {
+        return view('admin.add');
+    });
+
+
+
+    /*СТАТЬИ БЛЯТ*/
+    Route::get('/article/{id?}', 'ArticleController@item');
+
+    Route::get('/articles/{id?}','ArticleController@index');
+
+
+
+
 });
-Route::get('/directCommunication', function () {
-    return view('directCommunication');
-});
-Route::get('/uniquePage', function () {
-    return view('uniquePage');
-});
-Route::get('/aboutMakhach', function () {
-    return view('aboutMakhach');
-});
-Route::get('/cardSupport', function () {
-    return view('cardSupport');
-});
-Route::get('/articlePage', function () {
-    return view('articlePage');
-});
-Route::get('/documents', function () {
-    return view('documents');
-});
-Route::get('feedBack', function () {
-    return view('feedBack');
-});
-Route::get('/search', function () {
-    return view('search');
-});
+
+

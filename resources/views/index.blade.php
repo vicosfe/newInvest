@@ -15,7 +15,7 @@
          </a>
        </li>
        <li class="downNavigation__item">
-        <a href="aboutMakhach">
+        <a href="/article/1">
           <div class="downNavWrapper">
             <div class="downNavigation__item-img2 downNavIcon"></div>
             <div class="downNavigation__item-text">О Махачкале</div>
@@ -66,71 +66,94 @@
 
      <!--**********************БЛОК НОВОСТЕЙ ******************-->
 
-     <div class="centerContent__news ">
-      <div class="top__itemSmall" style="background-image: url(/public/images/news1.png);">
-        <div class="top__itemSmall--text">
-          <div>В КАЛУЖСКОЙ ОБЛАСТИ ОТКРЫТО <br> РОССИЙСКО-ЧЕШСКОЕ ПРЕДПРИЯТИЕ ПО ВЫПУСКУ САНИТАРНОЙ КЕРАМИКИ</div>
+        <div class="centerContent__news ">
+            <div class="top__itemSmall" style="background-image: url({{ $news[0]->img }});">
+                <div class="top__itemSmall--text">
+                    <div>{!! $news[0]->title !!}</div>
+                </div>
+                <div class="top__itemSmall--blockFilter"></div>
+                <a href="/news/{{ $news[0]->id}}"></a>
+            </div>
+
+
+            <div class="top__itemSmall" style="background-image: url({{ $news[1]->img }});">
+                <div class="top__itemSmall--text">
+                    <div>{!! $news[1]->title !!}</div>
+                </div>
+                <div class="top__itemSmall--blockFilter"></div>
+                <a href="/news/{{ $news[1]->id}}"></a>
+            </div>
+
+
+            <div class="top__itemSmall" style="background-image: url({{ $news[2]->img }});">
+                <div class="top__itemSmall--text">
+                    <div>{!! $news[2]->title !!}</div>
+                </div>
+                <div class="top__itemSmall--blockFilter"></div>
+                <a href="/news/{{ $news[2]->id}}"></a>
+            </div>
+
+
+
+            <div class="top__itemLarge" style="background-image: url({{ $news[3]->img }});">
+                <div class="top__itemLarge--text">
+                    <div>{!! $news[3]->title !!}</div>
+                </div>
+                <div class="top__itemLarge--blockFilter"></div>
+                <a href="/news/{{ $news[3]->id}}"></a>
+            </div>
+
+            <div class="top__itemSmall" style="background-image: url({{ $news[4]->img }});">
+                <div class="top__itemSmall--text">
+                    <div>{!! $news[4]->title !!}</div>
+                </div>
+                <div class="top__itemSmall--blockFilter"></div>
+                <a href="/news/{{ $news[4]->id}}"></a>
+            </div>
+            <div class="top__itemSmall" style="background-image: url({{ $news[5]->img }});">
+                <div class="top__itemSmall--text">
+                    <div>{!! $news[5]->title !!}</div>
+                </div>
+                <div class="top__itemSmall--blockFilter"></div>
+                <a href="/news/{{ $news[5]->id}}"></a>
+            </div>
+
+            <div class="top__itemLarge" style="background-image: url({{ $news[6]->img }});">
+                <div class="top__itemLarge--text">
+                    <div>{!! $news[6]->title !!}</div>
+                </div>
+                <div class="top__itemLarge--blockFilter"></div>
+                <a href="/news/{{ $news[6]->id}}"></a>
+            </div>
+
+            <div class="top__itemSmall" style="background-image: url({{ $news[7]->img }});">
+                <div class="top__itemSmall--text">
+                    <div>{!! $news[7]->title !!}</div>
+                </div>
+                <div class="top__itemSmall--blockFilter"></div>
+                <a href="/news/{{ $news[7]->id}}"></a>
+            </div>
+
+
+            <div class="top__itemSmall" style="background-image: url({{ $news[8]->img }});">
+                <div class="top__itemSmall--text">
+                    <div>{!! $news[8]->title !!}</div>
+                </div>
+                <div class="top__itemSmall--blockFilter"></div>
+                <a href="/news/{{ $news[8]->id}}"></a>
+            </div>
+
+
+            <div class="top__itemSmall" style="background-image: url({{ $news[9]->img }});">
+                <div class="top__itemSmall--text">
+                    <div>{!! $news[9]->title !!}</div>
+                </div>
+                <div class="top__itemSmall--blockFilter"></div>
+                <a href="/news/{{ $news[9]->id}}"></a>
+            </div>
+
+
         </div>
-        <div class="top__itemSmall--blockFilter"></div>
-        <a href="#"></a>
-      </div>
-
-
-      <div class="top__itemSmall" style="background-image: url(/public/images/news2.png);">
-        <div class="top__itemSmall--text">
-          <div>ДЕНЬ ОТКРЫТЫХ ДВЕРЕЙ В КАЛУЖСКОМ КОЛЛЕДЖЕ СЕРВИСА И ДИЗАЙНА С КОМПАНИЕЙ БОСКО</div>
-        </div>
-        <div class="top__itemSmall--blockFilter"></div>
-        <a href="#"></a>
-      </div>
-
-
-      <div class="top__itemSmall" style="background-image: url(/public/images/news1.png);">
-        <div class="top__itemSmall--text">
-          <div>В КАЛУЖСКОЙ ОБЛАСТИ ОТКРЫТО <br> РОССИЙСКО-ЧЕШСКОЕ ПРЕДПРИЯТИЕ ПО ВЫПУСКУ САНИТАРНОЙ КЕРАМИКИ</div>
-        </div>
-        <div class="top__itemSmall--blockFilter"></div>
-        <a href="#"></a>
-      </div>
-
-
-
-      <div class="top__itemLarge" style="background-image: url(/public/images/news3.png);">
-        <div class="top__itemLarge--text">
-          <div>АНАТОЛИЙ АРТАМОНОВ: «В КАЖДОМ УГОЛКЕ НАШЕЙ ОБЛАСТИ ТРУДЯТСЯ ТАЛАНТЛИВЫЕ ЛЮДИ»</div>
-        </div>
-        <div class="top__itemLarge--blockFilter"></div>
-        <a href="#"></a>
-      </div>
-
-      <div class="top__itemSmall" style="background-image: url(/public/images/news4.png);">
-        <div class="top__itemSmall--text">
-          <div>ДЕНЬ ОТКРЫТЫХ ДВЕРЕЙ В КАЛУЖСКОМ КОЛЛЕДЖЕ СЕРВИСА И ДИЗАЙНА С КОМПАНИЕЙ БОСКО</div>
-        </div>
-        <div class="top__itemSmall--blockFilter"></div>
-        <a href="#"></a>
-      </div>
-
-      <div class="top__itemSmall" style="background-image: url(/public/images/news4.png);">
-        <div class="top__itemSmall--text">
-          <div>ДЕНЬ ОТКРЫТЫХ ДВЕРЕЙ В КАЛУЖСКОМ КОЛЛЕДЖЕ СЕРВИСА И ДИЗАЙНА С КОМПАНИЕЙ БОСКО</div>
-        </div>
-        <div class="top__itemSmall--blockFilter"></div>
-        <a href="#"></a>
-      </div>
-
-      <div class="top__itemLarge" style="background-image: url(/public/images/news3.png);">
-        <div class="top__itemLarge--text">
-          <div>АНАТОЛИЙ АРТАМОНОВ: «В КАЖДОМ УГОЛКЕ НАШЕЙ ОБЛАСТИ ТРУДЯТСЯ ТАЛАНТЛИВЫЕ ЛЮДИ»</div>
-        </div>
-        <div class="top__itemLarge--blockFilter"></div>
-        <a href="#"></a>
-      </div>
-
-
-
-
-    </div>
 
   </div>
 
@@ -214,7 +237,8 @@
 </script>
 <div class="wrapper__media centerBlock">
     <h2>МЕДИА</h2>
-@include('mediaSlide')
+
+    @if(count($media))<div class="media" >@include('mediaSlide')</div>@endif
 </div>
 @include('usefulLinks')
 

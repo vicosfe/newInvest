@@ -67,23 +67,28 @@
 
 				<div class="directCommunicationRight__item">
 					<div class="directComLeftSect">
-						<h3>Мусаев Муса Асхабалиевич</h3>
-						<span>Глава города Махачкалы</span>
+						<h3>Ашиков Хаким Гамзатович</h3>
+						<span>Заместитель Главы Администрации</span>
 						<div class="hr"></div>
-						<p>Адрес: 367012, г.Махачкала, пл.Ленина, 2 Телефон (рабочий): 67-21-34 <br>E-mail: info@mkala.ru</p>
+						<p>Адрес: 367012, г.Махачкала, пл.Ленина, 2<br>
+							Телефон (рабочий): 67-21-49<br>
+							E-mail: AshikovHG@mkala.ru </p>
 					</div>
-					<div class="directComRightSect" style="background-image: url(/public/images/asdasdasd.png);"></div>
+					<div class="directComRightSect" style="background-image: url(/public/images/PS1.png);"></div>
 				</div>
 
 
 				<div class="directCommunicationRight__item">
 					<div class="directComLeftSect">
-						<h3>Мусаев Муса Асхабалиевич</h3>
-						<span>Глава города Махачкалы</span>
+						<h3>Ибрагимов Гитиномагомед
+							Ибрагимович</h3>
+						<span>Начальник Управления экономического развития</span>
 						<div class="hr"></div>
-						<p>Адрес: 367012, г.Махачкала, пл.Ленина, 2 Телефон (рабочий): 67-21-34 <br>E-mail: info@mkala.ru</p>
+						<p>Адрес: г.Махачкала, пл. Ленина, 2 <br>
+							Телефон (рабочий): (8722) 68-30-81 <br>
+							E-mail: econom@mkala.ru </p>
 					</div>
-					<div class="directComRightSect" style="background-image: url(/public/images/asdasdasd.png);"></div>
+					<div class="directComRightSect" style="background-image: url(/public/images/PS2.png);"></div>
 				</div>
 
 

@@ -1,60 +1,35 @@
+@extends('uniquepage')
+@section('main')
+
 <section class="projIvs">
-	<a href="#">
-		<div class="tab-item-investmentPro__item">
-			<div class="tab-item-investmentPro__item--img" style="background-image: url(../public/images/investPredl1.png);"></div>
-			<div class="tab-item-investmentPro__item--text">
-				Инвестиционный проект по строительству агроиндустриального парка
+	@if(count($items))
+		@foreach($items as $item)
+			<a href="/article/{{$item->id}}">
+				<div class="tab-item-investmentPro__item">
+					<div class="tab-item-investmentPro__item--img" style="background-image: url({{$item->img}});"></div>
+					<div class="tab-item-investmentPro__item--text">
+						{{$item->title}}
+					</div>
+				</div>
+			</a>
+		@endforeach
+			<div class="loadMoreNews">
+				<a class="loadMoreNews-js" href="#">загрузить еще</a>
 			</div>
-		</div>
-	</a>
+	@else
+
+		<p class="empty">Пока нет записей</p>
+
+	@endif
 
 
-	<a href="#">
-		<div class="tab-item-investmentPro__item">
-			<div class="tab-item-investmentPro__item--img" style="background-image: url(../public/images/investPredl2.png);"></div>
-			<div class="tab-item-investmentPro__item--text">
-				Инвестиционный проект по строительству торгово-логистического центра
-			</div>
-		</div>
-	</a>
 
 
-	<a href="#">
-		<div class="tab-item-investmentPro__item">
-			<div class="tab-item-investmentPro__item--img" style="background-image: url(../public/images/investPredl3.png);"></div>
-			<div class="tab-item-investmentPro__item--text">
-				Инвестиционный проект по развитию и реконструкции Парка им. Ленинского Комсомола
-			</div>
-		</div>
-	</a>
-
-
-	<a href="#">
-		<div class="tab-item-investmentPro__item">
-			<div class="tab-item-investmentPro__item--img" style="background-image: url(../public/images/investPredl4.png);"></div>
-			<div class="tab-item-investmentPro__item--text">
-				Инвестиционный проект по реконструкции Гостиницы «Кавказ»
-			</div>
-		</div>
-	</a>
-
-	<a href="#">
-		<div class="tab-item-investmentPro__item">
-			<div class="tab-item-investmentPro__item--img" style="background-image: url(../public/images/investPredl1.png);"></div>
-			<div class="tab-item-investmentPro__item--text">
-				Инвестиционный проект по строительству агроиндустриального парка
-			</div>
-		</div>
-	</a>
-
-	<div class="loadMoreNews">
-	<a class="loadMoreNews-js" href="#">загрузить еще</a>
-	</div>
 
 </section>
 
 
-
+@stop
 
 
 
