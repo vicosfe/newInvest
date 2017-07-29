@@ -15,7 +15,7 @@
     <script src="/public/js/admin/swiper.jquery.min.js"></script>
     <script src="/public/js/admin/owl.carousel.min.js"></script>
     <script src="/public/js/admin/goalProgress.js"></script>  
-    <script src="/public/js/admin/nicEdit.js.js"></script>
+    <script src="/public/js/admin/nicEdit.js"></script>
     <script src="/public/js/admin/scripts.js"></script>
 </head>
 <body>
@@ -28,13 +28,13 @@
                 </div>
                 <div class="topHeaderWrapper__logo">
                     <a href="#">
-                        <img src="public/images/admin/logoAdm.png" alt="">
+                        <img src="../public/images/admin/logoAdm.png" alt="">
                     </a>
                 </div>
                 <div class="topHeaderWrapper__right">
                     <a href="#">
                         <div class="notificationBlock">
-                            <img src="public/images/admin/notification.png" alt="">
+                            <img src="../public/images/admin/notification.png" alt="">
                             <div class="notificationBlock__text">
                                 <p>У вас появилась новая заявка</p>
                                 <span>чтобы посмотреть нажмите сюда.</span>
@@ -55,7 +55,7 @@
         <div class="minBlock">
             <div class="leftMenuWrap">
                 <div class="leftMenuWrap__leftMenu">
-                    <a href="#">
+                    <a href="admin/admMain">
                         <div class="leftMenuWrap__leftMenu--item">
 
                             <div class="leftMenuImg item1"></div> 

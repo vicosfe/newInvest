@@ -197,6 +197,51 @@ $(document).ready(function(){
 /********************************************************************/
 
 
+var customFileDocs = $(".asdasd");
+var customFileDocs1 =  document.getElementById("customFileDocs1");
+var addDocsForm__content = $(".addDocsForm__content");
+var addDocsFormItem = $(".addDocsFormItem");
+$(customFileDocs).on("change",function () {
+  if (customFileDocs1.files.length == 0) {
+    return  0;
+  }else{
+    files = this.files;
+for(var a=0;a<files.length;a++)
+
+  $(addDocsForm__content).append('<div class="addDocsFormItem"><div class="addDocsFormItemDelete"><a href="#">x</a></div><div class="addDocsFormItem__img"></div><div class="addDocsFormItem__text">' + files[a].name + '</div></div>');
+  }
+});
+
+
+
+    var prewImgNews = $(".addArticlesMedia");
+      prewImgNews.change(() => {
+        var preview = document.querySelector('.articlesImagePrev');
+        var files   = document.querySelector('input[type=file]').files;
+
+        function readAndPreview(file) {
+
+    // Расширение у выбранного фото
+    if ( /\.(jpe?g|png|gif)$/i.test(file.name)) {
+      var reader = new FileReader();
+
+      reader.addEventListener("load", function () {
+        var image = new Image();
+        /*image.height = 190;*/
+        image.title = file.name;
+        image.src = this.result;
+        preview.appendChild( image );
+      }, false);
+
+      reader.readAsDataURL(file);
+    };
+
+  };
+
+  if (files) {
+    [].forEach.call(files, readAndPreview);
+  };
+});
 
 
 

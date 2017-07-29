@@ -36,11 +36,17 @@ Route::group(['prefix' => $localization->setLocale()], function()
     Route::get('/documents', function () {
         return view('documents');
     });
-     Route::get('/admMain', function () {
+     Route::get('admin/admMain', function () {
         return view('admin.admMain');
     });
-      Route::get('/add', function () {
+      Route::get('admin/add', function () {
         return view('admin.add');
+    });
+      Route::get('admin/addDocs', function () {
+        return view('admin.addDocs');
+    });
+      Route::get('admin/addArticles', function () {
+        return view('admin.addArticles');
     });
 
 

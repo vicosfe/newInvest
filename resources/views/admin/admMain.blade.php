@@ -4,7 +4,7 @@
 <section style="height: calc(100% - 70px);">
 	<div class="admMainPage">
 
-		<a href="/add">
+		<a href="admin/add">
 			<div class="admMainItemWrapper">
 				<div class="wrapperaue">
 					<div class="admMainPage__item mItem1"></div>	

@@ -3,18 +3,7 @@
 <!--  -->
 <section style="height: calc(100% - 70px);">
 
-	<section>
-		<div class="addDescription">
-			<div class="addDescription__img">
-				<div class="addDescription__img--block"></div>	
-			</div>
-			<div class="addDescription__text">
-				<h3>Добавление контента</h3>
-				<p>Здесь вы можете добавить информацию во все разделы сайта.</p>
-			</div>
-		</div>	
-	</section>
-
+	@include('admin.addTopPanel')
 
 	<section>
 		<div class="addContent">
@@ -27,7 +16,6 @@
 				
 				<ul>
 					<li class="activeItem"><a href="#">Добавление новостей</a></li>
-					<li><a href="#">Добавление документов</a></li>
 					<li><a href="#">Добавление статей</a></li>
 					<li><a href="#">Добавление уникальных страниц</a></li>
 				</ul>
@@ -78,20 +66,20 @@ bkLib.onDomLoaded(function() { nicEditors.allTextAreas() });
 <div class="addNewsForm__right">
 	<!-- Превью загружаемой картинки -->
 	<div class="wrapperPrevImg">
-	<label>
-	<div class="customFile">
-		<div class="customFile__img"></div>
-		<div class="customFile__text">Добавить фото</div>
-	</div>
-		<div class="inptHide">
-			<input name="prewImgNews" class="prewImgNews" type="file" >
-			
-		</div>
-		
-		</label>	
-<div class="imagePrevWrapper">
-				<div class="imagePrev"></div>
+		<label>
+			<div class="customFile">
+				<div class="customFile__img"></div>
+				<div class="customFile__text">Добавить фото</div>
 			</div>
+			<div class="inptHide">
+				<input name="prewImgNews" class="prewImgNews" type="file" >
+				
+			</div>
+			
+		</label>	
+		<div class="imagePrevWrapper">
+			<div class="imagePrev"></div>
+		</div>
 
 	</div>
 
