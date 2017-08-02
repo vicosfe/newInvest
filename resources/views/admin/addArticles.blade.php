@@ -24,8 +24,8 @@
 	<section>
 		<div class="addArticles">
 			<h3>Добавление статьи</h3>
-
-			<form class="addArticlesForm" action="/admin/articles/add" method="POST" enctype="multipart/form-data">
+			<?php $id = (!empty($item->id))? "/".$item->id :""; ?>
+			<form class="addArticlesForm" action="/admin/add/articles{{$id}}" method="POST" enctype="multipart/form-data">
 				<div class="addArticlesForm__left">
 					<select  required name="addArticlesSelect1" id="addArticlesSelect1">
 						<option value="0">Нет</option>
@@ -72,7 +72,7 @@
 								<div class="customFileImg__text">Выбрать медиа</div>
 							</div>
 							<div class="inptHideImg">
-								<input name="prewImgNews"  multiple required  class="addArticlesMedia" type="file" >
+								<input name="prewImgNews[]"  multiple  class="addArticlesMedia" type="file" >
 							</div>
 						</label>
 
@@ -82,11 +82,11 @@
 								<div class="customFileDocs__text">Выбрать документы</div>
 							</div>
 							<div class="inptHideDocs">
-								<input name="prewDocsNews" size="50" required multiple class="asdasd" type="file" id="customFileDocs1" >
+								<input name="prewDocsNews[]" size="50"  multiple class="asdasd" type="file" id="customFileDocs1" >
 							</div>
 						</label>
 
-						
+						{{csrf_field()}}
 
 					</div>	
 					

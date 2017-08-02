@@ -15,15 +15,30 @@ class ArticleController extends Controller
 {
 
 
-    public function add(Request $request){
+    public function add($id = null, Request $request){
         if (!count(Auth::user())){
             return redirect("/login");
         }
+
         $newItem = new Article();
-        $newItem->title = $request->input("addNewsCaption");
-        $newItem->content = ($request->input("area2"))? $request->input("area2") : "";
-        $newItem->published = 1;
+        if ($id){
+            $newItem = Article::find($id);
+        }
+        $newItem->title = $request->input("addArticleCaption");
+        $newItem->description = ($request->input("area2"))? $request->input("area2") : "";
+
+        if (!empty($request->input("addArticlesSelect2"))){
+            $newItem->cat_id = $request->input("addArticlesSelect2") ;
+        }
+        else if (!empty($request->input("addArticlesSelect1"))){
+            $newItem->cat_id = $request->input("addArticlesSelect1") ;
+        }
+        else{
+            $newItem->cat_id = 0 ;
+        }
+
         $images = $request->prewImgNews;
+
         if (count($images)) {
             $firstImg = array_shift($images);
             $pref = rand(1, 10000);
@@ -31,25 +46,38 @@ class ArticleController extends Controller
             $firstImg->move(public_path() . '/images/news/', $name);
             $newItem->img = "/public/images/news/" . $name;
             $newItem->save();
-            $newMedia = new Media_New();
+            $newMedia = new Media_Article();
             $newMedia->img = $newItem->img;
-            $newMedia->id_news = $newItem->id;
-            $newMedia->published_main = 0;
+            $newMedia->id_article = $newItem->id;
             $newMedia->save();
             foreach ($images as $f) {
                 $pref = rand(1, 10000);
                 $name = $pref . $f->getClientOriginalName();
                 $f->move(public_path() . '/images/news/', $name);
-                $newMedia = new Media_New();
+                $newMedia = new Media_Article();
                 $newMedia->img = "/public/images/news/" . $name;
-                $newMedia->id_news = $newItem->id;
-                $newMedia->published_main = 0;
+                $newMedia->id_article = $newItem->id;
                 $newMedia->save();
             }
         }
         else{
             $newItem->img ="/public/images/empty.png";
+            $newItem->save();
+        }
 
+        $docs = $request->prewDocsNews;
+
+        if (count($docs)) {
+            foreach ($docs as $f) {
+                $pref = rand(1, 10000);
+                $name = $pref . $f->getClientOriginalName();
+                $f->move(public_path() . '/docs/', $name);
+                $newMedia = new Media_Articledoc();
+                $newMedia->link = "/public/docs/" . $name;
+                $newMedia->id_article = $newItem->id;
+                $newMedia->title =  $f->getClientOriginalName();
+                $newMedia->save();
+            }
         }
         return back();
     }

@@ -19,11 +19,14 @@ class NewsController extends Controller
 
     }
 
-    public function add(Request $request){
+    public function add( $id = null,Request $request){
         if (!count(Auth::user())){
             return redirect("/login");
         }
         $newItem = new News();
+        if ($id){
+            $newItem = News::find($id);
+        }
         $newItem->title = $request->input("addNewsCaption");
         $newItem->content = ($request->input("area2"))? $request->input("area2") : "";
         $newItem->published = 1;
@@ -53,7 +56,7 @@ class NewsController extends Controller
         }
         else{
             $newItem->img ="/public/images/empty.png";
-
+            $newItem->save();
         }
         return back();
     }
