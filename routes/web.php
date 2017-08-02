@@ -11,6 +11,14 @@ use Mcamara\LaravelLocalization\LaravelLocalization;
 |
 */
 $localization = new LaravelLocalization();
+Auth::routes();
+Route::get('/logout','Admin\IndexController@logout');
+Route::get('/register','Admin\IndexController@login');
+Route::post('/admin/news/add','Admin\NewsController@add');
+
+
+
+
 Route::get('/parseMkala', 'ParserController@index');
 Route::group(['prefix' => $localization->setLocale()], function()
 {
@@ -36,19 +44,17 @@ Route::group(['prefix' => $localization->setLocale()], function()
     Route::get('/documents', function () {
         return view('documents');
     });
-     Route::get('admin/admMain', function () {
+
+    Route::get('/admin/home', function () {
         return view('admin.admMain');
     });
-      Route::get('admin/add', function () {
-        return view('admin.add');
-    });
-      Route::get('admin/addDocs', function () {
+
+    Route::get('admin/edit/news/{id?}', 'Admin\NewsController@edit');
+
+    Route::get('admin/edit/articles/{id?}', 'Admin\ArticleController@edit');
+    Route::get('admin/edit/docs', function () {
         return view('admin.addDocs');
     });
-      Route::get('admin/addArticles', function () {
-        return view('admin.addArticles');
-    });
-
 
 
     /*СТАТЬИ БЛЯТ*/

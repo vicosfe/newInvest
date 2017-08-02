@@ -8,17 +8,17 @@
 	<section>
 		<div class="addContent">
 			<div class="addContent__header">
-				<a href="#">
+				<a href="/admin/home">
 					<div class="addContent__header--arrow">
 						<div class="imgArrow"></div>
 					</div>
 				</a>
 				
 				<ul>
-					<li><a href="#">Добавление новостей</a></li>
-					<li class="activeItem"><a href="#">Добавление документов</a></li>
-					<li><a href="#">Добавление статей</a></li>
-					<li><a href="#">Добавление уникальных страниц</a></li>
+					<li><a href="/admin/edit/news">Добавление новостей</a></li>
+					<li class="activeItem"><a href="/admin/edit/docs">Добавление документов</a></li>
+					<li><a href="/admin/edit/articles">Добавление статей</a></li>
+					<li><a href="/admin/edit/pages">Добавление уникальных страниц</a></li>
 				</ul>
 			</div>
 		</div>

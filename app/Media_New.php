@@ -20,4 +20,11 @@ class Media_New extends Model
         $news = Media_New::where('id_news',$id)->orderBy('created_at', 'DESC')->get();
         return $news;
     }
+
+    public static function addItemMedia($id=0)
+    {
+
+        $news = Media_New::where('id_news',$id)->orderBy('created_at', 'DESC')->get();
+        return $news;
+    }
 }

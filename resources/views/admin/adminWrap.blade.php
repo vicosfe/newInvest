@@ -28,13 +28,13 @@
                 </div>
                 <div class="topHeaderWrapper__logo">
                     <a href="#">
-                        <img src="../public/images/admin/logoAdm.png" alt="">
+                        <img src="/public/images/admin/logoAdm.png" alt="">
                     </a>
                 </div>
                 <div class="topHeaderWrapper__right">
                     <a href="#">
                         <div class="notificationBlock">
-                            <img src="../public/images/admin/notification.png" alt="">
+                            <img src="/public/images/admin/notification.png" alt="">
                             <div class="notificationBlock__text">
                                 <p>У вас появилась новая заявка</p>
                                 <span>чтобы посмотреть нажмите сюда.</span>
@@ -44,7 +44,7 @@
                     </a>
                     <!-- Tyt dopolnitelniy class "notificationActive", kotoriy pokazivaet opovesheniya -->
                     <i class="fa fa-bell-o notificationActive" aria-hidden="true"></i>
-                    <a href="#">
+                    <a href="/logout">
                         <i class="fa fa-sign-out" aria-hidden="true"></i>
                     </a>
                 </div>
@@ -55,7 +55,7 @@
         <div class="minBlock">
             <div class="leftMenuWrap">
                 <div class="leftMenuWrap__leftMenu">
-                    <a href="admin/admMain">
+                    <a href="/admin/edit/news">
                         <div class="leftMenuWrap__leftMenu--item">
 
                             <div class="leftMenuImg item1"></div> 

@@ -7,16 +7,16 @@
 	<section>
 		<div class="addContent">
 			<div class="addContent__header">
-				<a href="#">
+				<a href="/admin/home">
 					<div class="addContent__header--arrow">
 						<div class="imgArrow"></div>
 					</div>
 				</a>
-				
 				<ul>
-					<li><a href="#">Добавление новостей</a></li>
-					<li class="activeItem"><a href="#">Добавление статей</a></li>
-					<li><a href="#">Добавление уникальных страниц</a></li>
+					<li><a href="/admin/edit/news">Добавление новостей</a></li>
+					<li><a href="/admin/edit/docs">Добавление документов</a></li>
+					<li class="activeItem"><a href="/admin/edit/articles">Добавление статей</a></li>
+					<li><a href="/admin/edit/pages">Добавление уникальных страниц</a></li>
 				</ul>
 			</div>
 		</div>
@@ -25,28 +25,26 @@
 		<div class="addArticles">
 			<h3>Добавление статьи</h3>
 
-			<form action="#" class="addArticlesForm">
+			<form class="addArticlesForm" action="/admin/articles/add" method="POST" enctype="multipart/form-data">
 				<div class="addArticlesForm__left">
 					<select  required name="addArticlesSelect1" id="addArticlesSelect1">
-						<option value="">Выберите пункт</option>
-						<option value="investmentActivities">Инвестиционная деятельность</option>
-						<option value="investoru">Инвестору</option>
-						<option value="smallEntrepreneurship">Малое и среднее предпринимательство</option>
-						<option value="media">Медиа</option>
+						<option value="0">Нет</option>
+						@foreach($menu  as $m)
+							<option value="{{$m->id}}" @if($parrent_cat == $m->id or $cat == $m->id) selected @endif>{{$m->title}}</option>
+						@endforeach
 					</select>
-					<select name="addArticlesSelect2" id="">
-						<option value="">Выберите пункт</option>
-						<option value="">1</option>
-						<option value="">2</option>
-						<option value="">3</option>
-						<option value="">4</option>
-						<option value="">5</option>
-						<option value="">6</option>
-						<option value="">7</option>
-					</select>
+					@foreach($menu  as $m)
+						<select name="addArticlesSelect2" id="child{{$m->id}}" class="childs" @if($parrent_cat != $m->id)  style="display:none;"  @endif>
+							<option value="0">Нет</option>
+							@foreach($m["items"]  as $mm)
+								<option value="{{$mm->id}}" @if($cat == $mm->id or $parrent_cat == $mm->id) selected @endif>{{$mm->title}}</option>
+							@endforeach
+						</select>
+					@endforeach
+
 
 					<div class="addArticlesForm__group">      
-						<input type="text" name="addArticleCaption"  required>
+						<input type="text" name="addArticleCaption"  required value="{{$item->title}}">
 						<span class="highlight"></span>
 						<span class="bar"></span>
 						<label>Заголовок статьи</label>
@@ -57,12 +55,13 @@
 							<script type="text/javascript" src="http://js.nicedit.com/nicEdit-latest.js"></script> 
 							<script type="text/javascript">bkLib.onDomLoaded(function() { nicEditors.allTextAreas() });</script>
 
-							<textarea name="area2" style="width: 100%;height: 180px;">
+							<textarea name="area2" style="width: 100%;height: 180px;">{!! $item->description !!}
 							</textarea><br>
 							<h4>
 							</h4>
 						</div>
 					</div>
+					<button class="goNews">Добавить статью</button>
 				</div>
 				<div class="addArticlesForm__right">
 					<div class="addArticlesForm__right--buttons">
@@ -118,7 +117,17 @@
 
 </section>
 
-
+<script>
+	$(document).ready(function(){
+       
+	    $("#addArticlesSelect1").on("change",function () {
+            $(".childs").not("#child"+$(this).val()).hide();
+            $(".childs").not("#child"+$(this).val()).attr("disabled","disabled");
+			$("#child"+$(this).val()).show();
+            $("#child"+$(this).val()).removeAttr("disabled");
+        })
+	})
+</script>
 
 <!--  -->
 @stop
