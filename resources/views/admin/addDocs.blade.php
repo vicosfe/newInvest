@@ -36,7 +36,7 @@
 							<div class="customFileDocs__text">Выбрать документы</div>
 						</div>
 						<div class="inptHideDocs">
-							<input name="prewImgNews" size="50" required multiple class="asdasd" type="file" id="customFileDocs1" >
+							<input name="prewDocs" size="50" required multiple class="asdasd" type="file" id="customFileDocs1" >
 
 						</div>
 					</label>

@@ -55,6 +55,10 @@ Route::group(['prefix' => $localization->setLocale()], function()
     Route::get('admin/edit/docs', function () {
         return view('admin.addDocs');
     });
+    Route::get('admin/edit/pages', function () {
+        return view('admin.addUniquePage');
+    });
+ 
 
 
     /*СТАТЬИ БЛЯТ*/

@@ -214,6 +214,7 @@ for(var a=0;a<files.length;a++)
 
 
 
+
     var prewImgNews = $(".addArticlesMedia");
       prewImgNews.change(() => {
         var preview = document.querySelector('.articlesImagePrev');
