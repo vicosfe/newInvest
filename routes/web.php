@@ -14,7 +14,6 @@ $localization = new LaravelLocalization();
 Auth::routes();
 Route::get('/logout','Admin\IndexController@logout');
 Route::get('/register','Admin\IndexController@login');
-Route::post('/admin/news/add','Admin\NewsController@add');
 
 
 
@@ -49,9 +48,12 @@ Route::group(['prefix' => $localization->setLocale()], function()
         return view('admin.admMain');
     });
 
-    Route::get('admin/edit/news/{id?}', 'Admin\NewsController@edit');
+    Route::get('/admin/edit/news/{id?}', 'Admin\NewsController@edit');
+    Route::post('/admin/add/news/{id?}','Admin\NewsController@add');
 
-    Route::get('admin/edit/articles/{id?}', 'Admin\ArticleController@edit');
+    Route::get('/admin/edit/articles/{id?}', 'Admin\ArticleController@edit');
+    Route::post('/admin/add/articles/{id?}','Admin\ArticleController@add');
+
     Route::get('admin/edit/docs', function () {
         return view('admin.addDocs');
     });

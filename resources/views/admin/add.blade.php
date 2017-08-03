@@ -27,7 +27,7 @@
 	<section>
 		<div class="addNews">
 			<h3>Добавление новости</h3>
-			<form action="/admin/news/add" class="addNewsForm" method="POST" enctype="multipart/form-data">
+			<form action="/admin/add/news/{{$item->id}}" class="addNewsForm" method="POST" enctype="multipart/form-data">
 			{{csrf_field()}}
 
 				<div class="addNewsForm__left">					
