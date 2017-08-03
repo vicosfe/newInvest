@@ -60,6 +60,10 @@ Route::group(['prefix' => $localization->setLocale()], function()
     Route::get('admin/edit/pages', function () {
         return view('admin.addUniquePage');
     });
+
+    Route::get('admin/change/news', function () {
+        return view('admin.editNews');
+    });
  
 
 
