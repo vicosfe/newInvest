@@ -2,7 +2,6 @@
 @section('content')
 <!--  -->
 <section style="height: calc(100% - 70px);">
-	@include('admin.popUpDeleteNews')
 	@include('admin.editTopPanel')
 
 	<section>
@@ -15,9 +14,9 @@
 				</a>
 				
 				<ul>
-					<li class="activeItem"><a href="/admin/change/news">Редактирование новостей</a></li>
+					<li><a href="/admin/change/news">Редактирование новостей</a></li>
 					<li><a href="/admin/change/docs">Редактирование документов</a></li>
-					<li><a href="/admin/change/articles">Редактирование статей</a></li>
+					<li class="activeItem"><a href="/admin/change/articles">Редактирование статей</a></li>
 					<li><a href="/admin/change/pages">Редактирование уникальных страниц</a></li>
 				</ul>
 			</div>
@@ -25,20 +24,21 @@
 	</section>
 
 	<section>
-		<div class="changeNews">
+		<div class="changeArticles">
 			
-			@include('admin.editContentNews')
-			<!-- @include('admin.blabla') -->
-
-	</div>
+			<!-- @include('admin.changeArticlesSearch') -->
+			@include('admin.changeArticlesEditor')
 
 
-</section>
+		</div>
 
 
-
+	</section>
 
 
 
-<!--  -->
-@stop
+
+
+
+	<!--  -->
+	@stop

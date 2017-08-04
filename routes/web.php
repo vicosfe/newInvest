@@ -64,6 +64,14 @@ Route::group(['prefix' => $localization->setLocale()], function()
     Route::get('admin/change/news', function () {
         return view('admin.editNews');
     });
+
+    Route::get('admin/change/docs', function () {
+        return view('admin.editDocs');
+    });
+
+    Route::get('admin/change/articles', function () {
+        return view('admin.editArticles');
+    });
  
 
 
