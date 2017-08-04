@@ -72,6 +72,10 @@ Route::group(['prefix' => $localization->setLocale()], function()
     Route::get('admin/change/articles', function () {
         return view('admin.editArticles');
     });
+
+    Route::get('admin/change/pages', function () {
+        return view('admin.editUniquePages');
+    });
  
 
 

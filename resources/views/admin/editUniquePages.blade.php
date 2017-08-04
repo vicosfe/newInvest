@@ -16,18 +16,18 @@
 				<ul>
 					<li><a href="/admin/change/news">Редактирование новостей</a></li>
 					<li><a href="/admin/change/docs">Редактирование документов</a></li>
-					<li class="activeItem"><a href="/admin/change/articles">Редактирование статей</a></li>
-					<li><a href="/admin/change/pages">Редактирование уникальных страниц</a></li>
+					<li><a href="/admin/change/articles">Редактирование статей</a></li>
+					<li class="activeItem"><a href="/admin/change/pages">Редактирование уникальных страниц</a></li>
 				</ul>
 			</div>
 		</div>
 	</section>
 
 	<section>
-		<div class="changeArticles">
+		<div class="changeUniquePages">
 			
-			@include('admin.changeArticlesSearch')
-			<!-- @include('admin.changeArticlesEditor') -->
+			<!-- @include('admin.changeUniquePagesSearch') -->
+			@include('admin.changeUniquePagesEditor')
 
 
 		</div>
