@@ -535,6 +535,7 @@ main{
 	padding: 0;
 
 }
+
 .addContent__header li{
 	width: 24%;
 	text-align: center;
@@ -547,7 +548,23 @@ main{
 	font-size: 12px;
 	font-family: "GothamPro";
 }
+@media (max-width: 1378px) {
+	.activeItem1{
+		color: #48a5ea !important;
+		border-bottom: 1px solid #48a5ea;
+		padding: 10px 0 !important;
+	}
+}
 
+
+.activeItem1{
+	color: #48a5ea !important;
+	border-bottom: 1px solid #48a5ea;
+	padding: 17px 0;
+}
+.activeItem1 a{
+	color: #48a5ea !important;
+}
 .activeItem{
 	color: #48a5ea !important;
 	border-bottom: 1px solid #48a5ea;
@@ -3651,4 +3668,233 @@ main{
   	font-family: "GothamPro-Medium";
   	margin: 0 auto;
   	text-decoration: none !important;
+  }
+
+
+  /* ******************************************************* */
+   /* Анимация iputs  */
+
+  .addProjectsForm__group  { 
+  	position:relative; 
+  	margin-bottom:45px; 
+  	width: 100%;
+  }
+  .addProjectsForm__group input{
+  	font-size: 1.25rem;
+  	padding:10px 10px 10px 5px;
+  	display:block;
+  	width:100%;
+  	max-width: 305px;
+  	border:none;
+  	border-bottom:1px solid #ebebeb;
+  	color: #333333;
+  	font-family: "GothamPro";
+  	-webkit-appearance: none;
+  }
+  .addProjectsForm__group input:focus{ 
+  	outline:none;
+  }
+
+  /* LABEL ======================================= */
+  .addProjectsForm__group label{
+  	color:#9e9e9e; 
+  	font-size:18px;
+  	font-weight:normal;
+  	position:absolute;
+  	pointer-events:none;
+  	left:5px;
+  	top:10px;
+  	transition:0.2s ease all; 
+  	-moz-transition:0.2s ease all; 
+  	-webkit-transition:0.2s ease all;
+  }
+
+  /* active state */
+  .addProjectsForm__group input:focus ~  label, .addProjectsForm__group input:valid ~  label  {
+  	top:-15px;
+  	font-size:14px;
+  	color:#48a5ea;
+  }
+  .addProjectsForm__group input[type="email"]:focus  ~  label{
+  	top:-15px;
+  	font-size:14px;
+  	color:#48a5ea;
+  }
+/* .addProjectsForm__group input[type="email"]:invalid ~ label{
+	top:-15px;
+  font-size:14px;
+  color:#48a5ea;
+  } */
+  .directCommunicationLabelVALID{
+  	top:-15px !important;
+  	font-size:14px !important;
+  	color:#48a5ea !important;
+  }
+
+  /* BOTTOM BARS ================================= */
+  .bar 	{ position:relative; display:block; width:100%; max-width: 305px; }
+  .bar:before, .bar:after 	{
+  	content:'';
+  	height:2px; 
+  	width:0;
+  	bottom:1px; 
+  	position:absolute;
+  	background:#48a5ea; 
+  	transition:0.2s ease all; 
+  	-moz-transition:0.2s ease all; 
+  	-webkit-transition:0.2s ease all;
+  }
+  .bar:before {
+  	left:50%;
+  }
+  .bar:after {
+  	right:50%; 
+  }
+
+  /* active state */
+  .addProjectsForm__group input:focus ~ .bar:before,.addProjectsForm__group input:focus ~ .bar:after {
+  	width:50%;
+  }
+
+  /* HIGHLIGHTER ================================== */
+  .highlight {
+  	position:absolute;
+  	height:60%; 
+  	width:100px; 
+  	top:25%; 
+  	left:0;
+  	pointer-events:none;
+  	opacity:0.5;
+  }
+
+  /* active state */
+  .addProjectsForm__group input:focus ~ .highlight {
+  	-webkit-animation:inputHighlighter 0.3s ease;
+  	-moz-animation:inputHighlighter 0.3s ease;
+  	animation:inputHighlighter 0.3s ease;
+  }
+
+  /* ANIMATIONS ================ */
+  @-webkit-keyframes inputHighlighter {
+  	from { background:#48a5ea; }
+  	to 	{ width:0; background:transparent; }
+  }
+  @-moz-keyframes inputHighlighter {
+  	from { background:#48a5ea; }
+  	to 	{ width:0; background:transparent; }
+  }
+  @keyframes inputHighlighter {
+  	from { background:#48a5ea; }
+  	to 	{ width:0; background:transparent; }
+  }
+
+
+  .addProjects{
+	width: 90%;
+	height: 100%;
+	background-color: #fff;
+	padding: 0 30px;
+	box-shadow: 0px 2px 5px #e0e0e0;
+	position: relative;
+	padding-top: 30px;
+	min-height: 77vh;
+}
+.addProjects h3{
+	color: #4a4a4a;
+	font-family: "GothamPro-Medium";
+	font-size: 1rem;
+	margin: 0;
+	margin-bottom: 24px;
+}
+.addProjectsForm{
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+	justify-content: space-between;
+}
+.addProjectsForm__left{
+	width: 40%;
+}
+.addProjectsForm__right{
+	width: 40%;
+}
+
+
+.newsEditor{
+  	min-height: 208px;
+  	width: 420px;
+  	margin-bottom: 30px;
+  }
+
+  .goProjects{
+  	width: 152px;
+  	height: 40px;
+  	color: #fff;
+  	font-family: "GothamPro-Light";
+  	font-size: 12px;
+  	text-align: center;
+  	background-color: #48a5ea;
+  	outline: 0;
+  	border: 0;
+  	border-radius: 20px;
+  	-webkit-transition: .2s all;
+  	-o-transition: .2s all;
+  	transition: .2s all;
+  	box-shadow: 0px 6px 15px #48a5ea
+  }
+  .goProjects:hover{
+  	cursor: pointer;
+  	-webkit-transform: scale(1.1);
+  	-ms-transform: scale(1.1);
+  	-o-transform: scale(1.1);
+  	transform: scale(1.1);
+  }
+  .imagePrevWrapper{
+  	display: -webkit-flex;
+  	display: -moz-flex;
+  	display: -ms-flex;
+  	display: -o-flex;
+  	display: flex;
+  	justify-content: space-between;
+  	flex-wrap: wrap;
+  }
+  .imagePrev{
+  	width: 100%;
+  	display: -webkit-flex;
+  	display: -moz-flex;
+  	display: -ms-flex;
+  	display: -o-flex;
+  	display: flex;
+  	justify-content: space-between;
+  	flex-wrap: wrap;
+  }
+  .imagePrev img{
+  	display: block;
+  	width: 23%;
+  	height: 100px;
+  	margin-bottom: 10px;
+  	border-radius: 10px;
+  	position: relative;
+  }
+  .imagePrev img::after{
+  	position: absolute;
+  	content: "\f00d";
+  	font-family: "Font Awesome";
+  	font-size: 9px;
+  	color: #fff;
+  	top: 0;
+  	right: 0;
+  	background-color: #000;
+  }
+  .prewImgProjects{
+  	display: none;
+  }
+  .addProjectsForm__right label{
+  	position: relative !important;
+  	pointer-events: auto !important;
+  }
+  .projectsEditor{
+  	margin: 25px 0;
   }

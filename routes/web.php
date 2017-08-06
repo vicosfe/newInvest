@@ -61,6 +61,10 @@ Route::group(['prefix' => $localization->setLocale()], function()
         return view('admin.addUniquePage');
     });
 
+    Route::get('admin/edit/projects', function () {
+        return view('admin.addProject');
+    });
+
     Route::get('admin/change/news', function () {
         return view('admin.editNews');
     });
@@ -76,6 +80,8 @@ Route::group(['prefix' => $localization->setLocale()], function()
     Route::get('admin/change/pages', function () {
         return view('admin.editUniquePages');
     });
+
+
  
 
 

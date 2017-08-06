@@ -17,8 +17,9 @@
 				<ul>
 					<li><a href="/admin/edit/news">Добавление новостей</a></li>
 					<li><a href="/admin/edit/docs">Добавление документов</a></li>
+					<li><a href="/admin/edit/projects">Добавление проекта</a></li>
 					<li><a href="/admin/edit/articles">Добавление статей</a></li>
-					<li class="activeItem"><a href="/admin/edit/pages">Добавление уникальных страниц</a></li>
+					<li class="activeItem1"><a href="/admin/edit/pages">Добавление уникальных страниц</a></li>
 				</ul>
 			</div>
 		</div>
