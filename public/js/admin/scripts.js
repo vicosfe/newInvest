@@ -211,7 +211,13 @@ for(var a=0;a<files.length;a++)
   $(addDocsForm__content).append('<div class="addDocsFormItem"><div class="addDocsFormItemDelete"><a href="#">x</a></div><div class="addDocsFormItem__img"></div><div class="addDocsFormItem__text">' + files[a].name + '</div></div>');
   }
 });
-
+var circlePlus = $(".circlePlus");
+var contentForAdd = $(".contentForAdd");
+$(contentForAdd).hide();
+$(circlePlus).on("click", function () {
+  $(contentForAdd).fadeIn();
+  $(circlePlus).hide();
+});
 
 
 
