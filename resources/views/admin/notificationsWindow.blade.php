@@ -1,0 +1,130 @@
+@extends('admin.adminWrap')
+@section('content')
+<!--  -->
+<section style="height: calc(100% - 70px);">
+	@include('admin.notificationTopPanel')
+	@include('admin.popUpDeleteNotifications')
+	<section>
+		<div class="addContent">
+			<div class="addContent__header">
+				<a href="/admin/home">
+					<div class="addContent__header--arrow">
+						<div class="imgArrow"></div>
+					</div>
+				</a>
+				
+				<ul>
+					<li class="activeItem"><a href="/admin/notification/window">Единое окно</a></li>
+					<li><a href="/admin/notification/directcommunication">Прямая связь с администрацией</a></li>
+					<li><a href="/admin/notification/goinvest">Стать инвестором</a></li>
+				</ul>
+			</div>
+		</div>
+	</section>
+
+	<section>
+		<div class="notificationblabla">
+			<div class="notifications1__wrapper">
+				<h3>Заявки с Единого окна</h3>
+				<form action="#" class="searchNotifications">
+					<div class="searchNotifications1Form__group">      
+						<input type="text" name="searchNotifications1"  required >
+						<span class="highlight"></span>
+						<span class="bar"></span>
+						<label>Поиск</label>
+						<i class="fa fa-search" aria-hidden="true"></i>
+					</div>
+				</form>
+			</div>
+
+			<div class="windowContent">
+				<div class="windowContent__top">
+					<ul>
+						<li style="width: 100%;max-width: 285px;">Email</li>
+						<li style="width: 100%;max-width: 400px;">Вопрос</li>
+						<li style="width: 100%;max-width: 265px;">Дата</li>
+					</ul>
+				</div>
+				<div class="windowContent__bottom">
+
+					<div class="infoItem">
+						<div class="infoItem__left">
+							<p>invest-mah@mail.ru</p>
+						</div>
+						<div class="infoItem__center">
+							<p>Тут будет вопрос пользователя который оставил заявку в Едином окне...
+								Тут будет вопрос пользователя который оставил заявку в Едином окне...
+								Тут будет вопрос пользователя который оставил заявку в Едином окне...</p>
+							</div>
+							<div class="infoItem__right">
+								<p>12.07.2017</p>
+							</div>
+							
+							<div class="infoItemDelete"><a href="#"><span>x</span></a></div>
+						</div>	
+
+						<div class="infoItem">
+						<div class="infoItem__left">
+							<p>invest-mah@mail.ru</p>
+						</div>
+						<div class="infoItem__center">
+							<p>Тут будет вопрос пользователя который оставил заявку в Едином окне...
+								Тут будет вопрос пользователя который оставил заявку в Едином окне...
+								Тут будет вопрос пользователя который оставил заявку в Едином окне...</p>
+							</div>
+							<div class="infoItem__right">
+								<p>12.07.2017</p>
+							</div>
+							
+							<div class="infoItemDelete"><a href="#"><span>x</span></a></div>
+						</div>	
+
+						<div class="infoItem">
+						<div class="infoItem__left">
+							<p>invest-mah@mail.ru</p>
+						</div>
+						<div class="infoItem__center">
+							<p>Тут будет вопрос пользователя который оставил заявку в Едином окне...
+								Тут будет вопрос пользователя который оставил заявку в Едином окне...
+								Тут будет вопрос пользователя который оставил заявку в Едином окне...</p>
+							</div>
+							<div class="infoItem__right">
+								<p>12.07.2017</p>
+							</div>
+							
+							<div class="infoItemDelete"><a href="#"><span>x</span></a></div>
+						</div>	
+
+						<div class="infoItem">
+						<div class="infoItem__left">
+							<p>invest-mah@mail.ru</p>
+						</div>
+						<div class="infoItem__center">
+							<p>Тут будет вопрос пользователя который оставил заявку в Едином окне...
+								Тут будет вопрос пользователя который оставил заявку в Едином окне...
+								Тут будет вопрос пользователя который оставил заявку в Едином окне...</p>
+							</div>
+							<div class="infoItem__right">
+								<p>12.07.2017</p>
+							</div>
+							
+							<div class="infoItemDelete"><a href="#"><span>x</span></a></div>
+						</div>	
+
+
+					</div>
+				</div>
+
+
+			</div>
+
+
+
+		</section>
+
+
+
+
+
+		<!--  -->
+		@stop

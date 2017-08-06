@@ -1,0 +1,194 @@
+@extends('admin.adminWrap')
+@section('content')
+<!--  -->
+<section style="height: calc(100% - 70px);">
+	@include('admin.notificationTopPanel')
+	@include('admin.popUpDeleteNotifications')
+	<section>
+		<div class="addContent">
+			<div class="addContent__header">
+				<a href="/admin/home">
+					<div class="addContent__header--arrow">
+						<div class="imgArrow"></div>
+					</div>
+				</a>
+				
+				<ul>
+					<li><a href="/admin/notification/window">Единое окно</a></li>
+					<li><a href="/admin/notification/directcommunication">Прямая связь с администрацией</a></li>
+					<li class="activeItem"><a href="/admin/notification/goinvest">Стать инвестором</a></li>
+				</ul>
+			</div>
+		</div>
+	</section>
+
+	<section>
+		<div class="notificationblabla">
+			<div class="notifications1__wrapper">
+				<h3>Заявки с прямой связи с администрацией</h3>
+				<form action="#" class="searchNotifications">
+					<div class="searchNotifications1Form__group">      
+						<input type="text" name="searchNotificationsGoInvest"  required >
+						<span class="highlight"></span>
+						<span class="bar"></span>
+						<label>Поиск</label>
+						<i class="fa fa-search" aria-hidden="true"></i>
+					</div>
+				</form>
+			</div>
+
+			<div class="windowContent">
+				<div class="windowContent__top">
+					<ul>
+						<li style="width: 100%;max-width: 285px;">ФИО</li>
+						<li style="width: 100%;max-width: 400px;">Сообщение</li>
+						<li style="width: 100%;max-width: 265px;">Дата</li>
+					</ul>
+				</div>
+				<div class="windowContent__bottom">
+
+					<div class="infoItem1">
+						<div class="infoItem1__left">
+							<div class="infoItem1__leftFio">
+								<h4>ФИО</h4>
+								<p>Константинов Константин Константинович</p>
+							</div>	
+
+							<div class="infoItem1__leftEmail">
+								<h4>Email</h4>
+								<p>invest-mah@mail.ru</p>
+							</div>				
+							
+							<div class="infoItem1__leftCompany">
+								<h4>Компания</h4>
+								<p>ОАО ”Ахалай махалай продакшен”</p>
+							</div>
+							
+						</div>
+						<div class="infoItem1__center">
+							<h4>Сообщение</h4>
+							<p>Тут будет вопрос пользователя который оставил заявку в Едином окне...
+								Тут будет вопрос пользователя который оставил заявку в Едином окне...
+								Тут будет вопрос пользователя который оставил заявку в Едином окне...</p>
+							</div>
+							<div class="infoItem1__right">
+								<h4>Дата</h4>
+								<p>12.07.2017</p>
+							</div>
+							
+							<div class="infoItem1Delete1"><a href="#"><span>x</span></a></div>
+						</div>	
+
+						<div class="infoItem1">
+						<div class="infoItem1__left">
+							<div class="infoItem1__leftFio">
+								<h4>ФИО</h4>
+								<p>Константинов Константин Константинович</p>
+							</div>	
+
+							<div class="infoItem1__leftEmail">
+								<h4>Email</h4>
+								<p>invest-mah@mail.ru</p>
+							</div>				
+							
+							<div class="infoItem1__leftCompany">
+								<h4>Компания</h4>
+								<p>ОАО ”Ахалай махалай продакшен”</p>
+							</div>
+							
+						</div>
+						<div class="infoItem1__center">
+							<h4>Сообщение</h4>
+							<p>Тут будет вопрос пользователя который оставил заявку в Едином окне...
+								Тут будет вопрос пользователя который оставил заявку в Едином окне...
+								Тут будет вопрос пользователя который оставил заявку в Едином окне...</p>
+							</div>
+							<div class="infoItem1__right">
+								<h4>Дата</h4>
+								<p>12.07.2017</p>
+							</div>
+							
+							<div class="infoItem1Delete1"><a href="#"><span>x</span></a></div>
+						</div>
+
+						<div class="infoItem1">
+						<div class="infoItem1__left">
+							<div class="infoItem1__leftFio">
+								<h4>ФИО</h4>
+								<p>Константинов Константин Константинович</p>
+							</div>	
+
+							<div class="infoItem1__leftEmail">
+								<h4>Email</h4>
+								<p>invest-mah@mail.ru</p>
+							</div>				
+							
+							<div class="infoItem1__leftCompany">
+								<h4>Компания</h4>
+								<p>ОАО ”Ахалай махалай продакшен”</p>
+							</div>
+							
+						</div>
+						<div class="infoItem1__center">
+							<h4>Сообщение</h4>
+							<p>Тут будет вопрос пользователя который оставил заявку в Едином окне...
+								Тут будет вопрос пользователя который оставил заявку в Едином окне...
+								Тут будет вопрос пользователя который оставил заявку в Едином окне...</p>
+							</div>
+							<div class="infoItem1__right">
+								<h4>Дата</h4>
+								<p>12.07.2017</p>
+							</div>
+							
+							<div class="infoItem1Delete1"><a href="#"><span>x</span></a></div>
+						</div>
+
+						<div class="infoItem1">
+						<div class="infoItem1__left">
+							<div class="infoItem1__leftFio">
+								<h4>ФИО</h4>
+								<p>Константинов Константин Константинович</p>
+							</div>	
+
+							<div class="infoItem1__leftEmail">
+								<h4>Email</h4>
+								<p>invest-mah@mail.ru</p>
+							</div>				
+							
+							<div class="infoItem1__leftCompany">
+								<h4>Компания</h4>
+								<p>ОАО ”Ахалай махалай продакшен”</p>
+							</div>
+							
+						</div>
+						<div class="infoItem1__center">
+							<h4>Сообщение</h4>
+							<p>Тут будет вопрос пользователя который оставил заявку в Едином окне...
+								Тут будет вопрос пользователя который оставил заявку в Едином окне...
+								Тут будет вопрос пользователя который оставил заявку в Едином окне...</p>
+							</div>
+							<div class="infoItem1__right">
+								<h4>Дата</h4>
+								<p>12.07.2017</p>
+							</div>
+							
+							<div class="infoItem1Delete1"><a href="#"><span>x</span></a></div>
+						</div>
+
+
+					</div>
+				</div>
+
+
+			</div>
+
+
+
+		</section>
+
+
+
+
+
+		<!--  -->
+		@stop

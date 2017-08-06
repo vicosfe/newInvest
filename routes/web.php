@@ -101,6 +101,20 @@ Route::group(['prefix' => $localization->setLocale()], function()
         return view('admin.settingSlide');
     });
 
+    Route::get('admin/notification/window', function () {
+        return view('admin.notificationsWindow');
+    });
+
+    Route::get('admin/notification/directcommunication', function () {
+        return view('admin.notificationDirectCommunication');
+    });
+
+    Route::get('admin/notification/goinvest', function () {
+        return view('admin.notificationGoInvest');
+    });
+
+    
+
 
  
 

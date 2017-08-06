@@ -85,7 +85,7 @@
                         </div>   
                     </a>
 
-                    <a href="/admin/settings/opros">
+                    <a href="/admin/notification/window">
                         <div class="leftMenuWrap__leftMenu--item">
 
                             <div class="leftMenuImg item4"></div> 

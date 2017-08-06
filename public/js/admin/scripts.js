@@ -258,8 +258,39 @@ $(kolichestvo).on("change", function () {
 });
 
 
+var infoItem = $(".infoItem");
+$(infoItem).on("click",function () {
+  if($(this).hasClass("infoItemActive")){
+    $(this).removeClass("infoItemActive");
+  }else {
+    $(this).addClass("infoItemActive");
+  }
+});
 
 
+var infoItem1 = $(".infoItem1");
+$(infoItem1).on("click",function () {
+  if($(this).hasClass("infoItem1Active")){
+    $(this).removeClass("infoItem1Active");
+  }else {
+    $(this).addClass("infoItem1Active");
+  }
+});
+
+
+var box_popUpDelNews = $(".box_popUpDelNews");
+var dontDelete =$(".dontDelete");
+var infoItemDelete = $(".infoItemDelete");
+var infoItem1Delete1 = $(".infoItem1Delete1");
+$(infoItem1Delete1).on("click",function () {
+  $(box_popUpDelNews).fadeIn();
+});
+$(infoItemDelete).on("click",function () {
+  $(box_popUpDelNews).fadeIn();
+});
+$(dontDelete).on("click",function () {
+  $(box_popUpDelNews).fadeOut();
+})
 // var circlePlus = $(".circlePlus");
 // var contentForAdd = $(".contentForAdd");
 // $(contentForAdd).hide();
