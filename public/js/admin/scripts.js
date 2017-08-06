@@ -1,7 +1,7 @@
 $(document).ready(function(){
 // checker **************************************************
 
- (function($){
+(function($){
   $.fn.viewportChecker = function(useroptions){
         // Define options and extend with user
         var options = {
@@ -194,39 +194,88 @@ $(document).ready(function(){
   };
 });
 
-/********************************************************************/
 
 
-var customFileDocs = $(".asdasd");
-var customFileDocs1 =  document.getElementById("customFileDocs1");
-var addDocsForm__content = $(".addDocsForm__content");
-var addDocsFormItem = $(".addDocsFormItem");
-$(customFileDocs).on("change",function () {
-  if (customFileDocs1.files.length == 0) {
-    return  0;
-  }else{
-    files = this.files;
-for(var a=0;a<files.length;a++)
+  
 
-  $(addDocsForm__content).append('<div class="addDocsFormItem"><div class="addDocsFormItemDelete"><a href="#">x</a></div><div class="addDocsFormItem__img"></div><div class="addDocsFormItem__text">' + files[a].name + '</div></div>');
+
+      /********************************************************************/
+
+
+      var customFileDocs = $(".asdasd");
+      var customFileDocs1 =  document.getElementById("customFileDocs1");
+      var addDocsForm__content = $(".addDocsForm__content");
+      var addDocsFormItem = $(".addDocsFormItem");
+      $(customFileDocs).on("change",function () {
+        if (customFileDocs1.files.length == 0) {
+          return  0;
+        }else{
+          files = this.files;
+          for(var a=0;a<files.length;a++)
+
+            $(addDocsForm__content).append('<div class="addDocsFormItem"><div class="addDocsFormItemDelete"><a href="#">x</a></div><div class="addDocsFormItem__img"></div><div class="addDocsFormItem__text">' + files[a].name + '</div></div>');
+        }
+      });
+
+
+
+var kolichestvo = $("#kolichestvo");
+var addOprosForm__group1 = $(".addOprosForm__group1"); //0
+var addOprosForm__group2 = $(".addOprosForm__group2"); //1
+var addOprosForm__group3 = $(".addOprosForm__group3"); //2
+var addOprosForm__group4 = $(".addOprosForm__group4"); //3
+var addOprosForm__group5 = $(".addOprosForm__group5"); //4
+var addOprosForm__group6 = $(".addOprosForm__group6"); //5
+
+var list = $(".addOprosForm__group2, .addOprosForm__group3, .addOprosForm__group4 ,.addOprosForm__group5, .addOprosForm__group6");
+$(list).hide();
+$(kolichestvo).on("change", function () {
+  var showKolichestvo = this.selectedIndex;
+  if(showKolichestvo == 0 ){
+    $(list).hide();
+    $(addOprosForm__group1).fadeIn();
+  } else if (showKolichestvo == 1){
+    $(list).hide();
+    $(addOprosForm__group2).fadeIn();
+  }else if(showKolichestvo == 2){
+     $(list).hide();
+    $(addOprosForm__group2).fadeIn();
+    $(addOprosForm__group3).fadeIn();
+  }else if(showKolichestvo == 3){
+    $(list).hide();
+    $(addOprosForm__group2).fadeIn();
+    $(addOprosForm__group3).fadeIn();
+    $(addOprosForm__group4).fadeIn();
+  }else if(showKolichestvo == 4){
+    $(list).hide();
+    $(addOprosForm__group2).fadeIn();
+    $(addOprosForm__group3).fadeIn();
+    $(addOprosForm__group4).fadeIn();
+    $(addOprosForm__group5).fadeIn();
+  }else if (showKolichestvo == 5){
+    $(list).fadeIn();
   }
 });
-var circlePlus = $(".circlePlus");
-var contentForAdd = $(".contentForAdd");
-$(contentForAdd).hide();
-$(circlePlus).on("click", function () {
-  $(contentForAdd).fadeIn();
-  $(circlePlus).hide();
-});
 
 
 
-    var prewImgNews = $(".addArticlesMedia");
-      prewImgNews.change(() => {
-        var preview = document.querySelector('.articlesImagePrev');
-        var files   = document.querySelector('input[type=file]').files;
 
-        function readAndPreview(file) {
+// var circlePlus = $(".circlePlus");
+// var contentForAdd = $(".contentForAdd");
+// $(contentForAdd).hide();
+// $(circlePlus).on("click", function () {
+//   $(contentForAdd).fadeIn();
+//   $(circlePlus).hide();
+// });
+
+
+
+var prewImgNews = $(".addArticlesMedia");
+prewImgNews.change(() => {
+  var preview = document.querySelector('.articlesImagePrev');
+  var files   = document.querySelector('input[type=file]').files;
+
+  function readAndPreview(file) {
 
     // Расширение у выбранного фото
     if ( /\.(jpe?g|png|gif)$/i.test(file.name)) {
@@ -253,4 +302,4 @@ $(circlePlus).on("click", function () {
 
 
 /*doc.ready-end*/
-  });
+});

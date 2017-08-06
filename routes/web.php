@@ -85,11 +85,27 @@ Route::group(['prefix' => $localization->setLocale()], function()
         return view('admin.editProjects');
     });
 
+    Route::get('admin/settings/opros', function () {
+        return view('admin.settingOpros');
+    });
+
+    Route::get('admin/settings/usefullink', function () {
+        return view('admin.settingUsefulLinks');
+    });
+
+    Route::get('admin/settings/menu', function () {
+        return view('admin.settingMenu');
+    });
+
+    Route::get('admin/settings/slide', function () {
+        return view('admin.settingSlide');
+    });
+
 
  
 
 
-    /*СТАТЬИ БЛЯТ*/
+    /*СТАТЬИ ыыы*/
     Route::get('/article/{id?}', 'ArticleController@item');
 
     Route::get('/articles/{id?}','ArticleController@index');

@@ -3,7 +3,7 @@
 
 
 			<div class="changePagesLeft">
-				<h3>Добавление уникальной страницы</h3>
+				<h3>Редактирование уникальной страницы</h3>
 
 				<form action="#" class="changePagesForm">
 					<select name="changePages1" id="changePages1" required>

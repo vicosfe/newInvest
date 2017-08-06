@@ -28,7 +28,7 @@
 		<div class="changeDocs">
 			
 			<div class="changeDocs__wrapper">
-				<h3>Редактирование новости</h3>
+				<h3>Редактирование документов</h3>
 				<form action="#" class="searchDocsForm">
 					<div class="searchDocsForm__group">      
 						<input type="text" name="searchDocs"  required >

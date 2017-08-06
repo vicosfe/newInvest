@@ -65,7 +65,7 @@
                         </div>   
                     </a>
 
-                    <a href="#">
+                    <a href="/admin/change/news">
                         <div class="leftMenuWrap__leftMenu--item">
 
                             <div class="leftMenuImg item2"></div> 
@@ -75,7 +75,7 @@
                         </div>   
                     </a>
 
-                    <a href="#">
+                    <a href="/admin/settings/opros">
                         <div class="leftMenuWrap__leftMenu--item">
 
                             <div class="leftMenuImg item3"></div> 
@@ -85,7 +85,7 @@
                         </div>   
                     </a>
 
-                    <a href="#">
+                    <a href="/admin/settings/opros">
                         <div class="leftMenuWrap__leftMenu--item">
 
                             <div class="leftMenuImg item4"></div> 
