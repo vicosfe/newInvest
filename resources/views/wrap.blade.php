@@ -41,10 +41,11 @@
                 <div class="wrapperRighttopHeader">
                     <div class="wrapperRighttopHeader__top">
                         <div class="mainSearch">
-                            <form action="#" class="formMainSearch">
-                                <input type="search" placeholder="{{trans("menu.input_search")}}" name="mainSearch" class="formMainSearch__input">
+                            <form action="/search" class="formMainSearch" method="POST">
+                                {{csrf_field()}}
+                                <input type="text" placeholder="{{trans("menu.input_search")}}" name="mainSearch" class="formMainSearch__input">
                                 <span><i class="fa fa-search" aria-hidden="true"></i></span>
-                                <a href="#" class="formMainSearch__button">{{trans("menu.btn_find")}}</a>
+                                <button type="submit" class="formMainSearch__button">{{trans("menu.btn_find")}}</button>
                             </form>
 
                         </div>
@@ -116,10 +117,11 @@
         <div class="centerBlock">
             <div class="footer__nav">
                 <ul>
-                    <li><a href="#">{{trans("menu.investment_activity")}}</a></li>
-                    <li><a href="#">Инвестору</a></li>
-                    <li><a href="#">Малое и среднее предпринимательство</a></li>
-                    <li><a href="#">Медиа</a></li>
+
+                    @foreach($menu as $itemmenu)
+                        <li><a href="{{$itemmenu->link}}">{{$itemmenu->title}}</a></li>
+                    @endforeach
+
                 </ul>
             </div>
             <div class="footer__info">

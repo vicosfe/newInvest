@@ -5928,3 +5928,42 @@ main{
   .infoItem1:hover .infoItem1Delete1{
   	display: block;
   }
+
+.tm{
+	width:100%;
+}
+.tm tr td:first-child{
+	display: block;
+	width: 5% !important;
+	height: 40px;
+	padding: 10px 0;
+}
+.tm td{
+	display: block;
+	margin: 0 5px !important;
+}
+.tm tr{
+	display: flex;
+	justify-content: space-between;
+	margin: 10px 0;
+}
+.tm tr td:nth-child(2), .tm tr td:nth-child(3), .tm tr td:nth-child(5){
+	 display: block;
+	 width: 22% !important;
+	 height: 50px;
+
+ }
+.tm tr td:nth-child(4) , .tm tr td:nth-child(6) {
+	display: block;
+	width: 12% !important;
+	height: 50px;
+
+}
+.tm tr td:nth-child(7){
+	display: block;
+	width: 10% !important;
+	height: 50px;
+}
+.tm tr td input,.tm tr td select {
+	width:100%;
+}

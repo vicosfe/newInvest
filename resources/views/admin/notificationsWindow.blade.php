@@ -46,70 +46,27 @@
 					</ul>
 				</div>
 				<div class="windowContent__bottom">
-
+					@foreach($items as $item)
+                        <? $data = json_decode($item->data)?>
 					<div class="infoItem">
 						<div class="infoItem__left">
-							<p>invest-mah@mail.ru</p>
-						</div>
-						<div class="infoItem__center">
-							<p>Тут будет вопрос пользователя который оставил заявку в Едином окне...
-								Тут будет вопрос пользователя который оставил заявку в Едином окне...
-								Тут будет вопрос пользователя который оставил заявку в Едином окне...</p>
-							</div>
-							<div class="infoItem__right">
-								<p>12.07.2017</p>
-							</div>
-							
-							<div class="infoItemDelete"><a href="#"><span>x</span></a></div>
-						</div>	
+							<p>{{$data->name}} - {{$data->tel}}</p>
+							<p>{{$data->from}}</p>
 
-						<div class="infoItem">
-						<div class="infoItem__left">
-							<p>invest-mah@mail.ru</p>
 						</div>
 						<div class="infoItem__center">
-							<p>Тут будет вопрос пользователя который оставил заявку в Едином окне...
-								Тут будет вопрос пользователя который оставил заявку в Едином окне...
-								Тут будет вопрос пользователя который оставил заявку в Едином окне...</p>
-							</div>
-							<div class="infoItem__right">
-								<p>12.07.2017</p>
-							</div>
-							
-							<div class="infoItemDelete"><a href="#"><span>x</span></a></div>
-						</div>	
+							<p>{{$data->text}}</p>
 
-						<div class="infoItem">
-						<div class="infoItem__left">
-							<p>invest-mah@mail.ru</p>
-						</div>
-						<div class="infoItem__center">
-							<p>Тут будет вопрос пользователя который оставил заявку в Едином окне...
-								Тут будет вопрос пользователя который оставил заявку в Едином окне...
-								Тут будет вопрос пользователя который оставил заявку в Едином окне...</p>
 							</div>
 							<div class="infoItem__right">
-								<p>12.07.2017</p>
+								<p>{{$item->created_at}}</p>
+								<p>Компания - {{$data->company}}</p>
 							</div>
 							
-							<div class="infoItemDelete"><a href="#"><span>x</span></a></div>
-						</div>	
+							<div class="infoItemDelete" data-id="{{$item->id}}"><a href="#"><span>x</span></a></div>
+						</div>
 
-						<div class="infoItem">
-						<div class="infoItem__left">
-							<p>invest-mah@mail.ru</p>
-						</div>
-						<div class="infoItem__center">
-							<p>Тут будет вопрос пользователя который оставил заявку в Едином окне...
-								Тут будет вопрос пользователя который оставил заявку в Едином окне...
-								Тут будет вопрос пользователя который оставил заявку в Едином окне...</p>
-							</div>
-							<div class="infoItem__right">
-								<p>12.07.2017</p>
-							</div>
-							
-							<div class="infoItemDelete"><a href="#"><span>x</span></a></div>
-						</div>	
+					@endforeach
 
 
 					</div>

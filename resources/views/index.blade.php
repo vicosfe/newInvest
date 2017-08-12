@@ -167,33 +167,38 @@
 <!--**********************БЛОК сайдбара(правый)******************-->
 
 <div class="sideBarMainRight">
-  <div class="question">
-    <div class="question__caption">
-      <h2>Опрос</h2>
-    </div>
-    <form action="" class="questionForm">
-      <p>Кто и как быстро привлек деньги и не пожалел?</p>
-      <div class="inpWrapper">
-        <input  name="question[]" type="radio" value="kredit" id="kredit"> <label for="kredit">Кредит</label>
-      </div>
-      <div class="inpWrapper">
-        <input  name="question[]" type="radio" value="investor" id="investor"> <label for="investor">Инвестор</label>
-      </div>
-      <div class="inpWrapper">
-        <input  name="question[]" type="radio" value="microzaym" id="microzaym"> <label for="microzaym">Микрозайм</label>
-      </div>
-      <div class="inpWrapper">
-        <input  name="question[]" type="radio" value="friends" id="friends"> <label for="friends">Друзья</label>
-      </div>
-      <div class="inpWrapper">
-        <input  name="question[]" type="radio" value="family" id="family"> <label for="family">Семья</label>
-      </div>
-      <div class="inpWrapper">
-        <input  name="question[]" type="radio" value="subsidiya" id="subsidiya"> <label for="subsidiya">Субсидия</label>
-      </div>
-      <button class="replyButton">Ответить</button>
-    </form>
-  </div>
+    @if(count($poll))
+      <div class="question">
+        <div class="question__caption">
+          <h2>Опрос</h2>
+        </div>
+        <form action="#" class="questionForm" method="POST">
+            {{csrf_field()}}
+          <p>{{$poll->title}}</p>
+            <?$data = json_decode($poll->data);?>
+            @foreach($data as $d)
+          <div class="inpWrapper">
+            <input  name="question" type="radio" value="{{$d}}" id="kredit{{$d}}"> <label for="kredit{{$d}}">{{$d}}</label>
+          </div>
+              @endforeach
+            <input type="hidden" name="poll_id" value="{{$poll->id}}">
+          <button class="replyButton">Ответить</button>
+        </form>
+
+    @elseif(count($result))
+        <div class="question">
+            <div class="question__caption">
+                <h2>Опрос</h2>
+            </div>
+            <p>{{$result["title"]}}</p>
+        @foreach($result["items"] as $r)
+
+            <div class="inpWrapper">
+               <p @if($answ->value == $r["title"]) style="border:1px solid red" @endif>{{$r["title"]}} - {{$r["res"]}}%</p>
+            </div>
+        @endforeach
+        </div>
+    @endif
   <!-- НОВОСТИ С МКАЛА -->
   <div class="newsMKALA">
     <div class="newsMKALA__caption">

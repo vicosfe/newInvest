@@ -284,9 +284,13 @@ var infoItemDelete = $(".infoItemDelete");
 var infoItem1Delete1 = $(".infoItem1Delete1");
 $(infoItem1Delete1).on("click",function () {
   $(box_popUpDelNews).fadeIn();
+  var id = $(this).data("id");
+  $(".linkremove").attr("href", "/admin/messages/remove/"+id);
 });
 $(infoItemDelete).on("click",function () {
   $(box_popUpDelNews).fadeIn();
+    var id = $(this).data("id");
+    $(".linkremove").attr("href", "/admin/messages/remove/"+id);
 });
 $(dontDelete).on("click",function () {
   $(box_popUpDelNews).fadeOut();

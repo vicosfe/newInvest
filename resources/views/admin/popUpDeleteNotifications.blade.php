@@ -4,7 +4,7 @@
 			<h3>Вы действительно хотите удалить?</h3>
 			<div class="popUpDelNews__link">
 				<a href="#"  class="dontDelete">Нет, не удалять</a>
-				<a href="#">Да, удалить</a>
+				<a href="#" class="linkremove">Да, удалить</a>
 			</div>
 		</div>
 	</div>

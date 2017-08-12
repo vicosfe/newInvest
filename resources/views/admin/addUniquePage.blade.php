@@ -33,28 +33,37 @@
 			<div class="addPagesLeft">
 				<h3>Добавление уникальной страницы</h3>
 
-				<form action="#" class="addPagesForm">
+				<form action="/admin/pages/add" class="addPagesForm" method="POST">
+					{{csrf_field()}}
 					<select name="addPages1" id="addPages1">
-						<option value="#">Выберите пункт</option>
+						<option value="0">Нет</option>
+						@foreach($menu  as $m)
+							<option value="{{$m->id}}" @if($parrent_cat == $m->id or $cat == $m->id) selected @endif>{{$m->title}}</option>
+						@endforeach
 					</select>
-					<select name="addPages2" id="addPages2">
-						<option value="#">Выберите пункт</option>
-					</select>
+					@foreach($menu  as $m)
+						<select name="addPages2" id="child{{$m->id}}" class="childs" @if($parrent_cat != $m->id)  style="display:none;"  @endif>
+							<option value="0">Нет</option>
+							@foreach($m["items"]  as $mm)
+								<option value="{{$mm->id}}" @if($cat == $mm->id or $parrent_cat == $mm->id) selected @endif>{{$mm->title}}</option>
+							@endforeach
+						</select>
+					@endforeach
 
 					<div class="pagesEditor">
 						<div id="sample">
 							<script type="text/javascript" src="http://js.nicedit.com/nicEdit-latest.js"></script> 
 							<script type="text/javascript">bkLib.onDomLoaded(function() { nicEditors.allTextAreas() });</script>
 
-							<textarea name="area2" style="width: 100%;height: 180px; max-width: 420px">
+							<textarea name="area0" style="width: 100%;height: 180px; max-width: 420px">
 							</textarea><br>
 							<h4>
 							</h4>
 						</div>
 					</div>
-
+					<div class="asdf">
 					<div class="addPagesForm__group">      
-						<input type="text" name="addArticleCaption"  required >
+						<input type="text" name="addArticleCaption1"  required >
 						<span class="highlight"></span>
 						<span class="bar"></span>
 						<label>Заголовок документа</label>
@@ -65,7 +74,7 @@
 							<div class="customFileDocs__text">Добавить документы</div>
 						</div>
 						<div class="inptHideDocs">
-							<input name="prewDocsPages" size="50" required multiple class="asdasd" type="file" id="customFileDocs1" >
+							<input name="prewDocsPages1" size="50" required multiple class="asdasd" type="file" id="customFileDocs1" >
 
 						</div>
 					</label>
@@ -85,6 +94,13 @@
 							</h4>
 						</div>
 					</div>
+					</div>
+					<div class="wrapperEditProjBut">
+						<span>Добавить еще пункт</span>
+						<div class="circlePlus" id="govno" data-count = 1><span>+</span></div>
+
+					</div>
+					<input type="hidden" value="1" name="count" id="hidCount">
 					<button type="submit">Добавить Статью</button>
 				</form>
 				<div class="razdelitel"></div>
@@ -163,7 +179,55 @@
 		</div>
 	</section>
 
+	<script>
+		$(document).ready(function () {
+            $("#govno").on("click",function () {
+                var count = $(this).data("count");
+                count++;
+                var html = "<div class='addPagesForm__group'> ";
+                html += "<input type='text' name='addArticleCaption"+count+"'  required >";
+                html += "<span class='highlight'></span>";
+                html += "<span class='bar'></span>";
+                html += "<label>Заголовок документа</label>";
+                html += "</div>";
+                html += "<label class='CUSTOMBUTT'>";
+                html += "<div class='customFileDocs'>";
+                html += "<div class='customFileDocs__img'></div>";
+                html += "<div class='customFileDocs__text'>Добавить документы</div>";
+                html += "</div>";
+                html += "<div class='inptHideDocs'>";
+                html += "<input name='prewDocsPages"+count+"' size='50' required multiple class='asdasd' type='file' id='customFileDocs1' >";
+                html += "</div>";
+                html += "</label>";
+                html += "<div class='addDocsForm__content'>";
+                html += "</div>";
+                html += "<div class='pagesEditor2'>";
+                html += "<div id='sample'>";
+                html += "<textarea name='area"+count+"' id='area"+count+"' style='width: 100%;height: 180px; max-width: 420px'>";
+                html += "</textarea><br>";
+                html += "<h4>";
+                html += "</h4>";
+                html += "</div>";
+                html += "</div>";
+                $(this).data("count",count);
+                $("#hidCount").val(count);
+                $(".asdf").append(html);
 
+				var id =  "area"+count;
+				var area2 = new nicEditor({fullPanel : true}).panelInstance(id);
+
+
+
+            })
+            $("#addPages1").on("change",function () {
+                $(".childs").not("#child"+$(this).val()).hide();
+                $(".childs").not("#child"+$(this).val()).attr("disabled","disabled");
+                $("#child"+$(this).val()).show();
+                $("#child"+$(this).val()).removeAttr("disabled");
+            })
+        })
+
+	</script>
 </section>	
 <!--  -->
 @stop

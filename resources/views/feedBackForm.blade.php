@@ -3,9 +3,9 @@
 		<div class="feedBackFormBlock">
 			<h3>БУДЕМ РАДЫ ВАМ ПОМОЧЬ <div class="closeFeedBackForm"></div></h3>
 			<div class="feedBhr"></div>
-			<form action="#" class="feedBackForm">
-
-
+			<form action="/feedBack" class="feedBackForm" method="POST">
+{{csrf_field()}}
+				@if(Session::has('message'))<p class="message"> {{Session::get('message')}} </p>@endif
 				<div class="feedBack__group">      
 					<input type="text" name="directCommunicationfio"  required>
 					<span class="highlight"></span>
@@ -21,14 +21,14 @@
 				</div>
 
 				<div class="feedBack__group" style="width: 40%">      
-					<input type="number" name="directCommunicationCompany" required>
+					<input type="number" name="directCommunicationTel" required>
 					<span class="highlight"></span>
 					<span class="bar"></span>
 					<label class="feedBackLabel">Телефон</label>
 				</div>
 
 				<div class="feedBack__group">      
-					<input type="email" name="directCommunicationEmail" class="feedBackFormEmail" " required>
+					<input type="email" name="directCommunicationEmail" class="feedBackFormEmail"  required>
 					<span class="highlight"></span>
 					<span class="bar"></span>
 					<label class="feedBackLabel">Email</label>

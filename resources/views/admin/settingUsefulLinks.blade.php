@@ -14,9 +14,9 @@
 				</a>
 				
 				<ul>
-					<li><a href="/admin/settings/opros">Добавление опроса</a></li>
-					<li class="activeItem"><a href="/admin/settings/usefullink">Добавление полезных ссылок</a></li>
-					<li><a href="/admin/settings/menu">Добавление пунктов меню</a></li>
+					<li><a href="/admin/settings/opros">Настройка опроса</a></li>
+					<li class="activeItem"><a href="/admin/settings/usefullink">Настройка полезных ссылок</a></li>
+					<li><a href="/admin/settings/menu">Настройка пунктов меню</a></li>
 					<li><a href="/admin/settings/slide">Добавление слайда</a></li>
 				</ul>
 			</div>
@@ -27,9 +27,11 @@
 		<div class="settingsUsefulLinks">
 			<h3>Добавление полезных ссылок</h3>
 
-			<form action="#" class="settingsUsefulLinksForm">
+			<form action="/admin/settings/add/link" class="settingsUsefulLinksForm" method="POST" enctype="multipart/form-data">
 				<div class="usefulLinksButtonWrapper">
+					{{csrf_field()}}
 					<label class="CUSTOMBUTT">
+
 						<div class="customFileDocs">
 							<div class="customFileDocs__img"></div>
 							<div class="customFileDocs__text">Загрузить иконку</div>
@@ -44,14 +46,14 @@
 				<div class="linkFormInputwrapper">
 					<div class="linkFormInputwrapper__left">
 						<div class="settingsUsefulLinksForm__group">      
-							<input type="text" name="siteNameLink"  required >
+							<input type="text" name="siteNameLink" id="siteNameLink"  required >
 							<span class="highlight"></span>
 							<span class="bar"></span>
 							<label>Название сайта</label>
 						</div>
 
 						<div class="settingsUsefulLinksForm__group">      
-							<input type="text" name="siteAdressLink"  required >
+							<input type="text" name="siteAdressLink" id="siteAdressLink" required >
 							<span class="highlight"></span>
 							<span class="bar"></span>
 							<label>Адрес сайта</label>
@@ -60,14 +62,13 @@
 
 					<div class="linkFormInputwrapper__right">
 						<div class="usefulLinks__wrapper--item">
-							<a href="#"></a>
-							<a href="#" class="deleteLinks"><span>x</span></a>
-							<div class="usefulLinks__item--logo imagePrev">
-								
+
+							<div id="i" class="usefulLinks__item--logo imagePrev" style="overflow:hidden;">
+
 							</div>
 							<div class="usefulLinks__item--text">
-								Правительство РД <br>
-								e-dag.ru
+								<span id="t"></span> <br>
+								<span id="l"></span>
 							</div>
 						</div>
 
@@ -82,157 +83,67 @@
 
 
 			<div class="usefulLinksContainer">
-				
-
+				@foreach($items as $item)
 				<div class="usefulLinks__wrapper--item">
-					<a href="#"></a>
-					<a href="#" class="deleteLinks"><span>x</span></a>
+					<a href="{{$item->link}}"></a>
+					<a href="/admin/settings/remove/link/{{$item->id}}" class="deleteLinks"><span>x</span></a>
 					<div class="usefulLinks__item--logo">
-						<img src="/public/images/pravRd.png" alt="">
+						<img src="{{$item->img}}" alt="">
 					</div>
 					<div class="usefulLinks__item--text">
-						Правительство РД <br>
-						e-dag.ru
+						{{$item->title}}<br>
+						{{$item->link}}
 					</div>
 				</div>
-
-				<div class="usefulLinks__wrapper--item">
-					<a href="#"></a>
-					<a href="#" class="deleteLinks"><span>x</span></a>
-					<div class="usefulLinks__item--logo">
-						<img src="/public/images/pravRd.png" alt="">
-					</div>
-					<div class="usefulLinks__item--text">
-						Правительство РД <br>
-						e-dag.ru
-					</div>
-				</div>
-
-				<div class="usefulLinks__wrapper--item">
-					<a href="#"></a>
-					<a href="#" class="deleteLinks"><span>x</span></a>
-					<div class="usefulLinks__item--logo">
-						<img src="/public/images/pravRd.png" alt="">
-					</div>
-					<div class="usefulLinks__item--text">
-						Правительство РД <br>
-						e-dag.ru
-					</div>
-				</div>
-
-				<div class="usefulLinks__wrapper--item">
-					<a href="#"></a>
-					<a href="#" class="deleteLinks"><span>x</span></a>
-					<div class="usefulLinks__item--logo">
-						<img src="/public/images/pravRd.png" alt="">
-					</div>
-					<div class="usefulLinks__item--text">
-						Правительство РД <br>
-						e-dag.ru
-					</div>
-				</div>
-
-				<div class="usefulLinks__wrapper--item">
-					<a href="#"></a>
-					<a href="#" class="deleteLinks"><span>x</span></a>
-					<div class="usefulLinks__item--logo">
-						<img src="/public/images/pravRd.png" alt="">
-					</div>
-					<div class="usefulLinks__item--text">
-						Правительство РД <br>
-						e-dag.ru
-					</div>
-				</div>
-
-				<div class="usefulLinks__wrapper--item">
-					<a href="#"></a>
-					<a href="#" class="deleteLinks"><span>x</span></a>
-					<div class="usefulLinks__item--logo">
-						<img src="/public/images/pravRd.png" alt="">
-					</div>
-					<div class="usefulLinks__item--text">
-						Правительство РД <br>
-						e-dag.ru
-					</div>
-				</div>
-
-				<div class="usefulLinks__wrapper--item">
-					<a href="#"></a>
-					<a href="#" class="deleteLinks"><span>x</span></a>
-					<div class="usefulLinks__item--logo">
-						<img src="/public/images/pravRd.png" alt="">
-					</div>
-					<div class="usefulLinks__item--text">
-						Правительство РД <br>
-						e-dag.ru
-					</div>
-				</div>
-
-				<div class="usefulLinks__wrapper--item">
-					<a href="#"></a>
-					<a href="#" class="deleteLinks"><span>x</span></a>
-					<div class="usefulLinks__item--logo">
-						<img src="/public/images/pravRd.png" alt="">
-					</div>
-					<div class="usefulLinks__item--text">
-						Правительство РД <br>
-						e-dag.ru
-					</div>
-				</div>
-
-				<div class="usefulLinks__wrapper--item">
-					<a href="#"></a>
-					<a href="#" class="deleteLinks"><span>x</span></a>
-					<div class="usefulLinks__item--logo">
-						<img src="/public/images/pravRd.png" alt="">
-					</div>
-					<div class="usefulLinks__item--text">
-						Правительство РД <br>
-						e-dag.ru
-					</div>
-				</div>
-
-				<div class="usefulLinks__wrapper--item">
-					<a href="#"></a>
-					<a href="#" class="deleteLinks"><span>x</span></a>
-					<div class="usefulLinks__item--logo">
-						<img src="/public/images/pravRd.png" alt="">
-					</div>
-					<div class="usefulLinks__item--text">
-						Правительство РД <br>
-						e-dag.ru
-					</div>
-				</div>
-
-				<div class="usefulLinks__wrapper--item">
-					<a href="#"></a>
-					<a href="#" class="deleteLinks"><span>x</span></a>
-					<div class="usefulLinks__item--logo">
-						<img src="/public/images/pravRd.png" alt="">
-					</div>
-					<div class="usefulLinks__item--text">
-						Правительство РД <br>
-						e-dag.ru
-					</div>
-				</div>
-
-				<div class="usefulLinks__wrapper--item">
-					<a href="#"></a>
-					<a href="#" class="deleteLinks"><span>x</span></a>
-					<div class="usefulLinks__item--logo">
-						<img src="/public/images/pravRd.png" alt="">
-					</div>
-					<div class="usefulLinks__item--text">
-						Правительство РД <br>
-						e-dag.ru
-					</div>
-				</div>
+					@endforeach
 			</div>
 			
 
 		</section>
 
+<script>
+    $(document).ready(function(){
+// checker **************************************************
+    var prewImgNews = $(".prewImgNews");
+    prewImgNews.change(() => {
+        var preview = document.querySelector('.imagePrev');
+    	var files   = document.querySelector('input[type=file]').files;
+		$("#t").html($("#siteNameLink").val());
+        $("#l").html($("#siteAdressLink").val());
+    function readAndPreview(file) {
 
+        // Расширение у выбранного фото
+        if ( /\.(jpe?g|png|gif)$/i.test(file.name)) {
+            var reader = new FileReader();
+            preview.innerHTML= "";
+            reader.addEventListener("load", function () {
+                var image = new Image();
+                image.src = this.result;
+                preview.appendChild( image );
+            }, false);
+
+            reader.readAsDataURL(file);
+        };
+
+    };
+
+    if (files) {
+        [].forEach.call(files, readAndPreview);
+    };
+
+    });
+        $("#siteNameLink").on("change", function () {
+            $("#t").html($("#siteNameLink").val());
+            $("#l").html($("#siteAdressLink").val());
+        })
+        $("#siteAdressLink").on("change", function () {
+            $("#t").html($("#siteNameLink").val());
+            $("#l").html($("#siteAdressLink").val());
+        })
+
+	/*doc.ready-end*/
+    });
+</script>
 
 
 

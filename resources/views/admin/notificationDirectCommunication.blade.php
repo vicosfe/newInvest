@@ -46,134 +46,39 @@
 					</ul>
 				</div>
 				<div class="windowContent__bottom">
-
+				@foreach($items as $item)
+					<? $data = json_decode($item->data)?>
 					<div class="infoItem1">
 						<div class="infoItem1__left">
 							<div class="infoItem1__leftFio">
 								<h4>ФИО</h4>
-								<p>Константинов Константин Константинович</p>
+								<p>{{$data->name}}</p>
 							</div>	
 
 							<div class="infoItem1__leftEmail">
 								<h4>Email</h4>
-								<p>invest-mah@mail.ru</p>
+								<p>{{$data->from}}</p>
 							</div>				
 							
 							<div class="infoItem1__leftCompany">
 								<h4>Компания</h4>
-								<p>ОАО ”Ахалай махалай продакшен”</p>
+								<p>{{$data->company}}</p>
 							</div>
 							
 						</div>
 						<div class="infoItem1__center">
 							<h4>Сообщение</h4>
-							<p>Тут будет вопрос пользователя который оставил заявку в Едином окне...
-								Тут будет вопрос пользователя который оставил заявку в Едином окне...
-								Тут будет вопрос пользователя который оставил заявку в Едином окне...</p>
+							<p>{{$data->text}}</p>
 							</div>
 							<div class="infoItem1__right">
 								<h4>Дата</h4>
-								<p>12.07.2017</p>
+								<p>{{$item->created_at}}</p>
 							</div>
 							
-							<div class="infoItem1Delete1"><a href="#"><span>x</span></a></div>
-						</div>	
-
-						<div class="infoItem1">
-						<div class="infoItem1__left">
-							<div class="infoItem1__leftFio">
-								<h4>ФИО</h4>
-								<p>Константинов Константин Константинович</p>
-							</div>	
-
-							<div class="infoItem1__leftEmail">
-								<h4>Email</h4>
-								<p>invest-mah@mail.ru</p>
-							</div>				
-							
-							<div class="infoItem1__leftCompany">
-								<h4>Компания</h4>
-								<p>ОАО ”Ахалай махалай продакшен”</p>
-							</div>
-							
+							<div class="infoItem1Delete1" data-id="{{$item->id}}"><a href="#" ><span>x</span></a></div>
 						</div>
-						<div class="infoItem1__center">
-							<h4>Сообщение</h4>
-							<p>Тут будет вопрос пользователя который оставил заявку в Едином окне...
-								Тут будет вопрос пользователя который оставил заявку в Едином окне...
-								Тут будет вопрос пользователя который оставил заявку в Едином окне...</p>
-							</div>
-							<div class="infoItem1__right">
-								<h4>Дата</h4>
-								<p>12.07.2017</p>
-							</div>
-							
-							<div class="infoItem1Delete1"><a href="#"><span>x</span></a></div>
-						</div>
+					@endforeach
 
-						<div class="infoItem1">
-						<div class="infoItem1__left">
-							<div class="infoItem1__leftFio">
-								<h4>ФИО</h4>
-								<p>Константинов Константин Константинович</p>
-							</div>	
-
-							<div class="infoItem1__leftEmail">
-								<h4>Email</h4>
-								<p>invest-mah@mail.ru</p>
-							</div>				
-							
-							<div class="infoItem1__leftCompany">
-								<h4>Компания</h4>
-								<p>ОАО ”Ахалай махалай продакшен”</p>
-							</div>
-							
-						</div>
-						<div class="infoItem1__center">
-							<h4>Сообщение</h4>
-							<p>Тут будет вопрос пользователя который оставил заявку в Едином окне...
-								Тут будет вопрос пользователя который оставил заявку в Едином окне...
-								Тут будет вопрос пользователя который оставил заявку в Едином окне...</p>
-							</div>
-							<div class="infoItem1__right">
-								<h4>Дата</h4>
-								<p>12.07.2017</p>
-							</div>
-							
-							<div class="infoItem1Delete1"><a href="#"><span>x</span></a></div>
-						</div>
-
-						<div class="infoItem1">
-						<div class="infoItem1__left">
-							<div class="infoItem1__leftFio">
-								<h4>ФИО</h4>
-								<p>Константинов Константин Константинович</p>
-							</div>	
-
-							<div class="infoItem1__leftEmail">
-								<h4>Email</h4>
-								<p>invest-mah@mail.ru</p>
-							</div>				
-							
-							<div class="infoItem1__leftCompany">
-								<h4>Компания</h4>
-								<p>ОАО ”Ахалай махалай продакшен”</p>
-							</div>
-							
-						</div>
-						<div class="infoItem1__center">
-							<h4>Сообщение</h4>
-							<p>Тут будет вопрос пользователя который оставил заявку в Едином окне...
-								Тут будет вопрос пользователя который оставил заявку в Едином окне...
-								Тут будет вопрос пользователя который оставил заявку в Едином окне...</p>
-							</div>
-							<div class="infoItem1__right">
-								<h4>Дата</h4>
-								<p>12.07.2017</p>
-							</div>
-							
-							<div class="infoItem1Delete1"><a href="#"><span>x</span></a></div>
-						</div>
 
 
 					</div>

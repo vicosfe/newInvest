@@ -31,8 +31,8 @@
                 <p>Отправьте сообщение</p>
             </div>
 
-            <form action="#" class="goInvForm">
-
+            <form action="/messages/project" method="POST" class="goInvForm">
+                {{csrf_field()}}
                 <div class="goInvForm__group">   
                     <input type="text" name="goInvFormFIO"  required>
                     <span class="highlight"></span>

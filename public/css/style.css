@@ -3014,9 +3014,21 @@ header{
 		color: #333333;
 		font-family: "GothamPro";
 	}
-	.directCommunicationForm input:focus{ 
+	.directCommunicationForm input:focus,.directCommunicationForm textarea:focus{
 		outline:none;
 	}
+.directCommunicationForm textarea{
+	font-size: 1.25rem;
+	padding:10px 10px 10px 5px;
+	display:block;
+	width:100%;
+	max-width: 525px;
+	border:none;
+	border-bottom:1px solid #ebebeb;
+	color: #333333;
+	font-family: "GothamPro";
+}
+
 
 	/* LABEL ======================================= */
 	.directCommunicationForm label{
@@ -3039,10 +3051,15 @@ header{
 		color:#48a5ea;
 	}
 	.directCommunicationForm input[type="email"]:focus  ~  label{
-		top:-15px;
+		top:-25px;
 		font-size:14px;
 		color:#48a5ea;
 	}
+.directCommunicationForm textarea:focus  ~  label{
+	top:-15px;
+	font-size:14px;
+	color:#48a5ea;
+}
 /* .directCommunicationForm input[type="email"]:invalid ~ label{
 	top:-15px;
   font-size:14px;
@@ -4492,7 +4509,7 @@ header{
 	justify-content: space-between; 
 	-ms-align-items: center;
 	align-items: center;
-	max-width: 610px;
+	max-width: 910px;
 }
 
 .searchContent__item1--left{
@@ -4505,7 +4522,7 @@ header{
 	max-width: 85px;
 }
 .searchContent__item1--right{
-	width: 84%;
+	width: 89%;
 }
 .searchContent__item1--right > p{
 	font-family: "GothamPro";
@@ -4574,3 +4591,7 @@ margin-bottom: 1.5625rem;
 }
 
 /* end search */
+
+.searchContent__item1--right h4 {
+	color: #131212;
+}

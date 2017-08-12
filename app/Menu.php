@@ -15,7 +15,7 @@ class Menu extends Model
         return $items;
     }
 
-    public static function main($id=1)
+    public static function main($id=0)
     {
         $itemsLevel0 = Menu::getItemByParrent($id);
          foreach ($itemsLevel0 as $itemLevel0){
