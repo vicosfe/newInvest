@@ -16,7 +16,7 @@
 				
 				<ul>
 					<li><a href="/admin/edit/news">Добавление новостей</a></li>
-					<li><a href="/admin/edit/docs">Добавление документов</a></li>
+
 					<li><a href="/admin/edit/projects">Добавление проекта</a></li>
 					<li><a href="/admin/edit/articles">Добавление статей</a></li>
 					<li class="activeItem1"><a href="/admin/edit/pages">Добавление уникальных страниц</a></li>
@@ -33,7 +33,7 @@
 			<div class="addPagesLeft">
 				<h3>Добавление уникальной страницы</h3>
 
-				<form action="/admin/pages/add" class="addPagesForm" method="POST">
+				<form action="/admin/add/pages" class="addPagesForm" enctype="multipart/form-data" method="POST">
 					{{csrf_field()}}
 					<select name="addPages1" id="addPages1">
 						<option value="0">Нет</option>
@@ -62,11 +62,13 @@
 						</div>
 					</div>
 					<div class="asdf">
+						<hr style='opacity: 0.4;margin: 0px 20px 20px 0px;'>
+
 					<div class="addPagesForm__group">      
 						<input type="text" name="addArticleCaption1"  required >
 						<span class="highlight"></span>
 						<span class="bar"></span>
-						<label>Заголовок документа</label>
+						<label>Заголовок документа 1</label>
 					</div>
 					<label class="CUSTOMBUTT">
 						<div class="customFileDocs">
@@ -74,12 +76,12 @@
 							<div class="customFileDocs__text">Добавить документы</div>
 						</div>
 						<div class="inptHideDocs">
-							<input name="prewDocsPages1" size="50" required multiple class="asdasd" type="file" id="customFileDocs1" >
+							<input name="prewDocsPages1[]" size="50"  multiple class="asdasd" data-id='1' type="file" id="customFileDocs1" >
 
 						</div>
 					</label>
 
-					<div class="addDocsForm__content">
+					<div class="addDocsForm__content1">
 
 					</div>
 
@@ -88,17 +90,20 @@
 							<script type="text/javascript" src="http://js.nicedit.com/nicEdit-latest.js"></script> 
 							<script type="text/javascript">bkLib.onDomLoaded(function() { nicEditors.allTextAreas() });</script>
 
-							<textarea name="area2" style="width: 100%;height: 180px; max-width: 420px">
+							<textarea name="area1" style="width: 100%;height: 180px; max-width: 420px">
 							</textarea><br>
 							<h4>
 							</h4>
 						</div>
 					</div>
 					</div>
+					<hr style='opacity: 0.4;margin: 0px 20px 20px 0px;'>
 					<div class="wrapperEditProjBut">
-						<span>Добавить еще пункт</span>
+
 						<div class="circlePlus" id="govno" data-count = 1><span>+</span></div>
 
+
+						<div class="circlePlus" id="govno2" data-count = 1><span>-</span></div>
 					</div>
 					<input type="hidden" value="1" name="count" id="hidCount">
 					<button type="submit">Добавить Статью</button>
@@ -180,15 +185,26 @@
 	</section>
 
 	<script>
+        $("#govno2").on("click",function () {
+            var count = $(this).data("count");
+            if(count>1){
+
+                $("#c"+count).remove();
+                count--;
+                $(this).data("count",count);
+                $("#govno").data("count",count);
+            }
+        })
+
 		$(document).ready(function () {
             $("#govno").on("click",function () {
                 var count = $(this).data("count");
                 count++;
-                var html = "<div class='addPagesForm__group'> ";
+                var html = "<div id='c"+count+"'> <hr style='opacity: 0.4;margin: 0px 20px 20px 0px;'><div class='addPagesForm__group'> ";
                 html += "<input type='text' name='addArticleCaption"+count+"'  required >";
                 html += "<span class='highlight'></span>";
                 html += "<span class='bar'></span>";
-                html += "<label>Заголовок документа</label>";
+                html += "<label>Заголовок документа "+count+"</label>";
                 html += "</div>";
                 html += "<label class='CUSTOMBUTT'>";
                 html += "<div class='customFileDocs'>";
@@ -196,10 +212,10 @@
                 html += "<div class='customFileDocs__text'>Добавить документы</div>";
                 html += "</div>";
                 html += "<div class='inptHideDocs'>";
-                html += "<input name='prewDocsPages"+count+"' size='50' required multiple class='asdasd' type='file' id='customFileDocs1' >";
+                html += "<input name='prewDocsPages"+count+"[]' size='50'  multiple class='asdasd' data-id='"+count+"' type='file' id='customFileDocs"+count+"' >";
                 html += "</div>";
                 html += "</label>";
-                html += "<div class='addDocsForm__content'>";
+                html += "<div class='addDocsForm__content"+count+"'>";
                 html += "</div>";
                 html += "<div class='pagesEditor2'>";
                 html += "<div id='sample'>";
@@ -208,14 +224,30 @@
                 html += "<h4>";
                 html += "</h4>";
                 html += "</div>";
-                html += "</div>";
+                html += "</div></div>";
                 $(this).data("count",count);
+                $("#govno2").data("count",count);
                 $("#hidCount").val(count);
                 $(".asdf").append(html);
 
 				var id =  "area"+count;
 				var area2 = new nicEditor({fullPanel : true}).panelInstance(id);
 
+                $(".asdasd").on("change",function () {
+                    var id = ".addDocsForm__content"+$(this).data("id");
+                    var id2 = "customFileDocs"+$(this).data("id");
+                    var customFileDocs1 =  document.getElementById(id2);
+                    if (customFileDocs1.files.length == 0) {
+                        return  0;
+                    }else{
+
+                        files = this.files;
+                        $(id).html("");
+                        for(var a=0;a<files.length;a++)
+
+                            $(id).append('<div class="addDocsFormItem"><div class="addDocsFormItem__img"></div><div class="addDocsFormItem__text">' + files[a].name + '</div></div>');
+                    }
+                });
 
 
             })
@@ -225,6 +257,24 @@
                 $("#child"+$(this).val()).show();
                 $("#child"+$(this).val()).removeAttr("disabled");
             })
+
+
+
+            $(".asdasd").on("change",function () {
+                var id = ".addDocsForm__content"+$(this).data("id");
+                var id2 = "customFileDocs"+$(this).data("id");
+                var customFileDocs1 =  document.getElementById(id2);
+                if (customFileDocs1.files.length == 0) {
+                    return  0;
+                }else{
+
+                    files = this.files;
+                    $(id).html("");
+                    for(var a=0;a<files.length;a++)
+
+                        $(id).append('<div class="addDocsFormItem"><div class="addDocsFormItem__img"></div><div class="addDocsFormItem__text">' + files[a].name + '</div></div>');
+                }
+            });
         })
 
 	</script>

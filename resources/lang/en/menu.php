@@ -22,5 +22,9 @@ return [
     'btn_feedback' => 'Feedback', 
     'btn_hotline' => 'Hotline',
     'btn_download' => 'Download',
-    'btn_load_more' => 'Load more'
+    'btn_load_more' => 'Load more',
+    'contacts' => 'Contacts',
+    'direct' => "",
+    'com' => "Communication",
+    'channel'=> "Channel of communication with the administration"
 ];

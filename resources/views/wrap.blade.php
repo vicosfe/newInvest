@@ -16,6 +16,7 @@
     <script src="/public/js/owl.carousel.min.js"></script>
     <script src="/public/js/goalProgress.js"></script>  
     <script src="/public/js/scripts.js"></script>
+
 </head>
 <body>
     <header>
@@ -30,8 +31,8 @@
                         <a href="/ru/direct">
                         <div class="singleWindow__img"><img src="/public/images/singleWinMenu.png" alt=""></div>
                             <div class="singleWindow__text">
-                                <h3><span>Прямая</span> связь</h3>
-                                <p>Канал прямой связи с администрацией</p>
+                                <h3><span>{{trans("menu.com")}}</span> {{trans("menu.direct")}}</h3>
+                                <p>{{trans("menu.channel")}}</p>
                             </div>
                         </a>
                     </div>
@@ -56,7 +57,7 @@
                                     <img src="/public/images/feedBack.png" alt="">
                                 </div>
                                 <div class="feedBack__text">
-                                    Контакты
+                                    {{trans("menu.contacts")}}
                                 </div>
                             </div>
                             <div class="ChangeLanguage downArrow">
@@ -80,14 +81,14 @@
                                         <div class="downHeader__nav--logo">
                                             <div class="navLog1 navLog"></div>
                                         </div>
-                                        <a href="{{$itemmenu->link}}">{{$itemmenu->title}}</a>
+                                        <a href="{{$itemmenu->link}}">@if(!strcasecmp($local, "ru")) {{$itemmenu->title}} @else {{$itemmenu->title_en}}@endif</a>
                                         @if(count($itemmenu->items))
                                             <div class="dropNav">
                                                 <div class="dropNav__content">
                                                     <ul>
                                                         @foreach($itemmenu->items as $itemMenuL1)
                                                         <li>
-                                                            <a href="{{$itemMenuL1->link}}">{{$itemMenuL1->title}}</a>
+                                                            <a href="{{$itemMenuL1->link}}">@if($local=="ru") {{$itemMenuL1->title}} @else {{$itemMenuL1->title_en}}@endif</a>
                                                         </li>
 
                                                         @endforeach
@@ -119,7 +120,7 @@
                 <ul>
 
                     @foreach($menu as $itemmenu)
-                        <li><a href="{{$itemmenu->link}}">{{$itemmenu->title}}</a></li>
+                        <li><a href="{{$itemmenu->link}}">{{($local=="ru")?$itemmenu->title:$itemmenu->title_en}}</a></li>
                     @endforeach
 
                 </ul>
@@ -142,7 +143,7 @@
               <div class="footer__info--search">
                 <div class="footerSearch">
                     <form action="#" class="formFooterSearch">
-                        <input type="search" placeholder="Поиск" name="footerSearch" class="formFooterSearch__input">
+                        <input type="search" placeholder="{{trans("menu.input_search")}}" name="footerSearch" class="formFooterSearch__input">
                         <span><i class="fa fa-search" aria-hidden="true"></i></span>
                         <a href="#" class="formFooterSearch__button">{{trans("menu.btn_find")}}</a>
                     </form>
@@ -153,7 +154,11 @@
     </div>
 
 </footer>
-
+    <div id="google_translate_element"></div><script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({pageLanguage: 'ru', includedLanguages: 'en,ru', layout: google.translate.TranslateElement.FloatPosition.BOTTOM_RIGHT, autoDisplay: true, multilanguagePage: true}, 'google_translate_element');
+        }
+    </script><script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </body>
 </html>
 

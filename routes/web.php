@@ -1,5 +1,5 @@
 <?php
-use Mcamara\LaravelLocalization\LaravelLocalization;
+use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -11,21 +11,35 @@ use Mcamara\LaravelLocalization\LaravelLocalization;
 |
 */
 $localization = new LaravelLocalization();
-Auth::routes();
-Route::get('/logout','Admin\IndexController@logout');
-Route::get('/register','Admin\IndexController@login');
-
 
 
 
 Route::get('/parseMkala', 'ParserController@index');
-Route::group(['prefix' => $localization->setLocale()], function()
+Route::post('/', "IndexController@answer");
+Route::post('/search', "IndexController@search");
+Route::post('/direct', 'PageController@directCommunicationSend');
+Route::post('feedBack', 'PageController@feedBackSend');
+Route::post('/messages/project', "PageController@projectSend");
+Route::post('/admin/add/news','Admin\NewsController@add');
+Route::post('/admin/add/articles/{id?}','Admin\ArticleController@add');
+Route::post('/admin/add/pages/{id?}','Admin\PagesController@add');
+Route::post('/admin/add/projects/{id?}','Admin\ProjectsController@add');
+Route::post('admin/settings/opros', 'Admin\PollsController@add');
+Route::post('admin/settings/add/link', 'Admin\LinksController@add');
+Route::post('admin/settings/menu/add', 'Admin\MenuController@add');
+Route::post('/admin/settings/menu/remove', 'Admin\MenuController@remove');
+Route::post('/admin/settings/menu/edit', 'Admin\MenuController@edit');
+
+Route::group(
+    [
+        'prefix' => LaravelLocalization::setLocale(),
+        'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ]
+    ], function()
 {
+    Auth::routes();
+    Route::get('/logout','Admin\IndexController@logout');
+    Route::get('/register','Admin\IndexController@login');
     Route::get('/', "IndexController@index");
-    Route::post('/', "IndexController@answer");
-
-    Route::post('/search', "IndexController@search");
-
     Route::get('/news', 'NewsController@index');
     Route::get('/newsJson', 'NewsController@getNewItems');
     Route::get('/news/{id?}', 'NewsController@getItem');
@@ -39,15 +53,14 @@ Route::group(['prefix' => $localization->setLocale()], function()
         return view('support');
     });
     Route::get('/direct', 'PageController@directCommunication');
-    Route::post('/direct', 'PageController@directCommunicationSend');
+
 
 
     Route::get('feedBack', 'PageController@feedBack');
-    Route::post('feedBack', 'PageController@feedBackSend');
-    Route::post('/messages/project', "PageController@projectSend");
 
 
-    Route::get('/u', 'PageController@u');
+
+    Route::get('/page/{id}', 'PageController@page');
     Route::get('/pp', 'PageController@pp');
     Route::get('/search', 'PageController@search');
 
@@ -55,7 +68,7 @@ Route::group(['prefix' => $localization->setLocale()], function()
         return view('documents');
     });
 
-
+/*ADMIN*/
 
 
     Route::get('/admin/home', function () {
@@ -63,22 +76,17 @@ Route::group(['prefix' => $localization->setLocale()], function()
     });
 
     Route::get('/admin/edit/news/{id?}', 'Admin\NewsController@edit');
-    Route::post('/admin/add/news/{id?}','Admin\NewsController@add');
+
 
     Route::get('/admin/edit/articles/{id?}', 'Admin\ArticleController@edit');
-    Route::post('/admin/add/articles/{id?}','Admin\ArticleController@add');
+
 
     Route::get('/admin/edit/pages/{id?}', 'Admin\PagesController@edit');
-    Route::post('/admin/pages/add','Admin\PagesController@add');
-
-    Route::get('admin/edit/docs', function () {
-        return view('admin.addDocs');
-    });
 
 
-    Route::get('admin/edit/projects', function () {
-        return view('admin.addProject');
-    });
+    Route::get('admin/edit/projects/{id?}', 'Admin\ProjectsController@edit');
+
+
 
     Route::get('admin/change/news', function () {
         return view('admin.editNews');
@@ -101,18 +109,16 @@ Route::group(['prefix' => $localization->setLocale()], function()
     });
 
     Route::get('admin/settings/opros', 'Admin\PollsController@index');
-    Route::post('admin/settings/opros', 'Admin\PollsController@add');
+
     Route::get('admin/settings/opros/remove/{id}', 'Admin\PollsController@remove');
 
     Route::get('admin/settings/usefullink', 'Admin\LinksController@index');
-    Route::post('admin/settings/add/link', 'Admin\LinksController@add');
+
     Route::get('admin/settings/remove/link/{id?}', 'Admin\LinksController@remove');
 
 
     Route::get('admin/settings/menu', 'Admin\MenuController@index');
-    Route::post('admin/settings/menu/add', 'Admin\MenuController@add');
-    Route::post('/admin/settings/menu/remove', 'Admin\MenuController@remove');
-    Route::post('/admin/settings/menu/edit', 'Admin\MenuController@edit');
+
 
 
     Route::get('admin/settings/slide', function () {
@@ -120,6 +126,7 @@ Route::group(['prefix' => $localization->setLocale()], function()
     });
 
     Route::get('admin/notification/window', 'Admin\MessagesController@window');
+    Route::get('admin/notification/search/{keyword?}', 'Admin\MessagesController@search');
     Route::get('admin/notification/goinvest', 'Admin\MessagesController@goinvest');
     Route::get('admin/notification/directcommunication', 'Admin\MessagesController@directcommunication');
     Route::get('admin/messages/remove/{id}', 'Admin\MessagesController@remove');
@@ -130,8 +137,9 @@ Route::group(['prefix' => $localization->setLocale()], function()
 
     Route::get('/articles/{id?}','ArticleController@index');
 
+    Route::get('/projects/{id?}','ProjectsController@index');
 
-
+    Route::get('/project/{id?}', 'ProjectsController@item');
 
 });
 

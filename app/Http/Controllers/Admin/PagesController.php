@@ -28,6 +28,12 @@ class PagesController extends Controller
             $newItem = Page::find($id);
         }
         $newItem->title = $request->input("area0");
+       if ($request->input('addPages2')){
+           $newItem->cat_id = $request->input('addPages2');
+       }
+       else{
+           $newItem->cat_id = $request->input('addPages1');
+       }
         $newItem->save();
 
         $count = $request->input("count");
@@ -42,8 +48,8 @@ class PagesController extends Controller
             $newItemPath->save();
 
             $id = "prewDocsPages".$i;
-            $docs = $request->input($id);
-            if (count($f)) {
+            $docs = $request->$id;
+            if (count($docs)) {
                 foreach ($docs as $f) {
                     $pref = rand(1, 10000);
                     $name = $pref . $f->getClientOriginalName();
@@ -57,6 +63,20 @@ class PagesController extends Controller
             }
         }
 
+        if ($request->input('addPages2')){
+           $m = Menu::find($request->input('addPages2'))->first();
+           $m->link = "/page/".$newItem->id;
+           $m->type = 2;
+           $m->save();
+
+        }
+        else{
+            $m = Menu::find($request->input('addPages1'))->first();
+            $m->link = "/page/".$newItem->id;
+            $m->save();
+        }
+
+
         return back();
     }
 
@@ -67,7 +87,7 @@ class PagesController extends Controller
         $item = new Page();
         $paths = new Path_Page();
         $docs = new Media_Page();
-        $menu = Menu::main();
+        $menu = Menu::mainType(0,2);
         $parrent_cat = 0;
         if ($id){
             $item = Page::find($id);

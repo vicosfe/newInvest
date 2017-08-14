@@ -26,9 +26,9 @@
 		<div class="notificationblabla">
 			<div class="notifications1__wrapper">
 				<h3>Заявки с Единого окна</h3>
-				<form action="#" class="searchNotifications">
-					<div class="searchNotifications1Form__group">      
-						<input type="text" name="searchNotifications1"  required >
+				<form action="/admin/notification/search" class="searchNotifications">
+					<div class="searchNotifications1Form__group">
+						<input type="text" name="searchNotification"  required >
 						<span class="highlight"></span>
 						<span class="bar"></span>
 						<label>Поиск</label>

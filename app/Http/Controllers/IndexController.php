@@ -13,17 +13,20 @@ use App\Menu;
 use App\Answer;
 use App\Article;
 use App\Media_Articledoc;
+use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 class IndexController extends Controller
 {
 
     protected $menu;
     protected $linkItems;
+    protected $local;
 
     public function __construct()
     {
         $items = Menu::main();
         $this->menu = $items;
         $this->linkItems = Link::all();
+        $this->local =  LaravelLocalization::getCurrentLocale();
     }
     public function index(Request $request)
     {
@@ -52,8 +55,7 @@ class IndexController extends Controller
             $poll=null;
 
         }
-
-        return view('index', ['news' => $news, 'media'=> $newsMedia, 'menu'=>$this->menu,"answ"=>$answ, "result"=>$result,  "linkItems"=>$this->linkItems, "poll"=>$poll]);
+        return view('index', ['local'=>$this->local,'news' => $news, 'media'=> $newsMedia, 'menu'=>$this->menu,"answ"=>$answ, "result"=>$result,  "linkItems"=>$this->linkItems, "poll"=>$poll]);
 
 
     }
@@ -71,7 +73,7 @@ class IndexController extends Controller
     public function project()
     {
         $newsMedia = Media_New::index();
-        return view('project', ['media'=> $newsMedia, 'menu'=>$this->menu, "linkItems"=>$this->linkItems]);
+        return view('project', ['local'=>$this->local,'media'=> $newsMedia, 'menu'=>$this->menu, "linkItems"=>$this->linkItems]);
 
 
     }
@@ -89,7 +91,7 @@ class IndexController extends Controller
             $result["docs"] = Media_Articledoc::where("title", "LIKE","%$keyword%")->get();
         }
 
-        return view('search', ['menu'=>$this->menu, "linkItems"=>$this->linkItems, "result"=>$result]);
+        return view('search', ['local'=>$this->local, 'menu'=>$this->menu, "linkItems"=>$this->linkItems, "result"=>$result]);
 
 
     }
@@ -97,7 +99,7 @@ class IndexController extends Controller
     public function article()
     {
         $newsMedia = Media_New::index();
-        return view('article', ['media'=> $newsMedia, 'menu'=>$this->menu, "linkItems"=>$this->linkItems]);
+        return view('article', ['local'=>$this->local, 'media'=> $newsMedia, 'menu'=>$this->menu, "linkItems"=>$this->linkItems]);
 
 
     }

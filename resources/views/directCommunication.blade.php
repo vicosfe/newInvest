@@ -18,7 +18,7 @@
 				<h3 class="directCommunicationLeft__caption">
 					Канал прямой связи с руководством города Махачкалы и структурными подразделениями по вопросам нвестиционного развития.
 				</h3>
-				<form action="#" class="directCommunicationForm" method="POST">
+				<form action="/direct" class="directCommunicationForm" method="POST">
 					{{csrf_field()}}
 					@if(Session::has('message'))<p class="message"> {{Session::get('message')}} </p>@endif
 					<div class="directCommunicationForm__group">      

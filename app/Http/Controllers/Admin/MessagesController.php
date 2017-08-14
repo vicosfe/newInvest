@@ -39,6 +39,21 @@ class MessagesController extends Controller
         return view('admin.notificationDirectCommunication', ["items"=>$items]);
 
     }
+
+    public function search(Request $request){
+        if (!count(Auth::user())){
+            return redirect("/login");
+        }
+        $keyword = json_encode($request->input("searchNotification"));
+        $result = [];
+        if (strlen($keyword)>2){
+            $result = Message::where('data',"LIKE",'%'.$keyword.'%')->get();
+        }
+
+        return view('admin.notificationSearch', ["result"=>$result]);
+
+    }
+
     public function remove($id = null){
         if (!count(Auth::user())){
             return redirect("/login");

@@ -10,25 +10,29 @@ use Illuminate\Http\Request;
 use App\Menu;
 use App\Message;
 use App\Link;
+use App\Media_Page;
+use App\Path_Page;
+use App\Page;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Session;
-
+use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 class PageController extends Controller
 {
 
     protected $menu;
     protected $linkItems;
-
+    protected $local;
     public function __construct()
     {
         $items = Menu::main();
         $this->menu = $items;
         $this->linkItems = Link::all();
+        $this->local =  LaravelLocalization::getCurrentLocale();
     }
 
     public function directCommunication()
     {
-        return view('directCommunication', ['menu'=>$this->menu, "linkItems"=>$this->linkItems]);
+        return view('directCommunication', ['local'=>$this->local, 'menu'=>$this->menu, "linkItems"=>$this->linkItems]);
 
     }
     public function directCommunicationSend(Request $request)
@@ -57,12 +61,12 @@ class PageController extends Controller
     }
     public function about()
     {
-        return view('feedBack', ['menu'=>$this->menu, "linkItems"=>$this->linkItems]);
+        return view('feedBack', ['local'=>$this->local, 'menu'=>$this->menu, "linkItems"=>$this->linkItems]);
 
     }
     public function feedBack()
     {
-        return view('feedBack', ['menu'=>$this->menu, "linkItems"=>$this->linkItems]);
+        return view('feedBack', ['local'=>$this->local, 'menu'=>$this->menu, "linkItems"=>$this->linkItems]);
 
     }
 
@@ -118,13 +122,20 @@ class PageController extends Controller
 
     }
 
-    public function u()
+    public function page($id = 0)
 
     {
-        $cat = Menu::find(10);
-        $right = Menu::main($cat->parrent_id);
+        if($id){
+            $page = Page::find($id);
+            $cat = Menu::find($page->cat_id);
+            $paths_page = Path_Page::where("page_id",$page->id)->get();
+            foreach ($paths_page as $path){
+                $path->docs = Media_Page::where("path_id",$path->id)->get();
+            }
+            $right = Menu::main($cat->parrent_id);
+            return view('support', ['local'=>$this->local, 'page'=>$page, 'paths'=>$paths_page, 'menu'=>$this->menu, "right"=> $right, "cat"=>$cat, "linkItems"=>$this->linkItems]);
 
-        return view('support', ['menu'=>$this->menu, "right"=> $right, "cat"=>$cat, "linkItems"=>$this->linkItems]);
+        }
 
     }
 
@@ -134,7 +145,7 @@ class PageController extends Controller
         $cat = Menu::find(10);
         $right = Menu::main($cat->parrent_id);
         $media = Media_Article::index(3);
-        return view('asd', ['menu'=>$this->menu, "right"=> $right, "cat"=>$cat, 'media'=>$media, "linkItems"=>$this->linkItems]);
+        return view('asd', ['local'=>$this->local, 'menu'=>$this->menu, "right"=> $right, "cat"=>$cat, 'media'=>$media, "linkItems"=>$this->linkItems]);
 
     }
 
@@ -142,7 +153,7 @@ class PageController extends Controller
 
     {
 
-        return view('search', ['menu'=>$this->menu, "linkItems"=>$this->linkItems]);
+        return view('search', ['local'=>$this->local, 'menu'=>$this->menu, "linkItems"=>$this->linkItems]);
 
     }
 }

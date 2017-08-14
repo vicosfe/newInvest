@@ -39,9 +39,9 @@
 
 					<select name="typeMenu" id="typeMenu">
 						<option value="1">Категория статей</option>
+						<option value="4">Категория инвест. проектов</option>
 						<option value="2">Уникальная страница</option>
 						<option value="3">Ссылка</option>
-						<option value="4">Статья</option>
 					</select>
 
 					<div class="settingsMenuFormAdd__group" id="ss3" style="display: none">
@@ -138,9 +138,10 @@
 									@if($m->type > 0)
 									<select name="type{{$m->id}}">
 										<option value="1" @if($m->type == 1) selected @endif>Категория статей</option>
+										<option value="4" @if($m->type == 4) selected @endif>Категория инвест.проектов</option>
 										<option value="2" @if($m->type == 2) selected @endif>Уникальная страница</option>
 										<option value="3" @if($m->type == 3) selected @endif>Ссылка</option>
-										<option value="4" @if($m->type == 4) selected @endif>Статья</option>
+
 									</select>
 									@else
 										<input type="hidden" name="type{{$m->id}}" value="0">
@@ -176,9 +177,10 @@
 										@if($mm->type > 0)
 										<select name="type{{$mm->id}}">
 											<option value="1" @if($mm->type == 1) selected @endif>Категория статей</option>
+											<option value="4" @if($mm->type == 4) selected @endif>Категория инвест.проектов</option>
 											<option value="2" @if($mm->type == 2) selected @endif>Уникальная страница</option>
 											<option value="3" @if($mm->type == 3) selected @endif>Ссылка</option>
-											<option value="4" @if($mm->type == 4) selected @endif>Статья</option>
+
 										</select>
 										@else
 											<input type="hidden" name="type{{$mm->id}}" value="0">

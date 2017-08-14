@@ -140,7 +140,7 @@
               <div class="footer__info--search">
                 <div class="footerSearch">
                     <form action="#" class="formFooterSearch">
-                        <input type="search" placeholder="Поиск" name="footerSearch" class="formFooterSearch__input">
+                        <input type="search" placeholder="{{trans("menu.input_search")}}" name="footerSearch" class="formFooterSearch__input">
                         <span><i class="fa fa-search" aria-hidden="true"></i></span>
                         <a href="#" class="formFooterSearch__button">{{trans("menu.btn_find")}}</a>
                     </form>

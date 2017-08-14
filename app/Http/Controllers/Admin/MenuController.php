@@ -82,7 +82,7 @@ class MenuController extends Controller
         else if($request->input("typeMenu") == 2)
         {
             $newItem->type = 2;
-            $newItem->link = "/pages/".$newItem->id;
+            $newItem->link = "/page/";
         }
         else if ($request->input("typeMenu") == 3)
         {
@@ -91,7 +91,7 @@ class MenuController extends Controller
         }
         else{
             $newItem->type = 4;
-            $newItem->link = "/article/";
+            $newItem->link = "/projects/".$newItem->id;
         }
 
 
@@ -107,14 +107,30 @@ class MenuController extends Controller
             return redirect("/login");
         }
         $items = Menu::all();
-        foreach ($items as $item){
+        foreach ($items as $item) {
             $id = $item->id;
-            $item->title = $request->input("t".$id);
+            $item->title = $request->input("t" . $id);
+
+            if ($request->input("type" . $id) != $item->type){
+                if ($request->input("type" . $id) == 4) {
+                    $item->link = "/projects/" . $item->id;
+                } else if ($request->input("type" . $id) == 1) {
+                    $item->link = "/articles/" . $item->id;
+                } else if ($request->input("type" . $id) == 2) {
+                    $item->link = "/page/";
+                } else {
+                    $item->link = $request->input("l" . $id);
+                }
+                $item->type = $request->input("type" . $id);
+            }
+            elseif($item->type == 3){
+                $item->link = $request->input("l" . $id);
+            }
+
             $item->title_en = ($request->input("te".$id))?$request->input("te".$id) : "" ;
-            $item->link = $request->input("l".$id);
+
             $item->parrent_id = $request->input("par".$id);
             $item->priority = $request->input("p".$id);
-            $item->type = $request->input("type".$id);
             $item->save();
         }
 

@@ -171,7 +171,7 @@ $(document).ready(function(){
         var files   = document.querySelector('input[type=file]').files;
 
         function readAndPreview(file) {
-
+            preview.innerHTML="";
     // Расширение у выбранного фото
     if ( /\.(jpe?g|png|gif)$/i.test(file.name)) {
       var reader = new FileReader();
@@ -311,7 +311,7 @@ prewImgNews.change(() => {
   var files   = document.querySelector('input[type=file]').files;
 
   function readAndPreview(file) {
-
+      preview.innerHTML="";
     // Расширение у выбранного фото
     if ( /\.(jpe?g|png|gif)$/i.test(file.name)) {
       var reader = new FileReader();

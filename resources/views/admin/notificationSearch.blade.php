@@ -13,11 +13,7 @@
 					</div>
 				</a>
 				
-				<ul>
-					<li><a href="/admin/notification/window">Единое окно</a></li>
-					<li><a href="/admin/notification/directcommunication">Прямая связь с администрацией</a></li>
-					<li class="activeItem"><a href="/admin/notification/goinvest">Стать инвестором</a></li>
-				</ul>
+
 			</div>
 		</div>
 	</section>
@@ -25,8 +21,8 @@
 	<section>
 		<div class="notificationblabla">
 			<div class="notifications1__wrapper">
-				<h3>Заявки с прямой связи с администрацией</h3>
-				<form action="/admin/notification/search" class="searchNotifications">
+				<h3>Результаты поиска по запросу</h3>
+				<form action="#" class="searchNotifications">
 					<div class="searchNotifications1Form__group">      
 						<input type="text" name="searchNotification"  required >
 						<span class="highlight"></span>
@@ -46,40 +42,38 @@
 					</ul>
 				</div>
 				<div class="windowContent__bottom">
+				@foreach($result as $item)
+					<? $data = json_decode($item->data)?>
+					<div class="infoItem1">
+						<div class="infoItem1__left">
+							<div class="infoItem1__leftFio">
+								<h4>ФИО</h4>
+								@if(isset($data->name))<p>{{$data->name}}@if(isset($data->tel)) - {{$data->tel}}@endif</p>@endif
+							</div>	
 
-					@foreach($items as $item)
-                        <? $data = json_decode($item->data)?>
-						<div class="infoItem1">
-							<div class="infoItem1__left">
-								<div class="infoItem1__leftFio">
-									<h4>ФИО</h4>
-									<p>{{$data->name}}</p>
-								</div>
-
-								<div class="infoItem1__leftEmail">
-									<h4>Email</h4>
-									<p>{{$data->from}}</p>
-								</div>
-
-								<div class="infoItem1__leftCompany">
-									<h4>Компания</h4>
-									<p>{{$data->company}}</p>
-								</div>
-
+							<div class="infoItem1__leftEmail">
+								<h4>Email</h4>
+								@if(isset($data->from))<p>{{$data->from}}</p>@endif
+							</div>				
+							
+							<div class="infoItem1__leftCompany">
+								<h4>Компания</h4>
+								@if(isset($data->name))<p>{{$data->company}}</p>@endif
 							</div>
-							<div class="infoItem1__center">
-								<h4>Сообщение</h4>
-								<p>{{$data->text}}</p>
+							
+						</div>
+						<div class="infoItem1__center">
+							<h4>Сообщение</h4>
+							@if(isset($data->text))<p>{{$data->text}}</p>@endif
 							</div>
 							<div class="infoItem1__right">
 								<h4>Дата</h4>
 								<p>{{$item->created_at}}</p>
 							</div>
-
+							
 							<div class="infoItem1Delete1" data-id="{{$item->id}}"><a href="#" ><span>x</span></a></div>
 						</div>
 					@endforeach
-
 
 
 
