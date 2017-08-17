@@ -193,6 +193,18 @@ GrossProduct.goalProgress({
   // textAfter: '  ' 
 });
 
+var brr = $(".brr");
+var brrmax = $("#currentAmount4";)
+brr.goalProgress({
+  goalAmount: 300,
+  currentAmount: 150,
+  milestoneClass: 'almost-full',
+  speed: 1000,
+  milestoneNumber: 70,
+  // textBefore: '₽ ',
+  // textAfter: '  ' 
+});
+
 
 var url = location.href;
 if(url.indexOf("/en")!= -1){
@@ -617,9 +629,11 @@ $.Tween.propHooks.number = {
 var countSpan1 = parseInt($('#currentAmount1').data("max"));
 var countSpan2 = parseInt($('#currentAmount2').data("max"));
 var countSpan3 = parseInt($('#currentAmount3').data("max"));
+var countSpan4 = parseInt($('#currentAmount4').data("max"));
 $('#currentAmount1').animate({ number: countSpan1 }, 6000);
 $('#currentAmount2').animate({ number: countSpan2 }, 6000);
 $('#currentAmount3').animate({ number: countSpan3 }, 6000);
+$('#currentAmount4').animate({ number: countSpan4 }, 6000);
 
 
 

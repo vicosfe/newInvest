@@ -1,7 +1,7 @@
 @extends('admin.adminWrap')
 @section('content')
 <!--  -->
-<section style="height: calc(100% - 70px);">
+<section style="height: calc(100% - 70px);margin-left: 105px;margin-top: 70px;">
 
 	@include('admin.addTopPanel')
 
