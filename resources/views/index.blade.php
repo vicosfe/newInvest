@@ -47,17 +47,18 @@
 <section class="mainPageCenterContent">
   <div class="centerContent centerBlock">
    <div class="centerContent__wrapper">
-    <div class="AttentionOfCitizens">
+   @if(count($ad))<div class="AttentionOfCitizens">
       <div class="AttentionOfCitizens__wrapper">
         <div class="AttentionOfCitizens__wrapper--left">
           <p>!</p>
         </div>
         <div class="AttentionOfCitizens__wrapper--right">
-          <h3>Вниманию горожан!</h3>
-          <p>Махачкалинские электросети обращают внимание жителей города, а также руководителей различных форм собственности на то, что за период с января по апрель 2017 г. нами было зафиксировано 10 технологических нарушений (аварий) в электрических сетях города, произошедших вследствие различного рода воздействий на них посторонними лицами и организациями. </p>
+          <h3>{{$ad->title}}</h3>
+          <p>{!! $ad->text !!} </p>
         </div>
       </div>
     </div>
+   @endif
     <div class="centerContent__wrapper--leftContent">
 
      <!--**********************БЛОК сайдбара (левый)******************-->
@@ -172,7 +173,7 @@
         <div class="question__caption">
           <h2>Опрос</h2>
         </div>
-        <form action="#" class="questionForm" method="POST">
+        <form action="/" class="questionForm" method="POST">
             {{csrf_field()}}
           <p>{{$poll->title}}</p>
             <?$data = json_decode($poll->data);?>

@@ -17,6 +17,7 @@
 					<li><a href="/admin/settings/opros">Настройка опроса</a></li>
 					<li class="activeItem"><a href="/admin/settings/usefullink">Настройка полезных ссылок</a></li>
 					<li><a href="/admin/settings/menu">Настройка пунктов меню</a></li>
+					<li><a href="/admin/settings/ad">Настройка объявлений</a></li>
 					<li><a href="/admin/settings/slide">Добавление слайда</a></li>
 				</ul>
 			</div>

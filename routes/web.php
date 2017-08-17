@@ -29,6 +29,7 @@ Route::post('admin/settings/add/link', 'Admin\LinksController@add');
 Route::post('admin/settings/menu/add', 'Admin\MenuController@add');
 Route::post('/admin/settings/menu/remove', 'Admin\MenuController@remove');
 Route::post('/admin/settings/menu/edit', 'Admin\MenuController@edit');
+Route::post('admin/settings/ad', 'Admin\AdsController@add');
 
 Route::group(
     [
@@ -119,7 +120,8 @@ Route::group(
 
     Route::get('admin/settings/menu', 'Admin\MenuController@index');
 
-
+    Route::get('admin/settings/ad', 'Admin\AdsController@index');
+    Route::get('admin/settings/ad/remove/{id}', 'Admin\AdsController@remove');
 
     Route::get('admin/settings/slide', function () {
         return view('admin.settingSlide');

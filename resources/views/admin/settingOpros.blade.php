@@ -17,6 +17,7 @@
 					<li class="activeItem"><a href="/admin/settings/opros">Настройка опроса</a></li>
 					<li><a href="/admin/settings/usefullink">Настройка полезных ссылок</a></li>
 					<li><a href="/admin/settings/menu">Настройка пунктов меню</a></li>
+					<li><a href="/admin/settings/ad">Настройка объявлений</a></li>
 					<li><a href="/admin/settings/slide">Добавление слайда</a></li>
 				</ul>
 			</div>
@@ -25,9 +26,9 @@
 
 	<section>
 		<div class="settingsOpros">
-			<h3>Добавление отпроса</h3>
+			<h3>Добавление опроса</h3>
 			<div class="settingsOprosTop">
-				<form action="#" class="addOpros" method="POST">
+				<form action="/admin/settings/opros" class="addOpros" method="POST">
 
 {{csrf_field()}}
 
@@ -109,11 +110,22 @@
 			<div class="settingsOprosBottom">
 				<div class="settingsOprosBottomWrapp">
 					@foreach($items as $item)
-					<div class="settingsOprosBottomWrapp__item">
-						<p>{{$item->title}}</p>
-						<a href="/admin/settings/opros/remove/{{$item->id}}">
-							<div class="settingsOprosBottomWrapp__delete"><span>x</span></div>
-						</a>
+					<div class="setOpW">
+						<div class="settingsOprosBottomWrapp__item">
+							<p>{{$item->title}}</p>
+							<a href="/admin/settings/opros/remove/{{$item->id}}">
+								<div class="settingsOprosBottomWrapp__delete"><span>x</span></div>
+							</a>
+						</div>
+
+						<div>
+							@foreach($item["items"] as $r)
+
+								<div class="inpWrapper">
+									<p>{{$r["title"]}} - {{$r["res"]}}%</p>
+								</div>
+							@endforeach
+						</div>
 					</div>
 					@endforeach
 				</div>

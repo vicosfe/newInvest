@@ -13,6 +13,7 @@ use App\Menu;
 use App\Answer;
 use App\Article;
 use App\Media_Articledoc;
+use App\Ad;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 class IndexController extends Controller
 {
@@ -31,6 +32,7 @@ class IndexController extends Controller
     public function index(Request $request)
     {
         $news = News::main();
+        $ad = Ad::orderBy("id",'desc')->first();
         $newsMedia = Media_New::index();
         $poll = Poll::orderBy("id","desc")->first();
         $ip = $request->ip();
@@ -55,7 +57,7 @@ class IndexController extends Controller
             $poll=null;
 
         }
-        return view('index', ['local'=>$this->local,'news' => $news, 'media'=> $newsMedia, 'menu'=>$this->menu,"answ"=>$answ, "result"=>$result,  "linkItems"=>$this->linkItems, "poll"=>$poll]);
+        return view('index', ['local'=>$this->local,'news' => $news, 'ad' => $ad, 'media'=> $newsMedia, 'menu'=>$this->menu,"answ"=>$answ, "result"=>$result,  "linkItems"=>$this->linkItems, "poll"=>$poll]);
 
 
     }
