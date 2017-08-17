@@ -47,116 +47,116 @@
 <section class="mainPageCenterContent">
   <div class="centerContent centerBlock">
    <div class="centerContent__wrapper">
-   @if(count($ad))<div class="AttentionOfCitizens">
-      <div class="AttentionOfCitizens__wrapper">
-        <div class="AttentionOfCitizens__wrapper--left">
-          <p>!</p>
-        </div>
-        <div class="AttentionOfCitizens__wrapper--right">
-          <h3>{{$ad->title}}</h3>
-          <p>{!! $ad->text !!} </p>
-        </div>
+     @if(count($ad))<div class="AttentionOfCitizens">
+     <div class="AttentionOfCitizens__wrapper">
+      <div class="AttentionOfCitizens__wrapper--left">
+        <p>!</p>
+      </div>
+      <div class="AttentionOfCitizens__wrapper--right">
+        <h3>{{$ad->title}}</h3>
+        <p>{!! $ad->text !!} </p>
       </div>
     </div>
-   @endif
-    <div class="centerContent__wrapper--leftContent">
+  </div>
+  @endif
+  <div class="centerContent__wrapper--leftContent">
 
-     <!--**********************БЛОК сайдбара (левый)******************-->
-
-
-
-     <!--**********************БЛОК НОВОСТЕЙ ******************-->
-
-        <div class="centerContent__news ">
-            <div class="top__itemSmall" style="background-image: url({{ $news[0]->img }});">
-                <div class="top__itemSmall--text">
-                    <div>{!! $news[0]->title !!}</div>
-                </div>
-                <div class="top__itemSmall--blockFilter"></div>
-                <a href="/news/{{ $news[0]->id}}"></a>
-            </div>
-
-
-            <div class="top__itemSmall" style="background-image: url({{ $news[1]->img }});">
-                <div class="top__itemSmall--text">
-                    <div>{!! $news[1]->title !!}</div>
-                </div>
-                <div class="top__itemSmall--blockFilter"></div>
-                <a href="/news/{{ $news[1]->id}}"></a>
-            </div>
-
-
-            <div class="top__itemSmall" style="background-image: url({{ $news[2]->img }});">
-                <div class="top__itemSmall--text">
-                    <div>{!! $news[2]->title !!}</div>
-                </div>
-                <div class="top__itemSmall--blockFilter"></div>
-                <a href="/news/{{ $news[2]->id}}"></a>
-            </div>
+   <!--**********************БЛОК сайдбара (левый)******************-->
 
 
 
-            <div class="top__itemLarge" style="background-image: url({{ $news[3]->img }});">
-                <div class="top__itemLarge--text">
-                    <div>{!! $news[3]->title !!}</div>
-                </div>
-                <div class="top__itemLarge--blockFilter"></div>
-                <a href="/news/{{ $news[3]->id}}"></a>
-            </div>
+   <!--**********************БЛОК НОВОСТЕЙ ******************-->
 
-            <div class="top__itemSmall" style="background-image: url({{ $news[4]->img }});">
-                <div class="top__itemSmall--text">
-                    <div>{!! $news[4]->title !!}</div>
-                </div>
-                <div class="top__itemSmall--blockFilter"></div>
-                <a href="/news/{{ $news[4]->id}}"></a>
-            </div>
-            <div class="top__itemSmall" style="background-image: url({{ $news[5]->img }});">
-                <div class="top__itemSmall--text">
-                    <div>{!! $news[5]->title !!}</div>
-                </div>
-                <div class="top__itemSmall--blockFilter"></div>
-                <a href="/news/{{ $news[5]->id}}"></a>
-            </div>
-
-            <div class="top__itemLarge" style="background-image: url({{ $news[6]->img }});">
-                <div class="top__itemLarge--text">
-                    <div>{!! $news[6]->title !!}</div>
-                </div>
-                <div class="top__itemLarge--blockFilter"></div>
-                <a href="/news/{{ $news[6]->id}}"></a>
-            </div>
-
-            <div class="top__itemSmall" style="background-image: url({{ $news[7]->img }});">
-                <div class="top__itemSmall--text">
-                    <div>{!! $news[7]->title !!}</div>
-                </div>
-                <div class="top__itemSmall--blockFilter"></div>
-                <a href="/news/{{ $news[7]->id}}"></a>
-            </div>
+   <div class="centerContent__news ">
+    <div class="top__itemSmall" style="background-image: url({{ $news[0]->img }});">
+      <div class="top__itemSmall--text">
+        <div>{!! $news[0]->title !!}</div>
+      </div>
+      <div class="top__itemSmall--blockFilter"></div>
+      <a href="/news/{{ $news[0]->id}}"></a>
+    </div>
 
 
-            <div class="top__itemSmall" style="background-image: url({{ $news[8]->img }});">
-                <div class="top__itemSmall--text">
-                    <div>{!! $news[8]->title !!}</div>
-                </div>
-                <div class="top__itemSmall--blockFilter"></div>
-                <a href="/news/{{ $news[8]->id}}"></a>
-            </div>
+    <div class="top__itemSmall" style="background-image: url({{ $news[1]->img }});">
+      <div class="top__itemSmall--text">
+        <div>{!! $news[1]->title !!}</div>
+      </div>
+      <div class="top__itemSmall--blockFilter"></div>
+      <a href="/news/{{ $news[1]->id}}"></a>
+    </div>
 
 
-            <div class="top__itemSmall" style="background-image: url({{ $news[9]->img }});">
-                <div class="top__itemSmall--text">
-                    <div>{!! $news[9]->title !!}</div>
-                </div>
-                <div class="top__itemSmall--blockFilter"></div>
-                <a href="/news/{{ $news[9]->id}}"></a>
-            </div>
+    <div class="top__itemSmall" style="background-image: url({{ $news[2]->img }});">
+      <div class="top__itemSmall--text">
+        <div>{!! $news[2]->title !!}</div>
+      </div>
+      <div class="top__itemSmall--blockFilter"></div>
+      <a href="/news/{{ $news[2]->id}}"></a>
+    </div>
 
 
-        </div>
+
+    <div class="top__itemLarge" style="background-image: url({{ $news[3]->img }});">
+      <div class="top__itemLarge--text">
+        <div>{!! $news[3]->title !!}</div>
+      </div>
+      <div class="top__itemLarge--blockFilter"></div>
+      <a href="/news/{{ $news[3]->id}}"></a>
+    </div>
+
+    <div class="top__itemSmall" style="background-image: url({{ $news[4]->img }});">
+      <div class="top__itemSmall--text">
+        <div>{!! $news[4]->title !!}</div>
+      </div>
+      <div class="top__itemSmall--blockFilter"></div>
+      <a href="/news/{{ $news[4]->id}}"></a>
+    </div>
+    <div class="top__itemSmall" style="background-image: url({{ $news[5]->img }});">
+      <div class="top__itemSmall--text">
+        <div>{!! $news[5]->title !!}</div>
+      </div>
+      <div class="top__itemSmall--blockFilter"></div>
+      <a href="/news/{{ $news[5]->id}}"></a>
+    </div>
+
+    <div class="top__itemLarge" style="background-image: url({{ $news[6]->img }});">
+      <div class="top__itemLarge--text">
+        <div>{!! $news[6]->title !!}</div>
+      </div>
+      <div class="top__itemLarge--blockFilter"></div>
+      <a href="/news/{{ $news[6]->id}}"></a>
+    </div>
+
+    <div class="top__itemSmall" style="background-image: url({{ $news[7]->img }});">
+      <div class="top__itemSmall--text">
+        <div>{!! $news[7]->title !!}</div>
+      </div>
+      <div class="top__itemSmall--blockFilter"></div>
+      <a href="/news/{{ $news[7]->id}}"></a>
+    </div>
+
+
+    <div class="top__itemSmall" style="background-image: url({{ $news[8]->img }});">
+      <div class="top__itemSmall--text">
+        <div>{!! $news[8]->title !!}</div>
+      </div>
+      <div class="top__itemSmall--blockFilter"></div>
+      <a href="/news/{{ $news[8]->id}}"></a>
+    </div>
+
+
+    <div class="top__itemSmall" style="background-image: url({{ $news[9]->img }});">
+      <div class="top__itemSmall--text">
+        <div>{!! $news[9]->title !!}</div>
+      </div>
+      <div class="top__itemSmall--blockFilter"></div>
+      <a href="/news/{{ $news[9]->id}}"></a>
+    </div>
+
 
   </div>
+
+</div>
 
 
 
@@ -168,38 +168,56 @@
 <!--**********************БЛОК сайдбара(правый)******************-->
 
 <div class="sideBarMainRight">
-    @if(count($poll))
-      <div class="question">
-        <div class="question__caption">
-          <h2>Опрос</h2>
-        </div>
-        <form action="/" class="questionForm" method="POST">
-            {{csrf_field()}}
-          <p>{{$poll->title}}</p>
-            <?$data = json_decode($poll->data);?>
-            @foreach($data as $d)
-          <div class="inpWrapper">
-            <input  name="question" type="radio" value="{{$d}}" id="kredit{{$d}}"> <label for="kredit{{$d}}">{{$d}}</label>
-          </div>
-              @endforeach
-            <input type="hidden" name="poll_id" value="{{$poll->id}}">
-          <button class="replyButton">Ответить</button>
-        </form>
+  @if(count($poll))
+  <div class="question">
+    <div class="question__caption">
+      <h2>Опрос</h2>
+    </div>
+    <form action="/" class="questionForm" method="POST">
+      {{csrf_field()}}
+      <p>{{$poll->title}}</p>
+      <?$data = json_decode($poll->data);?>
+      @foreach($data as $d)
+      <div class="inpWrapper">
+        <input  name="question" type="radio" value="{{$d}}" id="kredit{{$d}}"> <label for="kredit{{$d}}">{{$d}}</label>
+      </div>
+      @endforeach
+      <input type="hidden" name="poll_id" value="{{$poll->id}}">
+      <button class="replyButton">Ответить</button>
+    </form>
 
     @elseif(count($result))
-        <div class="question">
-            <div class="question__caption">
-                <h2>Опрос</h2>
-            </div>
-            <p>{{$result["title"]}}</p>
+    <div class="question">
+      <div class="question__caption">
+        <h2>Опрос</h2>
+      </div>
+      <div class="question__after">
+        <p>  <span>Результаты опроса </span>"{{$result["title"]}}"</p>
         @foreach($result["items"] as $r)
 
-            <div class="inpWrapper">
-               <p @if($answ->value == $r["title"]) style="border:1px solid red" @endif>{{$r["title"]}} - {{$r["res"]}}%</p>
+        <div class="inpWrapper">
+        <p @if($answ->value == $r["title"]) class="inpWrapperSelected" @endif>{{$r["title"]}} - {{$r["res"]}}%</p>
+       </div>
+
+       @endforeach
+       <div class="inpWrapper">as
+        <div class="wrapperProgressBar__item">
+          <div class="wrapperProgressBar__item--currentAmount">
+            <span style="color: #f51d45" id="currentAmount4" data-max="150">0</span>
+          </div>
+          <div class="wrapperProgressBar__item--progressBar ">
+            <div class="brr"></div>
+            <div class="progressBarCurrentAmount">
+              <span>209</span>
             </div>
-        @endforeach
+          </div>
         </div>
-    @endif
+      </div>
+    </div>
+
+
+  </div>
+  @endif
   <!-- НОВОСТИ С МКАЛА -->
   <div class="newsMKALA">
     <div class="newsMKALA__caption">
@@ -242,9 +260,9 @@
 
 </script>
 <div class="wrapper__media centerBlock">
-    <h2>МЕДИА</h2>
+  <h2>МЕДИА</h2>
 
-    @if(count($media))<div class="media" >@include('mediaSlide')</div>@endif
+  @if(count($media))<div class="media" >@include('mediaSlide')</div>@endif
 </div>
 @include('usefulLinks')
 

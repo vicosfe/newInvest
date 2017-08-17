@@ -160,6 +160,9 @@ main{
 	height: 100%;
 	box-shadow: 0px 9px 15px 0px #e0e0e0;
 	margin-right: 35px;
+	position: fixed;
+	z-index: 600;
+	margin-top: 70px;
 }
 .leftMenuWrap__leftMenu--item{
 	height: 80px;
@@ -466,6 +469,11 @@ main{
 	font-family: "GothamPro-Medium";
 }
 /* ********************************************** */
+header{
+	position: fixed;
+	z-index: 600;
+	width: 100%;
+}
 .addContent{
 	width: 90%;
 	height: 100%;
@@ -2051,7 +2059,7 @@ main{
   	display: flex;
   	-ms-align-items: center;
   	align-items: center;
-  
+
 
   }
   .popUpDelNewsWrapper{
@@ -4514,12 +4522,12 @@ main{
   	flex-wrap: wrap;
   }
   .setOpW{
-	  border: 1px solid #e0e0e0;
-	  padding: 0 27px;
-	  width: 390px;
+  	border: 1px solid #e0e0e0;
+  	padding: 0 27px;
+  	width: 390px;
   }
   .settingsOprosBottomWrapp__item{
-
+  	width: 100%;
   	height: 64px;
   	position: relative;
   	display: -webkit-flex;
@@ -4531,6 +4539,13 @@ main{
   	align-items: center;
   	margin-right: 18px;
   	margin-bottom: 10px;
+  	position: relative;
+  }
+  .settingsOprosBottomWrapp__item a{
+  	position: absolute;
+  	top: 0px;
+  	right: -27px;
+  	text-decoration: none;
   }
   .settingsOprosBottomWrapp__item:nth-child(4n){
   	margin-right: 0 !important;
@@ -5719,7 +5734,7 @@ main{
   /* ******************************************************************************************** */
 
 
-   .infoItem1{
+  .infoItem1{
   	display: -webkit-flex;
   	display: -moz-flex;
   	display: -ms-flex;
@@ -5732,15 +5747,15 @@ main{
   	border-bottom: 1px solid #d8d8d8;
   }
   .infoItem1 h4{
-	display: none;
+  	display: none;
   }
 
-   .infoItem1 > .infoItem1__left .infoItem1__leftEmail{
-  		display: none;
+  .infoItem1 > .infoItem1__left .infoItem1__leftEmail{
+  	display: none;
   }
 
-   .infoItem1 > .infoItem1__left .infoItem1__leftCompany{
-  		display: none;
+  .infoItem1 > .infoItem1__left .infoItem1__leftCompany{
+  	display: none;
   }
   .infoItem1:first-child{
   	border-top: 1px solid #d8d8d8;
@@ -5764,10 +5779,10 @@ main{
   	width: 100%;
   	max-width: 277px;
   }
-   .infoItem1__left p{
-   }
+  .infoItem1__left p{
+  }
   .infoItem1__left p:first-child{
-	display: block !important;
+  	display: block !important;
   }
   .infoItem1__center{
   	width: 100%;
@@ -5881,8 +5896,8 @@ main{
   .infoItem1Active p{
   	margin-bottom: 50px !important;
   }
-   .infoItem1Active p{
-	display: block;
+  .infoItem1Active p{
+  	display: block;
   }
 
 
@@ -5890,7 +5905,7 @@ main{
   	display: block !important;
   }
 
-   .infoItem1Active > .infoItem1__left .infoItem1__leftCompany{
+  .infoItem1Active > .infoItem1__left .infoItem1__leftCompany{
   	display: block !important;
   }
 
@@ -5932,41 +5947,59 @@ main{
   	display: block;
   }
 
-.tm{
-	width:100%;
-}
-.tm tr td:first-child{
-	display: block;
-	width: 5% !important;
-	height: 40px;
-	padding: 10px 0;
-}
-.tm td{
-	display: block;
-	margin: 0 5px !important;
-}
-.tm tr{
-	display: flex;
-	justify-content: space-between;
-	margin: 10px 0;
-}
-.tm tr td:nth-child(2), .tm tr td:nth-child(3), .tm tr td:nth-child(5){
-	 display: block;
-	 width: 22% !important;
-	 height: 50px;
+  .tm{
+  	width:100%;
+  }
+  .tm tr td:first-child{
+  	display: block;
+  	width: 5% !important;
+  	height: 40px;
+  	padding: 10px 0;
+  }
+  .tm td{
+  	display: block;
+  	margin: 0 5px !important;
+  	border: 0;
+  	color: #000;
+  	font-size: 12px;
+  	font-family: "GothamPro-Light";
+  	display: flex;
+  	align-items: center;
+  }
+  .tm tr{
+  	display: flex;
+  	justify-content: space-between;
+  	margin: 10px 0;
+  }
+  .tm tr td:nth-child(2), .tm tr td:nth-child(3), .tm tr td:nth-child(5){
+  	display: block;
+  	width: 22% !important;
+  	height: 50px;
 
- }
-.tm tr td:nth-child(4) , .tm tr td:nth-child(6) {
-	display: block;
-	width: 12% !important;
-	height: 50px;
+  }
+  .tm tr td:nth-child(4) , .tm tr td:nth-child(6) {
+  	display: block;
+  	width: 12% !important;
+  	height: 50px;
 
-}
-.tm tr td:nth-child(7){
-	display: block;
-	width: 10% !important;
-	height: 50px;
-}
-.tm tr td input,.tm tr td select {
-	width:100%;
-}
+  }
+  .tm tr td:nth-child(7){
+  	display: block;
+  	width: 10% !important;
+  	height: 50px;
+  }
+  .tm tr td input,.tm tr td select {
+  	display: block;
+  	border: 0;
+  	border-bottom: 1px solid #d8d8d8;
+  	color: #000;
+  	font-size: 14px;
+  	font-family: "GothamPro-Light";
+  	width: 100%;
+  	max-width: 188px;
+  	height: 100%;
+  	outline: 0;
+  }
+
+
+    margin-left: 105px;margin-top: 70px;
