@@ -14,7 +14,7 @@ $localization = new LaravelLocalization();
 
 
 
-Route::get('/parseMkala', 'ParserController@index');
+
 Route::post('/', "IndexController@answer");
 Route::post('/search', "IndexController@search");
 Route::post('/direct', 'PageController@directCommunicationSend');
@@ -30,6 +30,7 @@ Route::post('admin/settings/menu/add', 'Admin\MenuController@add');
 Route::post('/admin/settings/menu/remove', 'Admin\MenuController@remove');
 Route::post('/admin/settings/menu/edit', 'Admin\MenuController@edit');
 Route::post('admin/settings/ad', 'Admin\AdsController@add');
+Route::post('/mail', 'MailController@add');
 
 Route::group(
     [
@@ -55,7 +56,7 @@ Route::group(
     });
     Route::get('/direct', 'PageController@directCommunication');
 
-
+    Route::get('/parseMkala', 'ParserController@index');
 
     Route::get('feedBack', 'PageController@feedBack');
 
@@ -65,10 +66,11 @@ Route::group(
     Route::get('/pp', 'PageController@pp');
     Route::get('/search', 'PageController@search');
 
-    Route::get('/documents', function () {
+
+   /* Route::get('/documents', function () {
         return view('documents');
     });
-
+*/
 /*ADMIN*/
 
 
