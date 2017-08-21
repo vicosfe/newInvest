@@ -18,7 +18,7 @@ class SlidesController extends Controller
             return redirect("/login");
         }
         $items = Slide::where("enable",1)->get();
-        $slide = [];
+        $slide = new Slide();
         if ($id){
             $slide = Slide::find($id);
         }
