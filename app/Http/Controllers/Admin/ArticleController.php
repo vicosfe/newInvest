@@ -106,7 +106,41 @@ class ArticleController extends Controller
 
         return view('admin.addArticles', ['item' => $item, 'menu'=>$menu,'media'=>$media, 'docs'=>$docs, 'cat'=>$item->cat_id, "parrent_cat"=>$parrent_cat]);
     }
+    public function change(){
+        if (!count(Auth::user())){
+            return redirect("/login");
+        }
+        $items = Article::paginate(20);
+        return view('admin.editArticles', ['items' => $items]);
+    }
+    public function removeD($id){
+        Media_Articledoc::destroy($id);
+        return back();
+    }
+
+    public function remove($id){
+
+        $docs = Media_Articledoc::where("id_article",$id)->get();
+        foreach ($docs as $d){
+            $d->delete();
+        }
+        $media = Media_Article::where("id_article",$id)->get();
+        foreach ($media as $d){
+            $d->delete();
+        }
+        Article::destroy($id);
+        return back();
+    }
+    public function search(Request $request){
+        $key = $request->input("search");
+        if (strlen($key)<2){
+            return back();
+        }
+
+        $pages = Article::where("title","LIKE", '%'.$key.'%')->orWhere("description","LIKE", '%'.$key.'%')->paginate(20);
 
 
+        return view('admin.editArticles', ['items' => $pages , 'search' => $key]);
 
+    }
 }

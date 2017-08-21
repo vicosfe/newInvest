@@ -193,19 +193,73 @@ GrossProduct.goalProgress({
   // textAfter: '  ' 
 });
 
-var brr = $(".brr");
-var brrmax = $("#currentAmount4";)
+var brr = $("#brr4");
+var brrcur = $("#currentAmount4").data("cur");
 brr.goalProgress({
-  goalAmount: 300,
-  currentAmount: 150,
+  goalAmount: 100,
+  currentAmount: brrcur,
   milestoneClass: 'almost-full',
   speed: 1000,
   milestoneNumber: 70,
   // textBefore: '₽ ',
-  // textAfter: '  ' 
+   //textAfter: ' % '
 });
+    var brr = $("#brr5");
+    var brrcur = $("#currentAmount5").data("cur");
+    brr.goalProgress({
+        goalAmount: 100,
+        currentAmount: brrcur,
+        milestoneClass: 'almost-full',
+        speed: 1000,
+        milestoneNumber: 70,
+        // textBefore: '₽ ',
+        // textAfter: '  '
+    });
+    var brr = $("#brr6");
+    var brrcur = $("#currentAmount6").data("cur");
+    brr.goalProgress({
+        goalAmount: 100,
+        currentAmount: brrcur,
+        milestoneClass: 'almost-full',
+        speed: 1000,
+        milestoneNumber: 70,
+        // textBefore: '₽ ',
+        // textAfter: '  '
+    });
 
-
+    var brr = $("#brr7");
+    var brrcur = $("#currentAmount7").data("cur");
+    brr.goalProgress({
+        goalAmount: 100,
+        currentAmount: brrcur,
+        milestoneClass: 'almost-full',
+        speed: 1000,
+        milestoneNumber: 70,
+        // textBefore: '₽ ',
+        // textAfter: '  '
+    });
+    var brr = $("#brr8");
+    var brrcur = $("#currentAmount8").data("cur");
+    brr.goalProgress({
+        goalAmount: 100,
+        currentAmount: brrcur,
+        milestoneClass: 'almost-full',
+        speed: 1000,
+        milestoneNumber: 70,
+        // textBefore: '₽ ',
+        // textAfter: '  '
+    });
+    var brr = $("#brr9");
+    var brrcur = $("#currentAmount9").data("cur");
+    brr.goalProgress({
+        goalAmount: 100,
+        currentAmount: brrcur,
+        milestoneClass: 'almost-full',
+        speed: 1000,
+        milestoneNumber: 70,
+        // textBefore: '₽ ',
+        // textAfter: '  '
+    });
 var url = location.href;
 if(url.indexOf("/en")!= -1){
   var langChild = $(".ChangeLanguage__select:first-child");

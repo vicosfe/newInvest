@@ -71,10 +71,39 @@ class NewsController extends Controller
             $itemNew = News::getItem($id);
             $media = Media_New::getItemMedia($id);
         }
+
         return view('admin.add', ['item' => $itemNew, 'media'=>$media]);
     }
 
 
+    public function change($id=null){
+        if (!count(Auth::user())){
+            return redirect("/login");
+        }
+        $items = News::paginate(20);
+        return view('admin.editNews', ['items' => $items]);
+    }
+
+    public function remove($id){
 
 
+        $media = Media_New::where("id_news",$id)->get();
+        foreach ($media as $d){
+            $d->delete();
+        }
+        News::destroy($id);
+        return back();
+    }
+    public function search(Request $request){
+        $key = $request->input("search");
+        if (strlen($key)<2){
+            return back();
+        }
+
+        $pages = News::where("title","LIKE", '%'.$key.'%')->orWhere("content","LIKE", '%'.$key.'%')->paginate(20);
+
+
+        return view('admin.editNews', ['items' => $pages , 'search' => $key]);
+
+    }
 }

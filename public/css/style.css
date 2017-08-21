@@ -11,6 +11,7 @@ body{
 	background-color: #fff;
 	margin: 0 auto;
 	font-family: sans-serif;
+	top:0 !important;
 }
 main{
 	z-index: 1;
@@ -26,10 +27,13 @@ main{
 	content: "";
 	clear: both;
 }
-
+.skiptranslate {
+	display: none;
+}
 /* Progress bar */
 
 /*  <div id="sample_goal"></div>  */
+
 
 .goalProgress {
 	background: #1a1a1c;
@@ -90,7 +94,25 @@ span.goalAmount {
 .CAPTION__wrapper p:first-letter{
 	color: #f24e4e;
 }
-/***************************Шапка************************/
+.question__after  .goalProgress {
+	height: 10px;
+	background: #d2cccc;
+	overflow: hidden;
+}
+
+.question__after  .progressBar {
+
+	background: #f24e4e;
+
+}
+.question__after .wrapperProgressBar__item--progressBar{
+	margin-top: -20px;
+}
+
+.question__after .wrapperProgressBar__item{
+	height: 41px;
+}
+	/***************************Шапка************************/
 header{
 
 }

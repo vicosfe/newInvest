@@ -264,6 +264,26 @@ $(infoItem).on("click",function () {
     $(this).removeClass("infoItemActive");
   }else {
     $(this).addClass("infoItemActive");
+      var id = $(this).data('id');
+      var th = $(this);
+      $.ajax({
+          type: 'GET',
+          url: "http://"+location.hostname + "/admin/messages/checked/"+id
+      }).done(function(data) {
+          th.removeClass("nch");
+          if(data){
+              var l = "/admin/notification/"+data;
+              $(".nots").attr("href",l);
+          }
+          else {
+              $(".nots").hide();
+              var a = $(".notificationActive");
+              a.removeClass("notificationActive").addClass("notification")
+          }
+
+      }).fail(function() {
+          console.log('fail');
+      });
   }
 });
 
@@ -274,6 +294,26 @@ $(infoItem1).on("click",function () {
     $(this).removeClass("infoItem1Active");
   }else {
     $(this).addClass("infoItem1Active");
+      var id = $(this).data('id');
+      var th = $(this);
+      $.ajax({
+          type: 'GET',
+          url: "http://"+location.hostname + "/admin/messages/checked/"+id
+      }).done(function(data) {
+          th.removeClass("nch");
+          if(data){
+              var l = "/admin/notification/"+data;
+              $(".nots").attr("href",l);
+          }
+          else {
+              $(".nots").hide();
+              var a = $(".notificationActive");
+              a.removeClass("notificationActive").addClass("notification")
+          }
+
+      }).fail(function() {
+          console.log('fail');
+      });
   }
 });
 

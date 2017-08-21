@@ -16,20 +16,27 @@ $localization = new LaravelLocalization();
 
 
 Route::post('/', "IndexController@answer");
-Route::post('/search', "IndexController@search");
+Route::post('ru/search', "IndexController@search");
+Route::post('en/search', "IndexController@search");
 Route::post('/direct', 'PageController@directCommunicationSend');
 Route::post('feedBack', 'PageController@feedBackSend');
 Route::post('/messages/project', "PageController@projectSend");
-Route::post('/admin/add/news','Admin\NewsController@add');
+Route::post('/admin/add/news/{id?}','Admin\NewsController@add');
 Route::post('/admin/add/articles/{id?}','Admin\ArticleController@add');
 Route::post('/admin/add/pages/{id?}','Admin\PagesController@add');
 Route::post('/admin/add/projects/{id?}','Admin\ProjectsController@add');
+Route::post('/admin/search/news','Admin\NewsController@search');
+Route::post('/admin/search/articles','Admin\ArticleController@search');
+Route::post('/admin/search/pages','Admin\PagesController@search');
+Route::post('/admin/search/projects','Admin\ProjectsController@search');
 Route::post('admin/settings/opros', 'Admin\PollsController@add');
 Route::post('admin/settings/add/link', 'Admin\LinksController@add');
 Route::post('admin/settings/menu/add', 'Admin\MenuController@add');
 Route::post('/admin/settings/menu/remove', 'Admin\MenuController@remove');
 Route::post('/admin/settings/menu/edit', 'Admin\MenuController@edit');
 Route::post('admin/settings/ad', 'Admin\AdsController@add');
+Route::post('admin/settings/mail/send', 'Admin\MailController@send');
+Route::post('admin/settings/slide', 'Admin\SlidesController@add');
 Route::post('/mail', 'MailController@add');
 
 Route::group(
@@ -79,37 +86,31 @@ Route::group(
     });
 
     Route::get('/admin/edit/news/{id?}', 'Admin\NewsController@edit');
-
+    Route::get('admin/remove/news/{id?}','Admin\NewsController@remove');
 
     Route::get('/admin/edit/articles/{id?}', 'Admin\ArticleController@edit');
-
+    Route::get('admin/remove/articles/{id?}','Admin\ArticleController@remove');
 
     Route::get('/admin/edit/pages/{id?}', 'Admin\PagesController@edit');
+    Route::get('admin/remove/pages/{id?}','Admin\PagesController@remove');
+
+    Route::get('/admin/edit/projects/{id?}', 'Admin\ProjectsController@edit');
+    Route::get('admin/remove/projects/{id?}','Admin\ProjectsController@remove');
 
 
-    Route::get('admin/edit/projects/{id?}', 'Admin\ProjectsController@edit');
+    Route::get('/admin/change/news', 'Admin\NewsController@change');
 
-
-
-    Route::get('admin/change/news', function () {
-        return view('admin.editNews');
-    });
-
-    Route::get('admin/change/docs', function () {
+    Route::get('/admin/change/docs', function () {
         return view('admin.editDocs');
     });
 
-    Route::get('admin/change/articles', function () {
-        return view('admin.editArticles');
-    });
+    Route::get('/admin/change/articles', 'Admin\ArticleController@change');
+    Route::get('/admin/docs/remove/{id}', 'Admin\ArticleController@removeD');
 
-    Route::get('admin/change/pages', function () {
-        return view('admin.editUniquePages');
-    });
+    Route::get('/admin/change/pages', 'Admin\PagesController@change');
+    Route::get('/admin/docs/remove/p/{id}', 'Admin\PagesController@removeD');
 
-    Route::get('admin/change/projects', function () {
-        return view('admin.editProjects');
-    });
+    Route::get('admin/change/projects','Admin\ProjectsController@change');
 
     Route::get('admin/settings/opros', 'Admin\PollsController@index');
 
@@ -121,18 +122,19 @@ Route::group(
 
 
     Route::get('admin/settings/menu', 'Admin\MenuController@index');
+    Route::get('admin/settings/mail', 'Admin\MailController@index');
 
     Route::get('admin/settings/ad', 'Admin\AdsController@index');
     Route::get('admin/settings/ad/remove/{id}', 'Admin\AdsController@remove');
 
-    Route::get('admin/settings/slide', function () {
-        return view('admin.settingSlide');
-    });
+    Route::get('admin/settings/slide/{id?}', 'Admin\SlidesController@index');
+    Route::get('admin/settings/slide/remove', 'Admin\SlidesController@remove');
 
     Route::get('admin/notification/window', 'Admin\MessagesController@window');
     Route::get('admin/notification/search/{keyword?}', 'Admin\MessagesController@search');
     Route::get('admin/notification/goinvest', 'Admin\MessagesController@goinvest');
     Route::get('admin/notification/directcommunication', 'Admin\MessagesController@directcommunication');
+    Route::get('admin/messages/checked/{id}', 'Admin\MessagesController@checked');
     Route::get('admin/messages/remove/{id}', 'Admin\MessagesController@remove');
 
 
@@ -140,6 +142,8 @@ Route::group(
     Route::get('/article/{id?}', 'ArticleController@item');
 
     Route::get('/articles/{id?}','ArticleController@index');
+
+
 
     Route::get('/projects/{id?}','ProjectsController@index');
 

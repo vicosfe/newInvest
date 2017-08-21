@@ -92,9 +92,28 @@
 					
 					<!-- ************ -->
 					<div class="addImgForm__content">
-						<div class="articlesImagePrev"></div>
+						<div class="articlesImagePrev">
+							@if(count($media))
+								@foreach($media as $m)
+									@if(isset($m->img))<img src="{{$m->img}}" alt="">@endif
+								@endforeach
+							@endif
+						</div>
 					</div>
 					<div class="addDocsForm__content">
+						@if(count($docs))
+							@foreach($docs as $m)
+								@if(isset($m->title))
+									<div class="addDocsFormItem">
+										<div class="addDocsFormItemDelete">
+											<a href="/admin/docs/remove/{{$m->id}}">x</a>
+										</div>
+										<div class="addDocsFormItem__img"></div>
+										<div class="addDocsFormItem__text">{{$m->title}}</div>
+									</div>
+								@endif
+							@endforeach
+						@endif
 
 					</div>
 

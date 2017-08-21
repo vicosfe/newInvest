@@ -28,7 +28,7 @@
 		<div class="changeArticles">
 			
 			@include('admin.changeArticlesSearch')
-			<!-- @include('admin.changeArticlesEditor') -->
+
 
 
 		</div>

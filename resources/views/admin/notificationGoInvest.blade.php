@@ -26,7 +26,7 @@
 		<div class="notificationblabla">
 			<div class="notifications1__wrapper">
 				<h3>Заявки с прямой связи с администрацией</h3>
-				<form action="/admin/notification/search" class="searchNotifications">
+			<form action="/admin/notification/search" class="searchNotifications">
 					<div class="searchNotifications1Form__group">      
 						<input type="text" name="searchNotification"  required >
 						<span class="highlight"></span>
@@ -49,7 +49,7 @@
 
 					@foreach($items as $item)
                         <? $data = json_decode($item->data)?>
-						<div class="infoItem1">
+						<div class="infoItem1 @if($item->checked != 1) nch @endif" data-id="{{$item->id}}" >
 							<div class="infoItem1__left">
 								<div class="infoItem1__leftFio">
 									<h4>ФИО</h4>

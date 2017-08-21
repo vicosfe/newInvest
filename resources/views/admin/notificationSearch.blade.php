@@ -21,10 +21,10 @@
 	<section>
 		<div class="notificationblabla">
 			<div class="notifications1__wrapper">
-				<h3>Результаты поиска по запросу</h3>
+				<h3>Результаты поиска по запросу - {{$key}}</h3>
 				<form action="#" class="searchNotifications">
 					<div class="searchNotifications1Form__group">      
-						<input type="text" name="searchNotification"  required >
+						<input type="text" name="searchNotification"  required value="{{$key}}">
 						<span class="highlight"></span>
 						<span class="bar"></span>
 						<label>Поиск</label>
@@ -44,7 +44,7 @@
 				<div class="windowContent__bottom">
 				@foreach($result as $item)
 					<? $data = json_decode($item->data)?>
-					<div class="infoItem1">
+					<div class="infoItem1" data-id="{{$item->id}}">
 						<div class="infoItem1__left">
 							<div class="infoItem1__leftFio">
 								<h4>ФИО</h4>

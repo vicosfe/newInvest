@@ -26,7 +26,7 @@
 		<div class="notificationblabla">
 			<div class="notifications1__wrapper">
 				<h3>Заявки с Единого окна</h3>
-				<form action="/admin/notification/search" class="searchNotifications">
+			<form action="/admin/notification/search" class="searchNotifications">
 					<div class="searchNotifications1Form__group">
 						<input type="text" name="searchNotification"  required >
 						<span class="highlight"></span>
@@ -48,10 +48,10 @@
 				<div class="windowContent__bottom">
 					@foreach($items as $item)
                         <? $data = json_decode($item->data)?>
-					<div class="infoItem">
+					<div class="infoItem @if($item->checked != 1) nch @endif" data-id="{{$item->id}}" >
 						<div class="infoItem__left">
-							<p>{{$data->name}} - {{$data->tel}}</p>
-							<p>{{$data->from}}</p>
+							<p>@if(strlen($data->name)){{$data->name}}@endif - @if(strlen($data->tel)){{$data->tel}}@endif</p>
+							<p>@if(strlen($data->from)){{$data->from}}@endif</p>
 
 						</div>
 						<div class="infoItem__center">

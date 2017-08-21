@@ -1,4 +1,4 @@
-@extends('uniquepage')
+@extends('uniquePage')
 @section('main')
 
 <section class="projIvs">

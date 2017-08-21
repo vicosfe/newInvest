@@ -19,6 +19,7 @@
 					<li><a href="/admin/settings/menu">Настройка пунктов меню</a></li>
 					<li><a href="/admin/settings/ad">Настройка объявлений</a></li>
 					<li class="activeItem"><a href="/admin/settings/slide">Добавление слайда</a></li>
+					<li><a href="/admin/settings/mail">Рассылка</a></li>
 				</ul>
 			</div>
 		</div>
@@ -28,10 +29,11 @@
 		<div class="settingsUsefulLinks">
 			
 			<div class="menuFormWrapper">
-				<form action="/admin/settings/slide" class="menuSlideAdd">
+				<form action="/admin/settings/slide" class="menuSlideAdd" method="POST" enctype="multipart/form-data">
 					<h3>Добавление слайда</h3>
+					{{csrf_field()}}
 					<div class="settingsSlideFormAdd__group">      
-						<input type="text" name="siteNameLink"  required >
+						<input type="text" name="title"  value="{{$slide->title}}" >
 						<span class="highlight"></span>
 						<span class="bar"></span>
 						<label>Заголовок слайда</label>
@@ -43,22 +45,39 @@
 								<div class="customFileDocs__text333">Добавить фото</div>
 							</div>
 							<div class="inptHideDocs">
-								<input name="imgMenu" size="50" required  class="prewImgNews" type="file" >
+								<input name="file" size="50"   class="prewImgNews" type="file" >
 							</div>
 						</label>
 
 
-						<div class="imagePrev"></div>
-					</div>
 
+						<div class="imagePrev">
+
+
+									@if(isset($slide->img))<img src="{{$slide->img}}" alt="">@endif
+
+						</div>
+					</div>
+					<hr>
+					<p>Или</p>
+					<hr>
+					<div class="settingsSlideFormAdd__group">
+						<textarea name="area" style="width: 100%;height: 180px; max-width: 420px">{{$slide->content}}</textarea>
+						<span class="highlight"></span>
+						<span class="bar"></span>
+						<label>HTML/CSS/JS контент</label>
+					</div>
 					<button type="submit">Добавить слайд</button>
 					
 				</form>
-				<form action="#" class="menuSlideDelete">
+				<form action="/admin/settings/slide/remove" class="menuSlideDelete">
 					<h3>Удаление слайда</h3>
 
-					<select name="menuSelect1" id="">
-						<option value="">Выберите пункт</option>
+					<select name="slides" id="">
+						<option value="0">Выберите пункт</option>
+						@foreach($items as $item)
+							<option value="{{$item->id}}">{{$item->title}}</option>
+						@endforeach
 					</select>
 
 					<button type="submit">Удалить слайд</button>
@@ -66,6 +85,17 @@
 				
 
 
+</div>
+			<br><br><h3>Редактирование слайда</h3>
+			<ul class="redSlide">
+				@foreach($items as $item)
+					<li><a href="/admin/settings/slide/{{$item->id}}">{{$item->title}}</a></li>
+				@endforeach
+			</ul>
+		</div>
 
+
+
+	</section>
 				<!--  -->
 				@stop

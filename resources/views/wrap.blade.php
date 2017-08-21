@@ -20,6 +20,18 @@
 </head>
 <body>
     <header>
+        <script>
+            <?php
+                if ($local == 'en'){
+                    $cookie= '/ru/en';
+                }
+                else{
+                    $cookie= '';
+                }
+
+                ?>
+            document.cookie = "googtrans={{$cookie}}; ";
+        </script>
         <div class="topHeader">
             <div class="topHeader__container centerBlock">
                 <div class="mainLogo">
@@ -42,7 +54,7 @@
                 <div class="wrapperRighttopHeader">
                     <div class="wrapperRighttopHeader__top">
                         <div class="mainSearch">
-                            <form action="/search" class="formMainSearch" method="POST">
+                            <form action="/{{$local}}/search" class="formMainSearch" method="POST">
                                 {{csrf_field()}}
                                 <input type="text" placeholder="{{trans("menu.input_search")}}" name="mainSearch" class="formMainSearch__input">
                                 <span><i class="fa fa-search" aria-hidden="true"></i></span>
@@ -142,10 +154,11 @@
 
               <div class="footer__info--search">
                 <div class="footerSearch">
-                    <form action="#" class="formFooterSearch">
-                        <input type="search" placeholder="{{trans("menu.input_search")}}" name="footerSearch" class="formFooterSearch__input">
+                    <form action="/{{$local}}/search" class="formFooterSearch" method="POST">
+                        {{csrf_field()}}
+                        <input type="text" placeholder="{{trans("menu.input_search")}}" name="mainSearch" class="formFooterSearch__input">
                         <span><i class="fa fa-search" aria-hidden="true"></i></span>
-                        <a href="#" class="formFooterSearch__button">{{trans("menu.btn_find")}}</a>
+                        <button href="#" class="formFooterSearch__button">{{trans("menu.btn_find")}}</button>
                     </form>
 
                 </div>

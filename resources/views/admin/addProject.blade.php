@@ -48,37 +48,42 @@
                         </select>
                     @endforeach
 					<div class="addProjectsForm__group">      
-						<input type="text" name="addProjectsCaption"  required >
+						<input type="text" name="addProjectsCaption"  required value="{{$item->title}}">
 						<span class="highlight"></span>
 						<span class="bar"></span>
 						<label>Название проекта</label>
 					</div>
 					{{csrf_field()}}
-					<div class="asdf">
-						<hr style='opacity: 0.4;margin: 0px 0px 20px 0px;'>
-						<div class="addProjectsForm__group">
-							<input type="text" name="addProjectsC1"  required >
-							<span class="highlight"></span>
-							<span class="bar"></span>
-							<label>Заголовок пункта 1</label>
-						</div>
 
-						<div class="projectsEditor">
-							<div id="sample">
-								<script type="text/javascript" src="http://js.nicedit.com/nicEdit-latest.js"></script>
-								<script type="text/javascript">
-								//<![CDATA[
-								bkLib.onDomLoaded(function() { nicEditors.allTextAreas() });
-								  //]]>
-								</script>
-
-								<textarea name="addProjArea1" style="width: 100%;height: 180px;"></textarea><br>
-
+                  @if(isset($item->description))  <?$data = json_decode($item->description);?>
+					@foreach($data as $d)
+						<div class="asdf">
+							<hr style='opacity: 0.4;margin: 0px 0px 20px 0px;'>
+							<div class="addProjectsForm__group">
+								<input type="text" name="addProjectsC1"  required  value="{{$d->title}}">
+								<span class="highlight"></span>
+								<span class="bar"></span>
+								<label>Заголовок пункта 1</label>
 							</div>
 
+							<div class="projectsEditor">
+								<div id="sample">
+									<script type="text/javascript" src="http://js.nicedit.com/nicEdit-latest.js"></script>
+									<script type="text/javascript">
+                                        //<![CDATA[
+                                        bkLib.onDomLoaded(function() { nicEditors.allTextAreas() });
+                                        //]]>
+									</script>
 
+									<textarea name="addProjArea1" style="width: 100%;height: 180px;">{!!$d->d!!}</textarea><br>
+
+								</div>
+
+
+							</div>
 						</div>
-					</div>
+					@endforeach
+					@endif
 					<hr style='opacity: 0.4;margin: 0px 20px 20px 0px;'>
 					<div class="wrapperEditProjBut">
 
@@ -116,7 +121,13 @@
 
 				</label>
 				<div class="imagePrevWrapper">
-					<div class="imagePrev"></div>
+					<div class="imagePrev">
+						@if(count($media))
+							@foreach($media as $m)
+								@if(isset($m->img))<img src="{{$m->img}}" alt="">@endif
+							@endforeach
+						@endif
+					</div>
 				</div>
 
 			</div>

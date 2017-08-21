@@ -32,7 +32,16 @@
                     </a>
                 </div>
                 <div class="topHeaderWrapper__right">
-                    <a href="#">
+                    <?$message = \App\Message::where("checked",0)->first()?>
+                    @if(count($message))
+                        <?  $view = "";
+                            switch ($message->category){
+                                case 1: $view = "directcommunication"; break;
+                                case 2: $view = "goinvest"; break;
+                                default: $view = "window";
+                            }
+                            ?>
+                    <a href="/admin/notification/{{$view}}" class="nots">
                         <div class="notificationBlock">
                             <img src="/public/images/admin/notification.png" alt="">
                             <div class="notificationBlock__text">
@@ -42,8 +51,12 @@
 
                         </div>
                     </a>
+
                     <!-- Tyt dopolnitelniy class "notificationActive", kotoriy pokazivaet opovesheniya -->
                     <i class="fa fa-bell-o notificationActive" aria-hidden="true"></i>
+                        @else
+                            <i class="fa fa-bell-o notification" aria-hidden="true"></i>
+                        @endif
                     <a href="/logout">
                         <i class="fa fa-sign-out" aria-hidden="true"></i>
                     </a>

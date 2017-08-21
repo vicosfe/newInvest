@@ -73,7 +73,13 @@
 
 					</label>
 					<div class="imagePrevWrapper">
-						<div class="imagePrev"></div>
+						<div class="imagePrev">
+							@if(count($media))
+								@foreach($media as $m)
+									@if(isset($m->img))<img src="{{$m->img}}" alt="">@endif
+								@endforeach
+							@endif
+						</div>
 					</div>
 
 				</div>

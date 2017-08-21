@@ -48,27 +48,27 @@
 				<div class="windowContent__bottom">
 				@foreach($items as $item)
 					<? $data = json_decode($item->data)?>
-					<div class="infoItem1">
+					<div class="infoItem1 @if($item->checked != 1) nch @endif" data-id="{{$item->id}}" >
 						<div class="infoItem1__left">
 							<div class="infoItem1__leftFio">
 								<h4>ФИО</h4>
-								<p>{{$data->name}}</p>
+								<p>@if(isset($data->name)){{$data->name}}@endif</p>
 							</div>	
 
 							<div class="infoItem1__leftEmail">
 								<h4>Email</h4>
-								<p>{{$data->from}}</p>
+								<p>@if(isset($data->from)){{$data->from}}@endif</p>
 							</div>				
 							
 							<div class="infoItem1__leftCompany">
 								<h4>Компания</h4>
-								<p>{{$data->company}}</p>
+								<p>@if(isset($data->company)){{$data->company}}@endif</p>
 							</div>
 							
 						</div>
 						<div class="infoItem1__center">
 							<h4>Сообщение</h4>
-							<p>{{$data->text}}</p>
+							<p>@if(isset($data->name)){{$data->text}}@endif</p>
 							</div>
 							<div class="infoItem1__right">
 								<h4>Дата</h4>

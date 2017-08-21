@@ -92,16 +92,56 @@ class PagesController extends Controller
         if ($id){
             $item = Page::find($id);
             $paths = Path_Page::where("page_id",$id)->get();
-            $docs = Media_Page::where("page_id",$id)->get();
+            foreach ($paths as $path){
+                $path->docs = Media_Page::where("path_id",$id)->get();
+            }
+
             if ($item->cat_id !=0){
                 $parrent_cat = Menu::find($item->cat_id)->parrent_id;
             }
 
         }
 
-        return view('admin.addUniquePage', ['item' => $item, 'menu'=>$menu,'paths'=>$paths, 'docs'=>$docs, 'cat'=>$item->cat_id, "parrent_cat"=>$parrent_cat]);
+        return view('admin.addUniquePage', ['item' => $item, 'menu'=>$menu,'paths'=>$paths, 'cat'=>$item->cat_id, "parrent_cat"=>$parrent_cat]);
     }
 
 
 
+    public function change(){
+        if (!count(Auth::user())
+        ){
+            return redirect("/login");
+        }
+        $items = Page::paginate(20);
+        return view('admin.editPa', ['items' => $items]);
+    }
+    public function removeD($id){
+        Media_Page::destroy($id);
+        return back();
+    }
+
+    public function remove($id){
+        $paths = Path_Page::where("page_id",$id)->get();
+        foreach ($paths as $path){
+            $docs =  Media_Page::where("path_id",$id)->get();
+            foreach ($docs as $d){
+                $d->delete();
+            }
+            $path->delete();
+        }
+        Page::destroy($id);
+        return back();
+    }
+    public function search(Request $request){
+        $key = $request->input("search");
+        if (strlen($key)<2){
+            return back();
+        }
+
+        $pages = Page::where("title","LIKE", '%'.$key.'%')->paginate(20);
+
+
+        return view('admin.editPa', ['items' => $pages , 'search' => $key]);
+
+    }
 }

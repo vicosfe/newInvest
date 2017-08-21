@@ -14,20 +14,28 @@ use App\Answer;
 use App\Article;
 use App\Media_Articledoc;
 use App\Ad;
+use App\Slide;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
+use Illuminate\Support\Facades\Cookie;
 class IndexController extends Controller
 {
 
     protected $menu;
     protected $linkItems;
     protected $local;
-
+    protected $cookie;
     public function __construct()
     {
         $items = Menu::main();
         $this->menu = $items;
         $this->linkItems = Link::all();
         $this->local =  LaravelLocalization::getCurrentLocale();
+        if ($this->local == 'en'){
+           $this->cookie= '/ru/en';
+        }
+        else{
+            $this->cookie= '';
+        }
     }
     public function index(Request $request)
     {
@@ -57,7 +65,8 @@ class IndexController extends Controller
             $poll=null;
 
         }
-        return view('index', ['local'=>$this->local,'news' => $news, 'ad' => $ad, 'media'=> $newsMedia, 'menu'=>$this->menu,"answ"=>$answ, "result"=>$result,  "linkItems"=>$this->linkItems, "poll"=>$poll]);
+        $slides = Slide::where("enable",1)->get();
+        return view('index', [ 'slides'=>$slides,'local'=>$this->local,'news' => $news, 'ad' => $ad, 'media'=> $newsMedia, 'menu'=>$this->menu,"answ"=>$answ, "result"=>$result,  "linkItems"=>$this->linkItems, "poll"=>$poll]);
 
 
     }

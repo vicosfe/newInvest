@@ -85,13 +85,39 @@ class ProjectsController extends Controller
         $itemNew = new Project();
         $media = new Media_Project();
         if ($id){
-            $itemNew = Project::getItem($id);
+            $itemNew = Project::find($id);
             $media = Media_Project::getItemMedia($id);
         }
         return view('admin.addProject', ['item' => $itemNew, 'media'=>$media, 'parrent_cat'=>$parrent_cat, 'cat'=>$cat, 'menu'=>$menu]);
     }
 
+    public function change($id=null){
+        if (!count(Auth::user())){
+            return redirect("/login");
+        }
+        $items = Project::paginate(20);
+        return view('admin.editp', ['items' => $items]);
+    }
+
+    public function remove($id){
+
+        $media = Media_Project::getItemMedia($id);
+        foreach ($media as $d){
+            $d->delete();
+        }
+        Project::destroy($id);
+        return back();
+    }
+    public function search(Request $request){
+        $key = $request->input("search");
+        if (strlen($key)<2){
+            return back();
+        }
+
+        $pages = Project::where("title","LIKE", '%'.$key.'%')->paginate(20);
 
 
+        return view('admin.editp', ['items' => $pages , 'search' => $key]);
 
+    }
 }

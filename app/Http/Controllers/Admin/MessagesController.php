@@ -7,7 +7,7 @@ use App;
 use App\Message;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 
 class MessagesController extends Controller
@@ -36,7 +36,7 @@ class MessagesController extends Controller
             return redirect("/login");
         }
         $items = Message::where("category",2)->get();
-        return view('admin.notificationDirectCommunication', ["items"=>$items]);
+        return view('admin.notificationGoInvest', ["items"=>$items]);
 
     }
 
@@ -44,13 +44,16 @@ class MessagesController extends Controller
         if (!count(Auth::user())){
             return redirect("/login");
         }
-        $keyword = json_encode($request->input("searchNotification"));
+        $keyword = '"%'.$request->input("searchNotification").'%"';
         $result = [];
         if (strlen($keyword)>2){
-            $result = Message::where('data',"LIKE",'%'.$keyword.'%')->get();
+
+            $result = DB::table('messages')
+                ->where('data->name', "LIKE",$keyword)->orWhere('data->from', "LIKE",$keyword)->orWhere('data->text', "LIKE",$keyword)
+                ->get();
         }
 
-        return view('admin.notificationSearch', ["result"=>$result]);
+        return view('admin.notificationSearch', ["result"=>$result , "key"=>$request->input("searchNotification")]);
 
     }
 
@@ -62,6 +65,35 @@ class MessagesController extends Controller
             Message::destroy($id);
         }
         return back();
+
+
+    }
+    public function checked($id){
+
+        if (!count(Auth::user())){
+            return redirect("/login");
+        }
+        if ($id){
+            $message = Message::find($id);
+            $message->checked = 1;
+            $message->save();
+        }
+        $message = Message::where("checked",0)->first();
+        $view = "";
+        if(count($message)) {
+
+            switch ($message->category) {
+                case 1:
+                    $view = "directcommunication";
+                    break;
+                case 2:
+                    $view = "goinvest";
+                    break;
+                default:
+                    $view = "window";
+            }
+        }
+        return response($view);
 
     }
 

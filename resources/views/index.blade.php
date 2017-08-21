@@ -193,26 +193,31 @@
       </div>
       <div class="question__after">
         <p>  <span>Результаты опроса </span>"{{$result["title"]}}"</p>
+          <?$i = 4;?>
         @foreach($result["items"] as $r)
+              <div class="inpWrapper">
+                  <div class="wrapperProgressBar__item" style="width:100%;">
+                      <div class="wrapperProgressBar__item--currentAmount">
+                          <span style="display:none;" id="currentAmount{{$i}}" data-cur="{{$r["res"]}}"></span>
+                      </div>
 
-        <div class="inpWrapper">
-        <p @if($answ->value == $r["title"]) class="inpWrapperSelected" @endif>{{$r["title"]}} - {{$r["res"]}}%</p>
-       </div>
+                      <div class="wrapperProgressBar__item--textBefore"  style="    margin: 0px;">
+                          <p @if($answ->value == $r["title"]) class="inpWrapperSelected" @endif>
+                              {{$r["title"]}} - {{$r["res"]}}%
+                          </p>
+                      </div>
+
+                      <div class="wrapperProgressBar__item--progressBar ">
+                          <div id="brr{{$i}}"></div>
+                          <div class="progressBarCurrentAmount">
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <?$i= $i+1;?>
 
        @endforeach
-       <div class="inpWrapper">as
-        <div class="wrapperProgressBar__item">
-          <div class="wrapperProgressBar__item--currentAmount">
-            <span style="color: #f51d45" id="currentAmount4" data-max="150">0</span>
-          </div>
-          <div class="wrapperProgressBar__item--progressBar ">
-            <div class="brr"></div>
-            <div class="progressBarCurrentAmount">
-              <span>209</span>
-            </div>
-          </div>
-        </div>
-      </div>
+
     </div>
 
 
@@ -236,13 +241,17 @@
       </div>
       <div class="dispatch__wrapper--description">
         <p>
+            @if(Session::get("mes")){{Session::get("mes")}}
+            @else
           Подпишитесь на рассылку и получайте последние новости первыми.
+                @endif
         </p>
       </div>
       <div class="dispatch__form">
-        <form action="#">
+        <form action="/mail" method="POST">
+            {{csrf_field()}}
           <div class="dispatch__inputWrapper">
-            <input id="dispatch__form--text" type="email" required="" placeholder=" ">
+            <input id="dispatch__form--text" type="email" name="email" required="" placeholder=" ">
             <label class="dispatch__form--label" for="dispatch__form--text">Email</label> 
             
           </div>
