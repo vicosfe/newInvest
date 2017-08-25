@@ -326,6 +326,9 @@ loadMoreNewsButton.on("click", function (e) {
 
 
 
+
+
+
 /*табы*/
 var tabMenu = $(".tab-menu");
 var tabItem = $(".tab-item");

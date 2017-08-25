@@ -23,10 +23,14 @@ class PagesController extends Controller
             return redirect("/login");
         }
 
-        $newItem = new Page();
+
         if ($id){
             $newItem = Page::find($id);
         }
+        else{
+            $newItem = new Page();
+        }
+
         $newItem->title = $request->input("area0");
        if ($request->input('addPages2')){
            $newItem->cat_id = $request->input('addPages2');
@@ -40,6 +44,7 @@ class PagesController extends Controller
 
         for ($i=1; $i<=$count;$i++){
             $newItemPath = new Path_Page();
+
             $id = "area".$i;
             $newItemPath ->description = $request->input($id);
             $id = "addArticleCaption".$i;
@@ -63,19 +68,12 @@ class PagesController extends Controller
             }
         }
 
-        if ($request->input('addPages2')){
-           $m = Menu::find($request->input('addPages2'))->first();
+
+           $m = Menu::where("id",$newItem->cat_id)->first();
+
            $m->link = "/page/".$newItem->id;
            $m->type = 2;
            $m->save();
-
-        }
-        else{
-            $m = Menu::find($request->input('addPages1'))->first();
-            $m->link = "/page/".$newItem->id;
-            $m->save();
-        }
-
 
         return back();
     }
@@ -97,7 +95,7 @@ class PagesController extends Controller
             }
 
             if ($item->cat_id !=0){
-                $parrent_cat = Menu::find($item->cat_id)->parrent_id;
+                $parrent_cat = (count(Menu::find($item->cat_id)))? Menu::find($item->cat_id)->parrent_id : 0;
             }
 
         }

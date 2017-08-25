@@ -21,8 +21,8 @@
 				<div class="hrAdm"></div>
 				<div class="articlesContentItem__wrapper">
 					<div class="articlesContentItem__left">
-
-						<p>{{$item->title}}</p>
+						<?php $link = "/page/".$item->id; ?>
+						<p><?php $p = \App\Menu::where("link", $link)->first();?> @if(count($p)) {{$p->title}} @endif</p>
 
 					</div>
 

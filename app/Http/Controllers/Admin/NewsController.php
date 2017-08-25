@@ -29,7 +29,8 @@ class NewsController extends Controller
         }
         $newItem->title = $request->input("addNewsCaption");
         $newItem->content = ($request->input("area2"))? $request->input("area2") : "";
-        $newItem->published = 1;
+        $newItem->published = ($request->input("published"))? 1:0;
+        $newItem->created_at = ($request->input("date"))? $request->input("date"):null;
         $images = $request->prewImgNews;
         if (count($images)) {
             $firstImg = array_shift($images);
@@ -50,13 +51,17 @@ class NewsController extends Controller
                     $newMedia = new Media_New();
                     $newMedia->img = "/public/images/news/" . $name;
                     $newMedia->id_news = $newItem->id;
-                    $newMedia->published_main = 0;
+                    $newMedia->published_main = 1;
                     $newMedia->save();
             }
         }
         else{
-            $newItem->img ="/public/images/empty.png";
+            if (!$id){
+                $newItem->img ="/public/images/empty.png";
+
+            }
             $newItem->save();
+
         }
         return back();
     }
@@ -80,7 +85,7 @@ class NewsController extends Controller
         if (!count(Auth::user())){
             return redirect("/login");
         }
-        $items = News::paginate(20);
+        $items = News::orderBy("created_at", "desc")->paginate(20);
         return view('admin.editNews', ['items' => $items]);
     }
 
@@ -105,5 +110,12 @@ class NewsController extends Controller
 
         return view('admin.editNews', ['items' => $pages , 'search' => $key]);
 
+    }
+
+    public function remImg($id){
+        $img = Media_New::find($id);
+        unlink($_SERVER['DOCUMENT_ROOT'].$img->img);
+        Media_New::destroy($id);
+        return back();
     }
 }

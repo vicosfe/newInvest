@@ -53,7 +53,7 @@
 
 						<div class="imagePrev">
 
-
+@if(isset($slide->id))<input type="hidden" name="id"  value="{{$slide->id}}" >@endif
 									@if(isset($slide->img))<img src="{{$slide->img}}" alt="">@endif
 
 						</div>
@@ -70,7 +70,7 @@
 					<button type="submit">Добавить слайд</button>
 					
 				</form>
-				<form action="/admin/settings/slide/remove" class="menuSlideDelete">
+				<form action="/admin/settings/slideremove"  class="menuSlideDelete">
 					<h3>Удаление слайда</h3>
 
 					<select name="slides" id="">

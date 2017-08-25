@@ -27,7 +27,7 @@
 	<section>
 		<div class="addNews">
 			<h3>Добавление новости</h3>
-			<form action="/admin/add/news/{{$item->id}}" class="addNewsForm" method="POST" enctype="multipart/form-data">
+			<form action="@if(!empty($item->id)) /admin/add/news/{{$item->id}} @else /admin/add/news @endif" class="addNewsForm" method="POST" enctype="multipart/form-data">
 			{{csrf_field()}}
 
 				<div class="addNewsForm__left">					
@@ -51,8 +51,16 @@
 
 					</div>
 
-
 				</div>
+					<div style="position: relative;margin-bottom: 45px;width: 100%; display:flex;">
+						<input type="date"  id="published" style="-webkit-appearance:inherit; width: 200px;" name="date"  @if(!empty($item->created_at)) value="{{$item->created_at->formatLocalized('%Y-%m-%d')}}" @endif>
+
+					</div>
+					<div style="position: relative;margin-bottom: 45px;width: 100%; display:flex;">
+						<input type="checkbox"  id="published" style="-webkit-appearance:checkbox; width: 20px;" name="published"  checked>
+
+						<label for="published" style=" position: relative; top:-3px">Публиковать на главной странице?</label>
+					</div>
 
 				<button class="goNews">Добавить новость</button>
 
@@ -74,11 +82,23 @@
 					</label>
 					<div class="imagePrevWrapper">
 						<div class="imagePrev">
+
 							@if(count($media))
 								@foreach($media as $m)
-									@if(isset($m->img))<img src="{{$m->img}}" alt="">@endif
+									@if(isset($m->img))
+										<div style="position: relative; width:23%;">
+											<img src="{{$m->img}}" alt=""  style="width:100%;">
+											<div class="addDocsFormItemDelete"><a href="/admin/image/news/remove/{{$m->id}}">x</a></div>
+										</div>
+									@endif
 								@endforeach
 							@endif
+						</div>
+					</div>
+
+					<div class="imagePrevWrapper">
+						<div class="imagePrev prev2">
+
 						</div>
 					</div>
 

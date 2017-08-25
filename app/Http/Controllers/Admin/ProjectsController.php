@@ -25,7 +25,8 @@ class ProjectsController extends Controller
         }
         $newItem = new Project();
         if ($id){
-            $newItem = News::find($id);
+            $newItem = Project::find($id);
+            $img = $newItem->img;
         }
         $newItem->title = $request->input("addProjectsCaption");
         $newItem->price = $request->input("addProjectsPrice");
@@ -69,7 +70,14 @@ class ProjectsController extends Controller
             }
         }
         else{
-            $newItem->img ="/public/images/empty.png";
+            if (!$id){
+                $newItem->img ="/public/images/empty.png";
+
+            }
+            else{
+                $newItem->img = $img;
+            }
+
             $newItem->save();
         }
         return back();
@@ -95,7 +103,7 @@ class ProjectsController extends Controller
         if (!count(Auth::user())){
             return redirect("/login");
         }
-        $items = Project::paginate(20);
+        $items = Project::orderBy("id", "desc")->paginate(20);
         return view('admin.editp', ['items' => $items]);
     }
 
@@ -119,5 +127,12 @@ class ProjectsController extends Controller
 
         return view('admin.editp', ['items' => $pages , 'search' => $key]);
 
+    }
+
+    public function remImg($id){
+        $img = Media_Project::find($id);
+        unlink($_SERVER['DOCUMENT_ROOT'].$img->img);
+        Media_Project::destroy($id);
+        return back();
     }
 }

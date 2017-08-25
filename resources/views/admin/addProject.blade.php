@@ -4,7 +4,7 @@
 <section style="height: calc(100% - 70px); margin-left: 105px;margin-top: 70px;">
 
 	@include('admin.addTopPanel')
-
+	<script type="text/javascript" src="http://js.nicedit.com/nicEdit-latest.js"></script>
 	<section>
 		<div class="addContent">
 			<div class="addContent__header">
@@ -27,7 +27,7 @@
 	<section>
 		<div class="addProjects">
 			<h3>Добавление проекта</h3>
-			<form action="/admin/add/projects" class="addProjectsForm addPagesForm" method="POST" enctype="multipart/form-data">
+			<form action=" @if(!empty($item->id)) /admin/add/projects/{{$item->id}} @else /admin/add/projects @endif" class="addProjectsForm addPagesForm" method="POST" enctype="multipart/form-data">
 
 
 
@@ -54,16 +54,18 @@
 						<label>Название проекта</label>
 					</div>
 					{{csrf_field()}}
-
+					<div class="asdf">
+                        <?$count = 0?>
                   @if(isset($item->description))  <?$data = json_decode($item->description);?>
+
 					@foreach($data as $d)
-						<div class="asdf">
+							<div id='c{{$count}}'>
 							<hr style='opacity: 0.4;margin: 0px 0px 20px 0px;'>
 							<div class="addProjectsForm__group">
-								<input type="text" name="addProjectsC1"  required  value="{{$d->title}}">
+								<input type="text" name="addProjectsC{{$count}}"  required  value="{{$d->title}}">
 								<span class="highlight"></span>
 								<span class="bar"></span>
-								<label>Заголовок пункта 1</label>
+								<label>Заголовок пункта {{$count}}</label>
 							</div>
 
 							<div class="projectsEditor">
@@ -75,28 +77,32 @@
                                         //]]>
 									</script>
 
-									<textarea name="addProjArea1" style="width: 100%;height: 180px;">{!!$d->d!!}</textarea><br>
+									<textarea name="addProjArea{{$count}}" style="width: 100%;height: 180px;">{!!$d->d!!}</textarea><br>
 
 								</div>
 
 
 							</div>
-						</div>
+							</div>
+						<? $count++; ?>
 					@endforeach
 					@endif
+					</div>
 					<hr style='opacity: 0.4;margin: 0px 20px 20px 0px;'>
+                    <? if($count>1) $count--?>
 					<div class="wrapperEditProjBut">
 
-						<div class="circlePlus" id="govno" data-count = 1><span>+</span></div>
+						<div class="circlePlus" id="govno" data-count = {{$count}}><span>+</span></div>
 
 
-						<div class="circlePlus" id="govno2" data-count = 1><span>-</span></div>
+						<div class="circlePlus" id="govno2" data-count = {{$count}}><span>-</span></div>
 					</div>
-					<input type="hidden" value="1" name="count" id="hidCount">
+
+					<input type="hidden" value="{{$count}}" name="count" id="hidCount">
 
 
 			<div class="addProjectsForm__group">      
-				<input type="text" name="addProjectsPrice"  required >
+				<input type="text" name="addProjectsPrice"  required value="{{$item->price}}">
 				<span class="highlight"></span>
 				<span class="bar"></span>
 				<label>Ориентировачная стоимость проекта</label>
@@ -124,9 +130,20 @@
 					<div class="imagePrev">
 						@if(count($media))
 							@foreach($media as $m)
-								@if(isset($m->img))<img src="{{$m->img}}" alt="">@endif
+								@if(isset($m->img))
+									<div style="position: relative; width:23%;">
+										<img src="{{$m->img}}" alt=""  style="width:100%;">
+										<div class="addDocsFormItemDelete"><a href="/admin/image/projects/remove/{{$m->id}}">x</a></div>
+									</div>
+								@endif
 							@endforeach
 						@endif
+					</div>
+				</div>
+
+				<div class="imagePrevWrapper">
+					<div class="imagePrev prev2">
+
 					</div>
 				</div>
 

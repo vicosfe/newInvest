@@ -10,9 +10,9 @@ class Project extends Model
     public static function getItem($id=0)
     {
         if ($id == 0)
-            $items = Project::all();
+            $items = Project::orderBy("id", "desc")->paginate(6);
         else
-            $items = Project::where("cat_id", $id)->get();
+            $items = Project::where("cat_id", $id)->orderBy("id", "desc")->paginate(6);
 
         return $items;
     }
