@@ -104,6 +104,18 @@ Route::group(
         return view('admin.editDocs');
     });
 
+    Route::get('/admin/change/media', function () {
+        return view('admin.media');
+    });
+
+    Route::get('/admin/change/settingSlider', function () {
+        return view('admin.settingSlider');
+    });
+
+    Route::get('/admin/change/settingMediaSlider', function () {
+        return view('admin.settingMediaSlider');
+    });
+
     Route::get('/admin/change/articles', 'Admin\ArticleController@change');
     Route::get('/admin/docs/remove/{id}', 'Admin\ArticleController@removeD');
 

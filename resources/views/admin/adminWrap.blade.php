@@ -108,6 +108,16 @@
                         </div>   
                     </a>
 
+                    <a href="/admin/change/media">
+                        <div class="leftMenuWrap__leftMenu--item">
+
+                            <div class="leftMenuImg item5"><i class="fa fa-picture-o" aria-hidden="true"></i></div> 
+                            <div class="showDesc">
+                                <p>Медиа</p>
+                            </div>
+                        </div>   
+                    </a>
+
 
                 </div>
                 <section style="margin-top: 30px;width: 100%">
