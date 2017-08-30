@@ -95,21 +95,10 @@
 						<div class="articlesImagePrev">
 							@if(count($media))
 								@foreach($media as $m)
-									@if(isset($m->img))
-										<div style="position: relative; width: 14%;margin-right: 20px;">
-											<img src="{{$m->img}}" alt=""  style="width:100%;">
-											<div class="addDocsFormItemDelete"><a href="/admin/image/articles/remove/{{$m->id}}">x</a></div>
-										</div>
-									@endif
+									@if(isset($m->img))<img src="{{$m->img}}" alt="">@endif
 								@endforeach
 							@endif
 						</div>
-						<div class="imagePrevWrapper">
-							<div class="imagePrev prev2">
-
-							</div>
-						</div>
-
 					</div>
 					<div class="addDocsForm__content">
 						@if(count($docs))

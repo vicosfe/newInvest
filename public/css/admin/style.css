@@ -1226,7 +1226,7 @@ header{
 
   .articlesEditor{
   	width: 100%;
-
+  	max-width: 420px;
   }
   .addArticlesForm__right--buttons{
   	display: -webkit-flex;
@@ -1509,7 +1509,7 @@ header{
   }
   .pagesEditor{
   	width: 100%;
-
+  	max-width: 420px;
   }
   .addPagesLeft .CUSTOMBUTT{
   	margin-bottom: 25px;
@@ -3489,7 +3489,7 @@ header{
   }
   .pagesEditor{
   	width: 100%;
-
+  	max-width: 420px;
   }
   .changePagesLeft .CUSTOMBUTT{
   	margin-bottom: 25px;

@@ -167,7 +167,7 @@ $(document).ready(function(){
       //Превью фото
       var prewImgNews = $(".prewImgNews");
       prewImgNews.change(() => {
-        var preview = document.querySelector('.prev2');
+        var preview = document.querySelector('.imagePrev');
         var files   = document.querySelector('input[type=file]').files;
 
         function readAndPreview(file) {
@@ -347,7 +347,7 @@ $(dontDelete).on("click",function () {
 
 var prewImgNews = $(".addArticlesMedia");
 prewImgNews.change(() => {
-  var preview = document.querySelector('.prev2');
+  var preview = document.querySelector('.articlesImagePrev');
   var files   = document.querySelector('input[type=file]').files;
 
   function readAndPreview(file) {

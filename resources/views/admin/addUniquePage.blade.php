@@ -55,23 +55,22 @@
 							<script type="text/javascript" src="http://js.nicedit.com/nicEdit-latest.js"></script> 
 							<script type="text/javascript">bkLib.onDomLoaded(function() { nicEditors.allTextAreas() });</script>
 
-							<textarea name="area0" style="width: 100%;height: 180px;; max-width: 80%">{{$item->title}}
+							<textarea name="area0" style="width: 100%;height: 180px; max-width: 420px">{{$item->title}}
 							</textarea><br>
 							<h4>
 							</h4>
 						</div>
 					</div>
-					<div class="asdf">
 					@if(count($paths[0]))
 						@foreach($paths as $p)
-
+					<div class="asdf">
 						<hr style='opacity: 0.4;margin: 0px 20px 20px 0px;'>
 
 					<div class="addPagesForm__group">      
 						<input type="text" name="addArticleCaption1"  required value="{{$p->title}}">
 						<span class="highlight"></span>
 						<span class="bar"></span>
-						<label>Заголовок документа</label>
+						<label>Заголовок документа 1</label>
 					</div>
 					<label class="CUSTOMBUTT">
 						<div class="customFileDocs">
@@ -105,36 +104,16 @@
 							<script type="text/javascript" src="http://js.nicedit.com/nicEdit-latest.js"></script> 
 							<script type="text/javascript">bkLib.onDomLoaded(function() { nicEditors.allTextAreas() });</script>
 
-							<textarea name="area1" style="width: 100%;height: 180px; max-width: 80%">
+							<textarea name="area1" style="width: 100%;height: 180px; max-width: 420px">
 								{{$p->description}}
 							</textarea><br>
 							<h4>
 							</h4>
 						</div>
 					</div>
-
-					@endforeach
-						@else
-
-							<div class="addPagesForm__group">
-								<input type="text" name="addArticleCaption1"  required value="">
-								<span class="highlight"></span>
-								<span class="bar"></span>
-								<label>Заголовок документа 1</label>
-							</div>
-							<label class="CUSTOMBUTT">
-								<div class="customFileDocs">
-									<div class="customFileDocs__img"></div>
-									<div class="customFileDocs__text">Добавить документы</div>
-								</div>
-								<div class="inptHideDocs">
-									<input name="prewDocsPages1[]" size="50"  multiple class="asdasd" data-id='1' type="file" id="customFileDocs1" >
-
-								</div>
-							</label>
-
-					@endif
 					</div>
+					@endforeach
+					@endif
 					<hr style='opacity: 0.4;margin: 0px 20px 20px 0px;'>
 					<div class="wrapperEditProjBut">
 
