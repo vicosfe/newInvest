@@ -125,17 +125,21 @@ class PageController extends Controller
     public function page($id = 0)
 
     {
-        if($id){
+        if($id) {
             $page = Page::find($id);
+
             $cat = Menu::find($page->cat_id);
-            $paths_page = Path_Page::where("page_id",$page->id)->get();
-            foreach ($paths_page as $path){
-                $path->docs = Media_Page::where("path_id",$path->id)->get();
+            $paths_page = Path_Page::where("page_id", $page->id)->get();
+            foreach ($paths_page as $path) {
+                $path->docs = Media_Page::where("path_id", $path->id)->get();
+
             }
             $right = Menu::main($cat->parrent_id);
+        }
+
             return view('support', ['local'=>$this->local, 'page'=>$page, 'paths'=>$paths_page, 'menu'=>$this->menu, "right"=> $right, "cat"=>$cat, "linkItems"=>$this->linkItems]);
 
-        }
+
 
     }
 

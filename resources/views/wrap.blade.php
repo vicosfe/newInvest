@@ -20,19 +20,18 @@
 </head>
 <body>
     <header>
-        <script>
             <?php
-                if ($local == 'en'){
-                    $cookie= '/ru/en';
-                }
-                else{
-                    $cookie= '';
-                }
+            if ($local == 'en'){
+                $cookie= '/ru/en';
 
-                ?>
-            document.cookie = "googtrans={{$cookie}}; ";
-        </script>
-        <div class="topHeader">
+            }
+            else{
+
+                $cookie= 'ru';
+            }
+            setcookie("googtrans", $cookie);
+            ?>
+          <div class="topHeader">
             <div class="topHeader__container centerBlock">
                 <div class="mainLogo">
                     <a href="/" class="logoHeader">
@@ -169,7 +168,7 @@
 </footer>
     <div id="google_translate_element"></div><script type="text/javascript">
         function googleTranslateElementInit() {
-            new google.translate.TranslateElement({pageLanguage: 'ru', includedLanguages: 'en,ru', layout: google.translate.TranslateElement.FloatPosition.BOTTOM_RIGHT, autoDisplay: true, multilanguagePage: true}, 'google_translate_element');
+            new google.translate.TranslateElement({pageLanguage: 'ru', includedLanguages: 'en,ru', layout: google.translate.TranslateElement.FloatPosition.BOTTOM_RIGHT, autoDisplay: false, multilanguagePage: true}, 'google_translate_element');
         }
     </script><script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </body>

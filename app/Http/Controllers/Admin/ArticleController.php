@@ -61,7 +61,10 @@ class ArticleController extends Controller
             }
         }
         else{
-            $newItem->img ="/public/images/empty.png";
+            if (!$id){
+                $newItem->img ="/public/images/empty.png";
+
+            }
             $newItem->save();
         }
 
@@ -122,6 +125,7 @@ class ArticleController extends Controller
 
         $docs = Media_Articledoc::where("id_article",$id)->get();
         foreach ($docs as $d){
+            unlink($_SERVER['DOCUMENT_ROOT'].$d->link);
             $d->delete();
         }
         $media = Media_Article::where("id_article",$id)->get();
@@ -142,5 +146,12 @@ class ArticleController extends Controller
 
         return view('admin.editArticles', ['items' => $pages , 'search' => $key]);
 
+    }
+
+    public function remImg($id){
+        $img = Media_Article::find($id);
+        unlink($_SERVER['DOCUMENT_ROOT'].$img->img);
+        Media_Article::destroy($id);
+        return back();
     }
 }

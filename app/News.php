@@ -15,10 +15,12 @@ class News extends Model
     }
     public static function main()
     {
-        $news = News::orderBy('updated_at', 'desc')->limit(10)->get();
+        $news = News::orderBy('updated_at', 'desc')->where("published","1")->limit(10)->get();
 
         return $news;
     }
+
+
     public static function getItem($id)
     {
         $newItem = News::where('id', $id)->first();

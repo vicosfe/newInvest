@@ -1,11 +1,14 @@
 @extends('uniquepage')
 @section('main')
+	@if(count($page))
 	<div class="uniqueDescription">
-		<p>{{$page->title}}</p>
+		<p>{!! $page->title !!}</p>
 	</div>
 	<div class="supportMain">
 		@if(count($paths))
 			@foreach($paths as $path)
+				@if(strlen($path->title)>3)
+
 			<div class="supportMain__item">
 				<a href="#">
 					<div class="wrapSup supMsub supMclose">
@@ -26,15 +29,19 @@
 							</a>
 						@endforeach
 					@endif
-					@if(strlen($path->description))
+					@if(strlen($path->description)>4)
 						<div class="subDescription">
-							<p>{{$path->description}}</p>
+							<p>{!! $path->description  !!}</p>
 						</div>
 					@endif
 				</div>
 			</div>
+				@endif
 			@endforeach
 		@endif
 	</div>
+	@else
 
+		<p class="empty">Пока нет записей</p>
+	@endif
 	@stop

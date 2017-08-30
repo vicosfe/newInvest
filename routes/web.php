@@ -21,7 +21,7 @@ Route::post('en/search', "IndexController@search");
 Route::post('/direct', 'PageController@directCommunicationSend');
 Route::post('feedBack', 'PageController@feedBackSend');
 Route::post('/messages/project', "PageController@projectSend");
-Route::post('/admin/add/news/{id?}','Admin\NewsController@add');
+
 Route::post('/admin/add/articles/{id?}','Admin\ArticleController@add');
 Route::post('/admin/add/pages/{id?}','Admin\PagesController@add');
 Route::post('/admin/add/projects/{id?}','Admin\ProjectsController@add');
@@ -38,13 +38,14 @@ Route::post('admin/settings/ad', 'Admin\AdsController@add');
 Route::post('admin/settings/mail/send', 'Admin\MailController@send');
 Route::post('admin/settings/slide', 'Admin\SlidesController@add');
 Route::post('/mail', 'MailController@add');
-
+Route::post('/admin/add/news/{id?}','Admin\NewsController@add');
 Route::group(
     [
         'prefix' => LaravelLocalization::setLocale(),
         'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ]
     ], function()
 {
+
     Auth::routes();
     Route::get('/logout','Admin\IndexController@logout');
     Route::get('/register','Admin\IndexController@login');
@@ -140,7 +141,7 @@ Route::group(
     Route::get('admin/settings/ad/remove/{id}', 'Admin\AdsController@remove');
 
     Route::get('admin/settings/slide/{id?}', 'Admin\SlidesController@index');
-    Route::get('admin/settings/slide/remove', 'Admin\SlidesController@remove');
+    Route::get('admin/settings/slideremove', 'Admin\SlidesController@remove');
 
     Route::get('admin/notification/window', 'Admin\MessagesController@window');
     Route::get('admin/notification/search/{keyword?}', 'Admin\MessagesController@search');
@@ -160,6 +161,14 @@ Route::group(
     Route::get('/projects/{id?}','ProjectsController@index');
 
     Route::get('/project/{id?}', 'ProjectsController@item');
+
+
+
+    /*Изображения*/
+
+    Route::get('/admin/image/news/remove/{id}', 'Admin\NewsController@remImg');
+    Route::get('/admin/image/projects/remove/{id}', 'Admin\ProjectsController@remImg');
+    Route::get('/admin/image/articles/remove/{id}', 'Admin\ArticleController@remImg');
 
 });
 

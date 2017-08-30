@@ -11,9 +11,9 @@ class Article extends Model
     public static function getItem($id=0)
     {
         if ($id == 0)
-            $items = Article::all();
+            $items = Article::orderBy("id", "desc")->paginate(6);
         else
-            $items = Article::where("cat_id", $id)->get();
+            $items = Article::where("cat_id", $id)->orderBy("id", "desc")->paginate(6);
 
         return $items;
     }

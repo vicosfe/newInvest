@@ -18,7 +18,7 @@ class SlidesController extends Controller
             return redirect("/login");
         }
         $items = Slide::where("enable",1)->get();
-        $slide = [];
+        $slide = new Slide();
         if ($id){
             $slide = Slide::find($id);
         }
@@ -38,16 +38,21 @@ class SlidesController extends Controller
 
     }
 
-    public function add(Request $request){
+    public function add($id = null, Request $request){
         if (!count(Auth::user())){
             return redirect("/login");
         }
 
         $newItem = new Slide();
+		if($request->input("id")){
+          $id = $request->input("id");
+        	$newItem = Slide::find($id);
+        	$img = $newItem->img;
+        }
 
         $newItem->title = $request->input("title");
         $newItem->content = $request->input("area");
-
+		
         $images = $request->file;
         if (count($images)) {
             $pref = rand(1, 10000);
@@ -56,7 +61,12 @@ class SlidesController extends Controller
             $newItem->img = "/public/images/" . $name;
         }
         else{
-            $newItem->img ="/public/images/empty.png";
+            if (!$id){
+                $newItem->img ="/public/images/empty.png";
+            }
+            else{
+                $newItem->img = $img;
+            }
 
         }
         $newItem->save();

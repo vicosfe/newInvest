@@ -12,9 +12,9 @@
         @endforeach
 
 
-    <div class="costProject">
-        <h3>ОРИЕНТИРОВАЧНАЯ СТОИМОСТЬ ПРОЕКТА</h3>
-        <p>{{$item->price}}</p>
+       <div class="costProject">
+           @if(strlen($item->price)>1) <h3>ОРИЕНТИРОВАЧНАЯ СТОИМОСТЬ ПРОЕКТА</h3>
+        <p> {{$item->price}} </p> @endif
         <button class="OpenPopUpForm">СТАТЬ ИНВЕСТОРОМ</button>
     </div>
 </section>
