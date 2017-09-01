@@ -1696,7 +1696,7 @@ header{
   	right: 4%;
   }
   .addPagesRightItem__circle1 > p{
-  	color: #fff;
+  	color: #fff !important;
   	font-family: "GothamPro-Medium";
   	margin: 0 auto;
   }
@@ -1720,7 +1720,7 @@ header{
   	right: 4%;
   }
   .addPagesRightItem__circle2 > p{
-  	color: #fff;
+  	color: #fff !important;
   	font-family: "GothamPro-Medium";
   	margin: 0 auto;
   }
@@ -1744,7 +1744,7 @@ header{
   	right: 12%;
   }
   .addPagesRightItem__circle3 > p{
-  	color: #fff;
+  	color: #fff !important;
   	font-family: "GothamPro-Medium";
   	margin: 0 auto;
   	text-decoration: none !important;
@@ -1768,11 +1768,12 @@ header{
   	right: 8%;
   }
   .addPagesRightItem__circle4 > p{
-  	color: #fff;
+  	color: #fff !important;
   	font-family: "GothamPro-Medium";
   	margin: 0 auto;
   	text-decoration: none !important;
   }
+
   /* *************************************************** */
   .editDescription{
   	display: -webkit-flex;
@@ -6573,4 +6574,48 @@ header{
   }
   .settingMediaSliderForm{
   	margin-bottom: 95px;
+  }
+  .settingsContacts{
+  	margin-bottom: 80px;
+  }
+  .settingsContacts button{
+  	width: 175px;
+  	height: 40px;
+  	color: #fff;
+  	font-family: "GothamPro-Light";
+  	font-size: 12px;
+  	text-align: center;
+  	background-color: #48a5ea;
+  	outline: 0;
+  	border: 0;
+  	border-radius: 20px;
+  	-webkit-transition: .2s all;
+  	-o-transition: .2s all;
+  	transition: .2s all;
+  	box-shadow: 0px 6px 15px #48a5ea;
+  	-webkit-transition: .2s all;
+  	-o-transition: .2s all;
+  	transition: .2s all;
+  	margin-top: 30px;
+  }
+  .settingsContacts  button:hover{
+  	-webkit-transform: scale(1.1);
+  	-ms-transform: scale(1.1);
+  	-o-transform: scale(1.1);
+  	transform: scale(1.1);
+  	cursor: pointer;
+  }
+
+  .settingsContacts .usefulLinksButtonWrapper{
+  	width: 70%;
+  	margin: 0 auto;
+  	margin-top: -15px;
+  }
+  .settingsContacts .blockWrapper__item{
+  	height: 425px;
+  }
+
+
+  .settingsContacts .blockWrapper__item{
+  	margin-bottom: 60px;
   }

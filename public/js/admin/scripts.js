@@ -256,6 +256,11 @@ $(kolichestvo).on("change", function () {
     $(list).fadeIn();
   }
 });
+var addContactsButt = $("#addContacts");
+var blockWrapper = $(".blockWrapper");
+$(addContactsButt).on("click",function () {
+  $(blockWrapper).append('<div class="blockWrapper__item"><div class="settingSliderForm2__group"><input type="text" name="addOpros"  required ><span class="highlight"></span><span class="bar"></span><label>Введите имя</label></div><div class="settingSliderForm2__group"><input type="text" name="addOpros"  required ><span class="highlight"></span><span class="bar"></span><label>Введите текст (описание)</label></div><div class="settingSliderForm2__group"><input type="email" name="addOpros"  required ><span class="highlight"></span><span class="bar"></span><label>Введите Email</label></div><div class="usefulLinksButtonWrapper"><label class="CUSTOMBUTT"><div class="customFileDocs"><div class="customFileDocs__img"></div><div class="customFileDocs__text">Добавить фото</div></div><div class="inptHideDocs"><input name="photoContacts" size="50" required  class="prewImgNews" type="file"  id="customFileLink1"></div></label></div></div>')
+})
 
 
 var infoItem = $(".infoItem");

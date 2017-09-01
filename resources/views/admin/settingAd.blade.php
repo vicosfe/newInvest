@@ -18,7 +18,7 @@
 					<li><a href="/admin/settings/usefullink">Настройка полезных ссылок</a></li>
 					<li><a href="/admin/settings/menu">Настройка пунктов меню</a></li>
 					<li><a href="/admin/settings/ad">Настройка объявлений</a></li>
-					<li><a href="/admin/settings/slide">Добавление слайда</a></li>
+					<li><a href="/admin/settings/slide">Настройка контактов</a></li>
 					<li><a href="/admin/settings/mail">Рассылка</a></li>
 				</ul>
 			</div>

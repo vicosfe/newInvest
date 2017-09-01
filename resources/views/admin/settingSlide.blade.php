@@ -18,7 +18,7 @@
 					<li><a href="/admin/settings/usefullink">Настройка полезных ссылок</a></li>
 					<li><a href="/admin/settings/menu">Настройка пунктов меню</a></li>
 					<li><a href="/admin/settings/ad">Настройка объявлений</a></li>
-					<li class="activeItem"><a href="/admin/settings/slide">Добавление слайда</a></li>
+					<li class="activeItem"><a href="/admin/settings/slide">Настройка контактов</a></li>
 					<li><a href="/admin/settings/mail">Рассылка</a></li>
 				</ul>
 			</div>
@@ -29,73 +29,69 @@
 		<div class="settingsUsefulLinks">
 			
 			<div class="menuFormWrapper">
-				<form action="/admin/settings/slide" class="menuSlideAdd" method="POST" enctype="multipart/form-data">
-					<h3>Добавление слайда</h3>
-					{{csrf_field()}}
-					<div class="settingsSlideFormAdd__group">      
-						<input type="text" name="title"  value="{{$slide->title}}" >
-						<span class="highlight"></span>
-						<span class="bar"></span>
-						<label>Заголовок слайда</label>
-					</div>
-					<div class="qweqweqwe">
-						<label class="CUSTOMBUTT333">
-							<div class="customFileDocs333">
-								<div class="customFileDocs__img333"></div>
-								<div class="customFileDocs__text333">Добавить фото</div>
+				<form action="#" class="settingsContacts" method="POST" enctype="#">
+					<h3>Настройка контактов</h3>
+					<div class="blockWrapper">
+						<div class="blockWrapper__item">
+							<!-- <h4>Блок 1</h4> -->
+							<div class="settingSliderForm2__group">      
+								<input type="text" name="addOpros"  required >
+								<span class="highlight"></span>
+								<span class="bar"></span>
+								<label>Введите имя</label>
 							</div>
-							<div class="inptHideDocs">
-								<input name="file" size="50"   class="prewImgNews" type="file" >
+
+							<div class="settingSliderForm2__group">      
+								<input type="text" name="addOpros"  required >
+								<span class="highlight"></span>
+								<span class="bar"></span>
+								<label>Введите текст (описание)</label>
 							</div>
-						</label>
 
+							<div class="settingSliderForm2__group">      
+								<input type="email" name="addOpros"  required >
+								<span class="highlight"></span>
+								<span class="bar"></span>
+								<label>Введите Email</label>
+							</div>
 
+							<div class="usefulLinksButtonWrapper">
+								<label class="CUSTOMBUTT">
 
-						<div class="imagePrev">
-
-
-									@if(isset($slide->img))<img src="{{$slide->img}}" alt="">@endif
+									<div class="customFileDocs">
+										<div class="customFileDocs__img"></div>
+										<div class="customFileDocs__text">Добавить фото</div>
+									</div>
+									<div class="inptHideDocs">
+										<input name="photoContacts" size="50" required  class="prewImgNews" type="file"  id="customFileLink1">
+									</div>
+								</label>
+							</div>
 
 						</div>
 					</div>
-					<hr>
-					<p>Или</p>
-					<hr>
-					<div class="settingsSlideFormAdd__group">
-						<textarea name="area" style="width: 100%;height: 180px; max-width: 420px">{{$slide->content}}</textarea>
-						<span class="highlight"></span>
-						<span class="bar"></span>
-						<label>HTML/CSS/JS контент</label>
+					<div class="wrapperEditProjBut">
+						<div class="circlePlus" id="addContacts">
+							<span>+</span>
+						</div>
+
+						<div class="circlePlus" id="deleteContacts">
+							<span>-</span>
+						</div>
 					</div>
-					<button type="submit">Добавить слайд</button>
-					
+					<button type="submit">Сохранить</button>
+
+
 				</form>
-				<form action="/admin/settings/slide/remove" class="menuSlideDelete">
-					<h3>Удаление слайда</h3>
-
-					<select name="slides" id="">
-						<option value="0">Выберите пункт</option>
-						@foreach($items as $item)
-							<option value="{{$item->id}}">{{$item->title}}</option>
-						@endforeach
-					</select>
-
-					<button type="submit">Удалить слайд</button>
-				</form>
-				
 
 
-</div>
-			<br><br><h3>Редактирование слайда</h3>
-			<ul class="redSlide">
-				@foreach($items as $item)
-					<li><a href="/admin/settings/slide/{{$item->id}}">{{$item->title}}</a></li>
-				@endforeach
-			</ul>
+
+			</div>
+
 		</div>
 
 
 
 	</section>
-				<!--  -->
-				@stop
+	<!--  -->
+	@stop
